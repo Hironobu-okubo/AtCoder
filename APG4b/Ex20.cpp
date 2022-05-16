@@ -5,7 +5,15 @@ using namespace std;
 // childrenは組織の関係を表す2次元配列(参照渡し)
 int count_report_num(vector<vector<int>> &children, int x) {
   // (ここに追記して再帰関数を実装する)
-  
+  if(children.at(x).size() == 0){
+    return 1;
+  }
+  int sum = 0;
+  for(int c: children.at(x)){
+    sum += count_report_num(children,c); 
+  }
+  sum += 1;
+  return sum;
 }
  
 // これ以降の行は変更しなくてよい
