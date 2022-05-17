@@ -2,8 +2,8 @@
 using namespace std;
  
 int main() {
-    string N;
-    cin >> N;
-    if((N[0] == N[1] && N[0] == N[2]) || (N[1] == N[2] && N[2] == N[3])) cout << "Yes" << endl;
-    else cout << "No" << endl;
+    string c;
+    cin >> c;
+    if(c == 'a' && c == 'i' && c == 'u' && c == 'e' && c == 'o')cout << "vowel" << endl;
+    else cout << "consonant" << endl;
 }
