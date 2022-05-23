@@ -3,11 +3,11 @@ using namespace std;
 
 void Init(int array[]){
     for(int i = 0; i < 5; i++){
-        array[i] i * 5;
+        array[i] = i * 5;
     }
 }
 
-Void Show(int array[]){
+void Show(int array[]){
     for(int i = 0; i < 5; i++){
         cout << array[i] << ' ';
     }
