@@ -25,19 +25,18 @@ using pii = pair<int, int>;
 #define repd(i,n) for(ll i=n-1;i>=0;i--)
 #define rrepd(i,n) for(ll i=n;i>=1;i--)
 #define out(x) cout << x << endl
+const int INF = 20000000;
 
 int main(){
-    int n,v;
-    cin >> n >> v;
+    int n;
+    cin >> n;
     vi a(n);
     rep(i,n) cin >> a[i];
-    //線形探索
-    int found_id = -1;
+
+    int min_value = INF;
     rep(i,n){
-        if(a[i] == v){
-            found_id = i;
-            break;
-        }
+        if(i < min_value) min_value = a[i];
     }
-    out(found_id);
+    out(min_value);
+
 }
