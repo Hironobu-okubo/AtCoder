@@ -8,7 +8,7 @@
       ],
       "compilerPath": "/usr/local/bin/g++",
       "cStandard": "${default}",
-      "cppStandard": "c++14",
+      "cppStandard": "c++17",
       "intelliSenseMode": "gcc-x64",
       "compilerArgs": [
         ""
