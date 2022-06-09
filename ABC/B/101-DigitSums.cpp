@@ -28,8 +28,13 @@ using pii = pair<int, int>;
 #define out(x) cout << x << endl
 
 int main(){
-    int d, n, num;
-    cin >> d >> n;
-    num = pow(100,d) * n;
-    out(num);
+    string n,str;
+    int sum = 0;
+    cin >> n;
+    rep(i,n.size()){
+        sum += int(n[i] - '0');
+    }
+    int a = stoi(n);
+    if(a % sum == 0) out("Yes");
+    else out("No");
 }
