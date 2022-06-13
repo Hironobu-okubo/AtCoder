@@ -27,17 +27,18 @@ using pii = pair<int, int>;
 #define out(x) cout << x << endl
 
 //fibo(n)をメモ化する配列
-
+vi memo;
 int fibo(int n){
-    vi memo(n);
     //ベースケース
     if(n <= 1) return n;
     //メモをチェック
-    if(memo[n] != 0) return memo[n];
+    if(memo[n] != -1) return memo[n];
     //答えをメモ化しながら再帰呼び出し
-    return memo[n] = fibo(n - 1) + fibo(n - 2);
+    memo[n] = fibo(n - 1) + fibo(n - 2);
+    return memo[n];
 }
 
 int main(){
-    out(fibo(4));
+    memo.assign(50,-1);
+    out(fibo(6));
 }
