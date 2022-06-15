@@ -33,31 +33,13 @@ using pii = pair<int, int>;
 
 
 int main(){
-    int w, h, n;
-    cin >> w >> h >> n;
-    int widthMax = w, heightMax = h, widthMin = 0,heightMin = 0;
-    int x, y, a;
-    rep(i,n){
-        cin >> x >> y >> a;
-        if(a == 1){
-            if(widthMin < x) widthMin = x;
-        }
-        else if(a == 2){
-            if(widthMax > x) widthMax = x;
-        }
-		else if(a == 3){
-			if(heightMin < y) heightMin = y;
-		}
-		else if(a == 4){
-			if(heightMax > y) heightMax = y;
-		}
-    }
-	out(widthMax);
-	out(widthMin);
-	out(heightMax);
-	out(heightMin);
-	int area = (widthMax - widthMin) * (heightMax - heightMin);
-	out(area);
+	ll a, b, x;
+	cin >> a >> b >> x;
+	int count = 0;
+	for(ll i = a; i <= b; i++){
+		if(i % x == 0) count++;
+	}
+	out(count);
 }
 
 /*
@@ -65,18 +47,11 @@ int main(){
 using namespace std;
 
 int main() {
-  int w, h, n;
-  cin >> w >> h >> n;
-  int maxwid = w, minwid = 0, maxhei = h, minhei = 0;
-  int x, y, a;
-  for(int i = 0; i < n; i++){
-  	cin >> x >> y >> a;
-    if(a == 1) minwid = max(x,minwid);
-    else if(a == 2) maxwid = min(x,maxwid);
-    else if(a == 3) minhei = max(minhei,y);
-    else if(a == 4) maxhei = min(maxhei,y);
-  }
-  if(maxwid - minwid < 0 || maxhei - minhei < 0) cout << 0 << endl;
-  else cout << (maxwid - minwid) * (maxhei - minhei) << endl;
+  long long a, b, x,count = 0;
+  cin >> a >> b >> x;
+  if(a == 0) cout << b / x + 1 << endl;
+  else cout <<  b / x - (a - 1) / x << endl;
+    
+  return 0;
 }
 */
