@@ -21,11 +21,33 @@ using pii = pair<int, int>;
 /* REP macro */
 #define reps(i, a, n) for (ll i = (a); i < (ll)(n); ++i)
 #define rep(i, n) reps(i, 0, n)
+#define repp(i,n) reps(i, 0, n + 1)
 #define rrep(i, n) reps(i, 1, n + 1)
 #define repd(i,n) for(ll i=n-1;i>=0;i--)
 #define rrepd(i,n) for(ll i=n;i>=1;i--)
 #define out(x) cout << x << endl
+//定数
+#define INF32 2147483647 
+#define INF64 9223372036854775807 
+#define MOD 1000000007 
 
+int main(){
+    int a, b, c, x;
+    cin >> a >> b >> c >> x;
+    int count = 0;
+    rep(i,a + 1){
+        rep(j,b + 1){
+            rep(k,c + 1){
+                int sum = 500 * i + 100 * j + 50 * k;
+                if(sum == x) count++;
+            }
+        }
+    }   
+    out(count);
+}
+
+
+/*
 int main(){
     int a,b,c,x,count = 0;
     cin >> a >> b >> c >> x;
@@ -37,5 +59,5 @@ int main(){
         }
     }
     out(count);
-    
 }
+*/
