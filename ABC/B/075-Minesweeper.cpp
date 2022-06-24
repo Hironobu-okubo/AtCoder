@@ -10,6 +10,7 @@ using vvi = vector<vi>;
 using vvl = vector<vl>;
 using vvll = vector<vll>;
 using vs = vector<string>;
+using vvs = vector<vs>;
 using pii = pair<int, int>;
 /* define short */
 #define pb push_back
@@ -35,35 +36,30 @@ using pii = pair<int, int>;
 int main(){
     int h, w;
     cin >> h >> w;
-    vector<vs> b(h,(vs(w)));
+    vs s(h);
     rep(i,h){
-        rep(j,w){
-            cin >> b[i][j];
-        }
+        cin >> s[i];
     }
-        
     rep(i,h){
         rep(j,w){
-            if(b[i][j] == "."){
+            if(s[i][j] == '.'){
                 int count = 0;
                 reps(dx,-1,2){
                     reps(dy,-1,2){
-                        if(dx == 0 && dy == 0) continue;
-                        int xx = j + dx;
-                        int yy = i + dy;
-                        if(0 <= xx && xx < w && 0 <= yy && yy < h){
-                            if(b[yy][xx] == "#") count++; 
-                        }
+                        int xx = dx + j;
+                        int yy = dy + i;
+                        if(xx == j && yy == i) continue;
+                        if(xx >= 0 && xx < w && yy >= 0 && yy < h){
+                            if(s[yy][xx] == '#') count++;
+                        }    
                     }
-                }
-                b[i][j] == to_string(count);
+                }    
+                s[i][j] = char(count + '0');
             }
         }
     }
     rep(i,h){
-        rep(j,w){
-            cout << b[i][j];
-        }
-        cout << endl;
+            out(s[i]);
+
     }
 }
