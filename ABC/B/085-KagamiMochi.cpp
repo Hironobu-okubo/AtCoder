@@ -34,6 +34,19 @@ using pii = pair<int, int>;
 int main(){
     int n;
     cin >> n;
+    set<int> se;
+    int a;
+    rep(i,n){
+        cin >> a;
+        se.insert(a);
+    }
+    out(se.size());
+}
+
+/*
+int main(){
+    int n;
+    cin >> n;
     vi d(n);
     rep(i,n){
         cin >> d[i];
@@ -44,7 +57,8 @@ int main(){
         if(d[i] < d[i + 1]) count++;
     }
     out(count);
-}
+}*/
+
 
 
 
