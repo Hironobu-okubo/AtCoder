@@ -26,7 +26,42 @@ using pii = pair<int, int>;
 #define repd(i,n) for(ll i=n-1;i>=0;i--)
 #define rrepd(i,n) for(ll i=n;i>=1;i--)
 #define out(x) cout << x << endl
+//定数
+#define INF32 2147483647 
+#define INF64 9223372036854775807 
+#define MOD 1000000007 
 
+int main(){
+    int n;
+    string s;
+    cin >> n >> s;
+    int ans = 0;
+    reps(i,1,n){
+        int cnt = 0;
+        for(char j = 'a'; j <= 'z'; j++){
+            bool left = false, right = false;
+            rep(k,i){
+                if(s[k] == j){
+                    left = true;
+                    break;
+                }
+            }
+            reps(k,i,n){
+                if(s[k] == j){
+                    right = true;
+                    break;
+                }
+            }
+            if(left && right) cnt++;
+        }
+        ans = max(ans,cnt);
+    }
+    out(ans);
+}
+
+
+
+/*
 int main(){
     int n;
     string s;
@@ -47,4 +82,5 @@ int main(){
         if(ans < count) ans = count;
     }
     out(ans);
-}
+}]
+*/
