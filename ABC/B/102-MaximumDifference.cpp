@@ -32,6 +32,16 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
+    int n;
+    cin >> n;
+    vi a(n);
+    rep(i,n) cin >> a[i];
+    sort(all(a));
+    out(abs(a[n - 1] - a[0]));
+}
+
+/*
+int main(){
     int n,maxNum = 0,minNum = INF32;
     cin >> n;
     vi a(n);
@@ -42,6 +52,5 @@ int main(){
     }
     out(maxNum - minNum);
 
-
-    
 }
+*/
