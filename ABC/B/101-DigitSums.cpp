@@ -26,7 +26,27 @@ using pii = pair<int, int>;
 #define repd(i,n) for(ll i=n-1;i>=0;i--)
 #define rrepd(i,n) for(ll i=n;i>=1;i--)
 #define out(x) cout << x << endl
+//定数
+#define INF32 2147483647 
+#define INF64 9223372036854775807 
+#define MOD 1000000007 
 
+int main(){
+    string n;
+    cin >> n;
+    int tmp = 0,sum = 0;
+    rep(i,n.size()){
+        tmp = int(n[i] - '0');
+        sum += tmp;
+    }
+    if(stoi(n) % sum == 0) out("Yes");
+    else out("No");
+}
+
+
+
+
+/*
 int main(){
     string n,str;
     int sum = 0;
@@ -38,3 +58,4 @@ int main(){
     if(a % sum == 0) out("Yes");
     else out("No");
 }
+*/
