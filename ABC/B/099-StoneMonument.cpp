@@ -28,6 +28,20 @@ using pii = pair<int, int>;
 #define out(x) cout << x << endl
 
 int main(){
+    int a, b;
+    cin >> a >> b;
+    int dif = b - a;
+    int tmp = 0;
+    rep(i,dif){
+        tmp += i;
+    }
+    out(tmp - a);
+}
+
+
+
+/*
+int main(){
     int a,b;
     cin >> a >> b;
     int diff = b - a;
@@ -37,3 +51,4 @@ int main(){
     }
     out(len_a - a);
 }
+*/
