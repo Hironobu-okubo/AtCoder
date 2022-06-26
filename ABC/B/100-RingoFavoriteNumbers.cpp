@@ -26,7 +26,23 @@ using pii = pair<int, int>;
 #define repd(i,n) for(ll i=n-1;i>=0;i--)
 #define rrepd(i,n) for(ll i=n;i>=1;i--)
 #define out(x) cout << x << endl
+//定数
+#define INF32 2147483647 
+#define INF64 9223372036854775807 
+#define MOD 1000000007 
 
+int main(){
+    int d,n;
+    cin >> d >> n;
+    int tmp;
+    if(n == 100) tmp = pow(100,d) * 101;
+    else tmp = pow(100,d) * n;
+    out(tmp);
+}
+
+
+
+/*
 int main(){
     ll d, n, num;
     cin >> d >> n;
@@ -34,3 +50,4 @@ int main(){
     else num = pow(100,d) * n;
     out(num);
 }
+*/
