@@ -26,9 +26,24 @@ using pii = pair<int, int>;
 #define repd(i,n) for(ll i=n-1;i>=0;i--)
 #define rrepd(i,n) for(ll i=n;i>=1;i--)
 #define out(x) cout << x << endl
+//定数
+#define INF32 2147483647 
+#define INF64 9223372036854775807
+#define MOD 1000000007 
 
+int main(){
+    int a,b,c,k;
+    cin >> a >> b >> c >> k;
+    out(a + b + c + max({a, b, c}) * (pow(2,k) - 1));
+}
+
+
+
+
+/*
 int main(){
     int a,b,c,k;
     cin >> a >> b >> c >> k;
     out(a + b + c + max({a,b,c}) * (pow(2,k) - 1));
 }
+*/
