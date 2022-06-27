@@ -32,6 +32,19 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
+    int n;
+    cin >> n;
+    bool isEleven = false;
+    rep(i,n){
+        rep(j,n){
+            if(4 * i + 7 * j == n) isEleven = true;
+        }
+    }
+    YesNo(isEleven);
+}
+
+/*
+int main(){
     int n,sum = 0;
     cin >> n;
     string ans = "No";
@@ -45,3 +58,4 @@ int main(){
     }
     out(ans);
 }
+*/
