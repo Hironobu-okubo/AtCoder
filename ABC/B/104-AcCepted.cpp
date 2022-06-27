@@ -34,6 +34,27 @@ using pii = pair<int, int>;
 int main(){
     string s;
     cin >> s;
+    bool isAtCoder = true;
+    if(s[0] != 'A') isAtCoder = false;
+    int count = 0;
+    reps(i,1,s.size()){
+        if(isupper(s[i])){
+            if(i == 1 || i == s.size() - 1 || s[i] != 'C'){
+                isAtCoder = false;
+            }
+            count++;
+        }
+    }
+    if(count != 1) isAtCoder = false;
+    if(isAtCoder) out("AC");
+    else out("WA");
+}
+
+
+/*
+int main(){
+    string s;
+    cin >> s;
     string ans = "AC";
     if(s[0] != 'A') ans = "WA";
     int count = 0;
@@ -48,3 +69,4 @@ int main(){
     if(count != 1) ans = "WA";
     out(ans);
 }
+*/
