@@ -32,6 +32,28 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
+    string s, t;
+    cin >> s >> t;
+    bool isEqual = false;
+    rep(i,s.size()){
+        int nxt = s.size() - 1;
+        char tmp = s[nxt];
+        while(true){
+            s[nxt] = s[nxt - 1];
+            nxt--;
+            if(nxt == 0) break;
+        }
+        s[0] = tmp;
+        if(s == t) isEqual = true;
+    }
+    YesNo(isEqual);
+}
+
+
+
+
+/*
+int main(){
     string s,t;
     cin >> s >> t;
     int len = s.size();
@@ -45,3 +67,4 @@ int main(){
     out("No");
     
 }
+*/
