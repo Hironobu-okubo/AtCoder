@@ -34,6 +34,24 @@ using pii = pair<int, int>;
 int main(){
     int n;
     cin >> n;
+    int count = 0;
+    for(int i = 1; i <= n; i += 2){
+        int cnt = 0;
+        for(int j = 1; j <= i; j += 2){
+            if(i % j == 0) cnt++;
+        }
+        if(cnt == 8){
+            count++;
+        }
+    }
+    out(count);
+}
+
+
+/*
+int main(){
+    int n;
+    cin >> n;
     int isdiv8 = 0;
     for(int i = 1; i <= n; i += 2){
         int count = 0;
@@ -45,3 +63,4 @@ int main(){
     out(isdiv8);
 
 }
+*/
