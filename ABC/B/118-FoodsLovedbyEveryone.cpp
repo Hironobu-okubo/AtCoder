@@ -33,6 +33,36 @@ using pii = pair<int, int>;
 
 
 int main(){
+    int n, m;
+    cin >> n >> m;
+    vi k(m);
+    vvi a(m,vi(k));
+    rep(i,n){
+        cin >> k[i];
+        rep(j,k[i]){
+            cin >> a[i][j];
+        }
+    }
+    int type = 0;
+    rep(i,m){
+        int exi = 0;
+        rep(j,n){
+            rep(l,k[j]){
+                if(a[j][l] == i + 1){
+                    exi++;
+                    break;
+                }
+            }
+            
+        }
+        if(exi == n) type++;
+    }
+    out(type);
+}
+
+
+/*
+int main(){
     int n,m;
     cin >> n >> m;
     vi cnt(m);
@@ -53,3 +83,4 @@ int main(){
     }
     out(ans);
 }
+*/
