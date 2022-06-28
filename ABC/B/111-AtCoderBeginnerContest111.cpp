@@ -34,6 +34,20 @@ using pii = pair<int, int>;
 int main(){
     int n;
     cin >> n;
+    reps(i,n,1000){
+        string nn = to_string(i);
+        if(nn[0] == nn[1] && nn[1] == nn[2]){
+            out(i);
+            return 0;
+        }
+    }
+}
+
+
+/*
+int main(){
+    int n;
+    cin >> n;
     for(int i = n; i <= 999; i++){
         string stri = to_string(i);
         if(stri[0] == stri[1] && stri[1] == stri[2]){
@@ -43,3 +57,4 @@ int main(){
     }
     return 0;
 }
+*/
