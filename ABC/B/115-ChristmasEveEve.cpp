@@ -34,6 +34,25 @@ using pii = pair<int, int>;
 int main(){
     int n;
     cin >> n;
+    vi p(n);
+    rep(i,n){
+        cin >> p[i];
+    }
+    sort(all(p));
+    int sum = 0;
+    rep(i,n){
+        if(i == n - 1) sum += (p[i] / 2);
+        else sum += p[i];
+    }
+    out(sum);
+}
+
+
+
+/*
+int main(){
+    int n;
+    cin >> n;
     int maxNum = 0, sum = 0;
     vi p(n);
     rep(i,n){
@@ -48,3 +67,4 @@ int main(){
     }
     out(sum);
 }
+*/
