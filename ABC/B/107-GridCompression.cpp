@@ -32,6 +32,36 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
+    int h, w;
+    cin >> h >> w;
+    vs a(h);
+    rep(i,h){
+        cin >> a[i];
+    }
+    vector<bool> row(h,false);
+    vector<bool> column(w,false);
+    rep(i,h){
+        rep(j,w){
+            if(a[i][j] == '#'){
+                row[i] = true;
+                column[j] = true; 
+            }
+        }
+    }
+    rep(i,h){
+        if(row[i]){
+            rep(j,w){
+                if(column[j]) cout << a[i][j];
+            }
+            cout << endl;
+        }
+    }
+}
+
+
+
+/*
+int main(){
     int h,w;
     cin >> h >> w;
     vector<string> ans(h);
@@ -60,3 +90,4 @@ int main(){
         }
     }
 }
+*/
