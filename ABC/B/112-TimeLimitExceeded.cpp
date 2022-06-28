@@ -32,6 +32,26 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
+    int n, T;
+    cin >> n >> T;
+    vi c(n),t(n);
+    rep(i,n){
+        cin >> c[i] >> t[i];
+    }
+    int minCost = INF32;
+    bool isFind = false;
+    rep(i,n){
+        if(t[i] <= T){
+            minCost = min(minCost,c[i]);
+            isFind = true;
+        }
+    }
+    if(isFind) out(minCost);
+    else out("TLE");
+}
+
+/*
+int main(){
     int N,T;
     cin >> N >> T;
     vi c(N);
@@ -47,5 +67,5 @@ int main(){
     }
     if(minTime == INF32) out("TLE");
     else out(minTime);
-
 }
+*/
