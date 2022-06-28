@@ -31,6 +31,8 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
+
+
 int main(){
     int x1,y1,x2,y2;
     cin >> x1 >> y1 >> x2 >> y2;
@@ -52,5 +54,4 @@ int main(){
         cout << x << ' ' << y << ' ';
     }
     return 0;
-
 }

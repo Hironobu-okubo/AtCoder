@@ -34,6 +34,32 @@ using pii = pair<int, int>;
 int main(){
     int n;
     cin >> n;
+    bool isShiri = true;
+    vs s(n);
+    set<string> se;
+    rep(i,n){
+        cin >> s[i];
+    }
+    se.insert(s[0]);
+    reps(i,1,n){
+        if(s[i - 1].back() != s[i][0]){
+            isShiri = false;
+            break;
+        }
+        if(se.count(s[i])){
+            isShiri = false;
+            break;
+        }
+        se.insert(s[i]);
+    }
+    YesNo(isShiri);
+
+}
+
+/*
+int main(){
+    int n;
+    cin >> n;
     vs w(n);
     bool isShiritori = true;
     rep(i,n){
@@ -57,3 +83,4 @@ int main(){
     out("Yes");
     return 0;
 }
+*/
