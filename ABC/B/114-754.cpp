@@ -31,6 +31,20 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
+
+int main(){
+    string s;
+    cin >> s;
+    int minNum = INF32;
+    rep(i,s.size() - 2){
+        int tmp = int(s[i] - '0') * 100 + int(s[i + 1] - '0') * 10 + int(s[i + 2] - '0');
+        minNum = min(minNum,abs(tmp - 753));
+    }
+    out(minNum);
+}
+
+
+/*
 int main(){
     string s;
     cin >> s;
@@ -41,3 +55,4 @@ int main(){
     }
     out(minNum);
 }
+*/
