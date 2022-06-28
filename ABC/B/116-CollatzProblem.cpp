@@ -31,7 +31,30 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-int main(){/*
+int main(){
+    int s;
+    cin >> s;
+    int nxt = s,ans;
+    vi a(100000);
+    a[0] = s;
+    reps(i,1,100000){
+        if(nxt % 2 == 0) nxt /= 2;
+        else nxt = 3 * nxt + 1;
+        a[i] = nxt;
+        rep(j,i){
+            if(a[j] == a[i]){
+                ans = i + 1;
+                out(ans);
+                exit(0);
+            }
+        }
+    }
+}
+
+
+
+/*
+int main(){
     int s,i = 0;
     vi a(100000000);
     cin >> s;
@@ -55,6 +78,7 @@ int main(){/*
         i++;
     }
     */
+   /*
    int s;
    cin >> s;
    set<int> p;
@@ -75,3 +99,4 @@ int main(){/*
 
    return 0;
 }
+*/
