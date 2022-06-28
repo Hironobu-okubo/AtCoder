@@ -32,6 +32,27 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
+    int n;
+    cin >> n;
+    vi l(n);
+    rep(i,n){
+        cin >> l[i];
+    }
+    sort(all(l));
+    int sum = 0,maxNum;
+    rep(i,n){
+        if(i == n - 1) maxNum = l[i];
+        else sum += l[i]; 
+    }
+    if(maxNum < sum) out("Yes");
+    else out("No");
+}
+
+
+
+
+/*
+int main(){
     int n, id = 0,sum = 0,maxLen;
     cin >> n;
     vi l(n);
@@ -46,3 +67,4 @@ int main(){
     if(sum > maxLen) out("Yes");
     else out("No");
 }
+*/
