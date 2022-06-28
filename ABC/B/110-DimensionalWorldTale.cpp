@@ -32,6 +32,30 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
+    int n, m, X, Y;
+    cin >> n >> m >> X >> Y;
+    vi x(n);
+    vi y(m);
+    rep(i,n){
+        cin >> x[i];
+    }
+    rep(i,m){
+        cin >> y[i];
+    }
+    sort(all(x));
+    sort(all(y));
+    bool noWar = false;
+    reps(i,X + 1,Y + 1){
+       if(x[x.size() - 1] < i && i <= y[0]) noWar = true;
+    }
+    if(noWar) out("No War");
+    else out("War");
+}
+
+
+
+/*
+int main(){
     int n,m,X,Y;
     cin >> n >> m >> X >> Y;
     vi x(n);
@@ -59,3 +83,4 @@ int main(){
     out("War");
 
 }
+*/
