@@ -31,7 +31,15 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
+int main(){
+    int n, m, c;
+    cin >> n >> m >> c;
+}
 
+
+
+
+/*
 int main(){
     int n,m,c;
     cin >> n >> m >> c;
@@ -52,3 +60,4 @@ int main(){
     }
     out(count);
 }
+*/
