@@ -31,7 +31,21 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
+int main(){
+    int n;
+    cin >> n;
+    double x;
+    string u;
+    double sum = 0;
+    rep(i,n){
+        cin >> x >> u;
+        if(u == "JPY") sum += x;
+        else sum+= 380000 * x;
+    }
+    out(sum);
+}
 
+/*
 int main(){
     int n;
     double x;
@@ -45,3 +59,4 @@ int main(){
     }
     out(sum);
 }
+*/
