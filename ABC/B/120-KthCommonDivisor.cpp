@@ -31,6 +31,21 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
+int main(){
+    int a,b,k;
+    cin >> a >> b >> k;
+    vi c;
+    reps(i,1,101){
+        if(a % i == 0 && b % i == 0){
+            c.pb(i);
+        }
+    }
+    out(c[c.size() - k]);
+}
+
+
+
+/*
 
 int main(){
     int a,b,k;
@@ -45,3 +60,5 @@ int main(){
     }
     out(cnt[cnt.size() - k]);
 }
+
+*/
