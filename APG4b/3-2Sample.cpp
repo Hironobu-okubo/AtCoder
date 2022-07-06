@@ -27,26 +27,26 @@ using pii = pair<int, int>;
 #define out(x) cout << x << endl
 
 int main(){
+    /*
     pair<string, int> p("abc",3);
     out(p.first);
-
+    out(p.second);
     p.first = "hello";
     out(p.first);
-    out(p.second);
-
-    p = make_pair("*", 1);
-
-    string s;
-    int a;
-    tie(s ,a) = p;
-    out(s);
-    out(a);
-
-    tuple<int, string, bool> data(1,"hello",true);
+    p = mp("a",1);
+    out(p.first);
+    tuple<int, string, bool> data(1,"a",true);
     get<2>(data) = false;
     out(get<1>(data));
-
-    bool f;
-    tie(a, s, f) = data;
-
+    out(get<2>(data));
+	*/
+	pair<int, int> a(3,1);
+	pair<int, int> b(2,10);
+	if(a < b) out("a < b");
+	else out("a >= b");
+	pair<int, int> c(5,1);
+	pair<int, int> d(5,10);
+	if(c < d) out("c < d");
+	else out("c >= d");
 }
+
