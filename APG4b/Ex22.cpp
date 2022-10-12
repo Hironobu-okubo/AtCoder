@@ -29,16 +29,11 @@ using pii = pair<int, int>;
 int main(){
     int n;
     cin >> n;
-    vector<pair<int, int>> p(n);
+    pii p;
     rep(i,n){
-        int a, b;
+        int a,b;
         cin >> a >> b;
-        p[i] = mp(b,a);
+        p = mp(a,b);
     }
-    sort(all(p));
-    rep(i,n){
-        int b, a;
-        tie(b,a) = p[i];
-        cout << a << " "<< b << endl;
-    }
+    
 }
