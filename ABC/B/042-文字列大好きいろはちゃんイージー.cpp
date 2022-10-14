@@ -15,6 +15,16 @@ int main() {
     }
     return 0;
 }
+
+int main(){
+    int n,l;
+    cin >> n >> l;
+    vs s(n);
+    rep(i,n) cin >> s[i];
+    sort(all(s));
+    rep(i,n) cout << s[i];
+    return 0;
+}
 */
 
 #include <bits/stdc++.h>
@@ -50,14 +60,19 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-    int n,l;
-    cin >> n >> l;
-    vs s(n);
-    rep(i,n) cin >> s[i];
-    sort(all(s));
-    rep(i,n) cout << s[i];
-    return 0;
+  int N, L;
+  cin >> N >> L;
+  vs s(N);
+  rep(i,N){
+    cin >> s[i];
+  }
+  sort(all(s));
+
+  rep(i,N){
+    cout << s[i];
+  }
+  cout << endl;
 }
+
 

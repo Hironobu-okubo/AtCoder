@@ -1,41 +1,3 @@
-// int main(){
-//     string s;
-//     cin >> s;
-//     vector<char> a;
-//     rep(i,s.size()){
-//       if(s[i] == 'B' && a.size() != 0){
-//         a.pop_back();
-//       }
-//       if(s[i] == '1' || s[i] == '0') a.pb(s[i]);
-//     }
-//     rep(i,a.size()) cout << a[i];
-//     cout << endl;
-// }
-
-// /*
-// #include <bits/stdc++.h>
-// using namespace std;
-
-// int main() {
-//   string s;
-//   cin >> s;
-
-//   string ans ="";
-
-//   for (int i = 0; i < s.length(); i++) {
-//     if(s[i] == '0'){
-//       ans += "0";
-//     }else if(s[i] == '1'){
-//       ans += "1";
-//     }else if(s[i] == 'B' && ans.length() != 0){
-//       ans.erase(ans.length() - 1);
-//     }
-//   }
-
-//   cout << ans << endl;
-// }
-// */
-
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -70,17 +32,12 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-  string s, ans = "";
-  cin >> s;
-  rep(i,s.size()){
-    if(s[i] == '0') ans += '0';
-    else if(s[i] == '1') ans += '1';
-    else{
-      if(ans.size() != 0) ans.pop_back();
+    vi d{0,3,6,8};
+    for(int a : d){
+        out(a);
     }
-  }
-  out(ans);
+    set se{0,3,6,8};
+    for(int a : se){
+        out(a);
+    }
 }
-
-
-
