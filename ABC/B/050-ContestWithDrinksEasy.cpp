@@ -1,3 +1,53 @@
+// int main(){
+// 	int n;
+// 	cin >> n;
+// 	vi t(n);
+// 	rep(i,n){
+// 		cin >> t[i];
+// 	}
+// 	int m;
+// 	cin >> m;
+// 	int p, x;
+// 	vi tmp(n);
+// 	rep(i,m){
+// 		rep(k,n){
+// 			tmp[k] = t[k];
+// 		}
+// 		int sum = 0;
+// 		cin >> p >> x;
+// 		tmp[p - 1] = x;
+// 		rep(j,n){
+// 			sum += tmp[j];
+// 		}
+// 		out(sum);
+// 	}
+
+// }
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   int n,m;
+//   cin >> n;
+//   vector<int> vec1(n);
+//   for(int i = 0; i < n; i++){
+//     cin >> vec1[i];
+//   }
+//   cin >> m;
+//   vector<int> vec2(n);
+//   int p,x;
+//   for(int j = 0; j < m; j++){
+//     vec2 = vec1;
+//   	cin >> p >> x;
+//     vec2[p - 1] = x;
+//     cout << accumulate(vec2.begin(),vec2.end(),0) << endl;
+//   }
+//   return 0;
+  
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -36,48 +86,19 @@ int main(){
 	int n;
 	cin >> n;
 	vi t(n);
-	rep(i,n){
-		cin >> t[i];
-	}
+	rep(i,n) cin >> t[i];
 	int m;
 	cin >> m;
-	int p, x;
-	vi tmp(n);
+	vi p(m),x(m);
 	rep(i,m){
-		rep(k,n){
-			tmp[k] = t[k];
-		}
+		cin >> p[i] >> x[i];
+		int tmp = t[p[i] - 1];
+		t[p[i] - 1] = x[i];
 		int sum = 0;
-		cin >> p >> x;
-		tmp[p - 1] = x;
-		rep(j,n){
-			sum += tmp[j];
+		rep(i,n){
+			sum += t[i];
 		}
 		out(sum);
+		t[p[i] - 1] = tmp;
 	}
-
 }
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-  int n,m;
-  cin >> n;
-  vector<int> vec1(n);
-  for(int i = 0; i < n; i++){
-    cin >> vec1[i];
-  }
-  cin >> m;
-  vector<int> vec2(n);
-  int p,x;
-  for(int j = 0; j < m; j++){
-    vec2 = vec1;
-  	cin >> p >> x;
-    vec2[p - 1] = x;
-    cout << accumulate(vec2.begin(),vec2.end(),0) << endl;
-  }
-  return 0;
-  
-}
-*/

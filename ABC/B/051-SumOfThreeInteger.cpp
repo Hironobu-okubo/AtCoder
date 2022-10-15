@@ -1,3 +1,36 @@
+
+// int main(){
+// 	int k, s;
+// 	cin >> k >> s;
+// 	int count = 0;
+// 	repp(i,k){
+// 		repp(j,k){
+// 			int z = s - i - j;
+// 			if(z >= 0 && z <= k) count++;
+// 		}
+// 	}
+// 	out(count);
+	
+// }
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   int k,s;
+//   cin >> k >> s;
+//   int count = 0;
+//   for(int i = 0; i <= k; i++){
+//     for(int j = 0; j <= k; j++){
+//       int z = s - i - j;
+//       if(z >= 0 && z <= k) count++;
+//     }
+//   }
+//   cout << count << endl;
+//   return 0;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,35 +64,14 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	int k, s;
-	cin >> k >> s;
-	int count = 0;
-	repp(i,k){
-		repp(j,k){
-			int z = s - i - j;
-			if(z >= 0 && z <= k) count++;
-		}
-	}
-	out(count);
-	
-}
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-  int k,s;
+  int k, s;
   cin >> k >> s;
-  int count = 0;
-  for(int i = 0; i <= k; i++){
-    for(int j = 0; j <= k; j++){
-      int z = s - i - j;
-      if(z >= 0 && z <= k) count++;
+  int cmb = 0;
+  repp(l,k){
+    repp(m,k){
+      if(s - l - m >= 0 && s - l - m <= k ) cmb++;
     }
   }
-  cout << count << endl;
-  return 0;
+  out(cmb);
 }
-*/
