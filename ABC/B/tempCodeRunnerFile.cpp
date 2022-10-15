@@ -32,21 +32,12 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n, m;
-    cin >> n >> m;
-    vs s(n),t(m);
-    rep(i,n) cin >> s[i];
-    rep(i,m) cin >> t[i];
-    int ans = 0;
-    rep(i,n){
-        int count = 0;
-        rep(j,n){
-            if(s[i] == s[j]) count++;
-        }
-        rep(k,m){
-            if(s[i] == t[k]) count--;
-        }
-        ans = max(ans,count);
-    }
-    out(ans);
+  int n,k;
+  cin >> n >> k;
+  int num = 0;
+  rep(i,n){
+    if(i == 0) num += k;
+    else num *= k - 1;
+  }
+  out(num);
 }

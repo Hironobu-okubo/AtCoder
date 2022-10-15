@@ -1,3 +1,30 @@
+
+// int main(){
+//     int n, k;
+//     cin >> n >> k;
+//     int ans = k;
+//     reps(i,1,n){
+//       ans *= (k - 1);
+//     }
+//     out(ans);
+// }
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   int n,k;
+//   cin >> n >> k;
+//   int total = 1;
+//   for(int i = 0; i < n; i++){
+//   	if(i == 0) total *= k;
+//     else total *= k - 1;
+//   }
+//   cout << total;
+//   return 0;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,29 +58,13 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-    int n, k;
-    cin >> n >> k;
-    int ans = k;
-    reps(i,1,n){
-      ans *= (k - 1);
-    }
-    out(ans);
-}
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
   int n,k;
   cin >> n >> k;
-  int total = 1;
-  for(int i = 0; i < n; i++){
-  	if(i == 0) total *= k;
-    else total *= k - 1;
+  int num = 0;
+  rep(i,n){
+    if(i == 0) num += k;
+    else num *= k - 1;
   }
-  cout << total;
-  return 0;
+  out(num);
 }
-*/
