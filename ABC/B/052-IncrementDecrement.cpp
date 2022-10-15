@@ -1,3 +1,43 @@
+// int main(){
+// 	int n;
+// 	cin >> n;
+// 	string s;
+// 	cin >> s;
+// 	int maxLen = 0, len = 0;
+// 	rep(i,n){
+// 		if(s[i] == 'I'){
+// 			len++;
+// 		}
+// 		else if(s[i] == 'D'){
+// 			len--;
+// 		}
+// 		maxLen = max(maxLen,len);
+// 	}
+// 	out(maxLen);
+// }
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   int n;
+//   string s;
+//   cin >> n >> s;
+//   int now = 0, maximum = 0;
+//   for(int i = 0; i < n; i++){
+//   	if(s[i] == 'I') {
+//       now++;
+//       maximum = max(now,maximum);
+//     }
+//     else{
+//       now--;
+//     }
+//   }
+//   cout << maximum << endl;
+//   return 0;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -10,6 +50,7 @@ using vvi = vector<vi>;
 using vvl = vector<vl>;
 using vvll = vector<vll>;
 using vs = vector<string>;
+using vc = vector<char>;
 using pii = pair<int, int>;
 /* define short */
 #define pb push_back
@@ -31,43 +72,20 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
 	int n;
-	cin >> n;
 	string s;
-	cin >> s;
-	int maxLen = 0, len = 0;
+	cin >> n >> s;
+	int sum = 0, maxNum = 0;
 	rep(i,n){
 		if(s[i] == 'I'){
-			len++;
+			sum++;
+			maxNum = max(sum,maxNum);
 		}
-		else if(s[i] == 'D'){
-			len--;
+		else{
+			sum--;
+			maxNum = max(sum,maxNum);
 		}
-		maxLen = max(maxLen,len);
 	}
-	out(maxLen);
+	out(maxNum);
 }
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-  int n;
-  string s;
-  cin >> n >> s;
-  int now = 0, maximum = 0;
-  for(int i = 0; i < n; i++){
-  	if(s[i] == 'I') {
-      now++;
-      maximum = max(now,maximum);
-    }
-    else{
-      now--;
-    }
-  }
-  cout << maximum << endl;
-  return 0;
-}
-*/
