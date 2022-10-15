@@ -1,3 +1,31 @@
+
+// int main(){
+// 	int h, w;
+// 	cin >> h >> w;
+// 	rep(i,h){
+// 		string c;
+// 		cin >> c;
+// 		out(c);
+// 		out(c);
+// 	}
+// }
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   int h, w;
+//   string c;
+//   cin >> h >> w;
+//   for(int i = 0; i < h; i++){
+//   	cin >> c;
+//     cout << c << endl;
+//     cout << c << endl;
+//   }
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -10,6 +38,7 @@ using vvi = vector<vi>;
 using vvl = vector<vl>;
 using vvll = vector<vll>;
 using vs = vector<string>;
+using vc = vector<char>;
 using pii = pair<int, int>;
 /* define short */
 #define pb push_back
@@ -31,30 +60,24 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	int h, w;
+	int h,w;
 	cin >> h >> w;
+	vector<vc> img(h,vc(w));
 	rep(i,h){
-		string c;
-		cin >> c;
-		out(c);
-		out(c);
+		rep(j,w){
+			cin >> img[i][j];
+		}
+	}
+	rep(i,h){
+		rep(j,w){
+			cout << img[i][j];
+		}
+		cout << endl;
+		rep(j,w){
+			cout << img[i][j];
+		}
+		cout << endl;
+
 	}
 }
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-  int h, w;
-  string c;
-  cin >> h >> w;
-  for(int i = 0; i < h; i++){
-  	cin >> c;
-    cout << c << endl;
-    cout << c << endl;
-  }
-}
-*/

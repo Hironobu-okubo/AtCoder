@@ -1,3 +1,27 @@
+// int main(){
+// 	ll a, b, x;
+// 	cin >> a >> b >> x;
+// 	int count = 0;
+// 	for(ll i = a; i <= b; i++){
+// 		if(i % x == 0) count++;
+// 	}
+// 	out(count);
+// }
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   long long a, b, x,count = 0;
+//   cin >> a >> b >> x;
+//   if(a == 0) cout << b / x + 1 << endl;
+//   else cout <<  b / x - (a - 1) / x << endl;
+    
+//   return 0;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,26 +56,8 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 
-int main(){
-	ll a, b, x;
-	cin >> a >> b >> x;
-	int count = 0;
-	for(ll i = a; i <= b; i++){
-		if(i % x == 0) count++;
-	}
-	out(count);
-}
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
 int main() {
   long long a, b, x,count = 0;
   cin >> a >> b >> x;
   if(a == 0) cout << b / x + 1 << endl;
   else cout <<  b / x - (a - 1) / x << endl;
-    
-  return 0;
-}
-*/
