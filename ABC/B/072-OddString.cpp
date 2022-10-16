@@ -1,3 +1,30 @@
+
+// int main(){
+// 	string s;
+// 	cin >> s;
+// 	string ans;
+// 	for(int i = 0; i < s.size(); i += 2){
+// 		ans += s[i];
+// 	}
+// 	out(ans);
+// }
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+ 
+// int main(){
+//   string s;
+//   cin >> s;
+//   string str;
+//   for(int i = 0; i < s.size(); i += 2){
+//   	str += s.at(i);
+//   }
+//   cout << str << endl;
+//   return 0;
+// }
+// */
+
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,28 +58,13 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
 	string s;
 	cin >> s;
-	string ans;
-	for(int i = 0; i < s.size(); i += 2){
-		ans += s[i];
+	rep(i,s.size()){
+		if((i + 1) % 2 == 1){
+			cout << s[i];
+		}
 	}
-	out(ans);
+	cout << endl;
 }
-/*
-#include <bits/stdc++.h>
-using namespace std;
- 
-int main(){
-  string s;
-  cin >> s;
-  string str;
-  for(int i = 0; i < s.size(); i += 2){
-  	str += s.at(i);
-  }
-  cout << str << endl;
-  return 0;
-}
-*/

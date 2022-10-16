@@ -1,3 +1,31 @@
+// int main(){
+// 	int n;
+// 	cin >> n;
+// 	int sum = 0;
+// 	rep(i,n){
+// 		int l, r;
+// 		cin >> l >> r;
+// 		sum += r - l + 1;
+// 	}
+// 	out(sum);
+// 	return 0;
+// }
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+ 
+// int main(){
+//   int n,sum = 0;
+//   cin >> n;
+//   for(int i = 0; i < n; i++){
+//     int l,r;
+//   	cin >> l >> r;
+//     sum += (r - l + 1);
+//   }
+//   cout << sum << endl;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,31 +59,15 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
 	int n;
 	cin >> n;
 	int sum = 0;
 	rep(i,n){
-		int l, r;
+		int l,r;
 		cin >> l >> r;
-		sum += r - l + 1;
+		if(l != r) sum += r - l + 1;
+		else sum += 1;
 	}
 	out(sum);
-	return 0;
 }
-/*
-#include <bits/stdc++.h>
-using namespace std;
- 
-int main(){
-  int n,sum = 0;
-  cin >> n;
-  for(int i = 0; i < n; i++){
-    int l,r;
-  	cin >> l >> r;
-    sum += (r - l + 1);
-  }
-  cout << sum << endl;
-}
-*/
