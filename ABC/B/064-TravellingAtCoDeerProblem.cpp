@@ -1,3 +1,34 @@
+// int main(){
+// 	int n;
+// 	cin >> n;
+// 	vi a(n);
+// 	rep(i,n){
+// 		cin >> a[i];
+// 	}
+// 	sort(all(a));
+// 	out(a[a.size() - 1] - a[0]);
+
+// }
+
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+ 
+// int main() {
+//   int n;
+//   cin >> n;
+//   vector<int> a(n);
+//   for(int i = 0; i < n; i++){
+//   	cin >> a.at(i);
+//   }
+//   sort(a.begin(),a.end());
+//   int maxnum = *max_element(begin(a),end(a));
+//   int minnum = *min_element(begin(a),end(a));
+//   int diff = maxnum - minnum;
+//   cout << diff << endl;
+//   */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,34 +62,16 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	int n;
-	cin >> n;
-	vi a(n);
-	rep(i,n){
-		cin >> a[i];
-	}
-	sort(all(a));
-	out(a[a.size() - 1] - a[0]);
-
-}
-
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
- 
-int main() {
   int n;
   cin >> n;
-  vector<int> a(n);
-  for(int i = 0; i < n; i++){
-  	cin >> a.at(i);
+  int minnum = INF32;
+  int maxnum = 0;
+  rep(i,n){
+    int tmp;
+    cin >> tmp;
+    minnum = min(tmp,minnum);
+    maxnum = max(tmp,maxnum);
   }
-  sort(a.begin(),a.end());
-  int maxnum = *max_element(begin(a),end(a));
-  int minnum = *min_element(begin(a),end(a));
-  int diff = maxnum - minnum;
-  cout << diff << endl;
-  */
+  out(maxnum - minnum);
+}

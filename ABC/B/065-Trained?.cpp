@@ -1,3 +1,82 @@
+// int main(){
+// 	int n;
+// 	cin >> n;
+// 	vi a(n);
+// 	vector<bool> isOn(n,true);
+// 	rep(i,n) cin >> a[i];
+// 	int nxt = 0,count = 0;
+// 	while(true){
+// 		if(isOn[nxt]){
+// 			isOn[nxt] = false;
+// 			nxt = a[nxt] - 1;
+// 			count++;
+// 			//cout << nxt << " ";
+// 			if(nxt == 1) break;
+// 		}
+// 		else{
+// 			out("-1");
+// 			exit(0);
+// 		}
+		
+// 	}
+// 	out(count);
+// }
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+ 
+// int main() {
+//   int n;
+//   cin >> n;
+//   vector<int> a(n);
+//   for(int i = 0; i < n; i++){
+//   	cin >> a.at(i);
+//   }
+//   int i = 0,count = 0;
+//   while(true){
+//   	i = a.at(i) - 1;
+//     count++;
+//     if(i == 1){
+//       cout << count << endl;
+//       exit(0);
+//     }
+//     if(count == n){
+//       cout << "-1" << endl;
+//       exit(0);
+//     }
+//   }
+  
+//   return 0;
+// }
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   int n;
+//   cin >> n;
+//   vector<int> a(n);
+//   for(int i = 0; i < n; i++){
+//   	cin >> a.at(i);
+//   }
+//   int i = 0,count = 0;
+//   while(true){
+//   	i = a.at(i) - 1;
+//     count++;
+//     if(i == 1){
+//       cout << count << endl;
+//       exit(0);
+//     }
+//     if(count == n){
+//       cout << "-1" << endl;
+//       exit(0);
+//     }
+//   }
+  
+//   return 0;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,82 +110,18 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	int n;
-	cin >> n;
-	vi a(n);
-	vector<bool> isOn(n,true);
-	rep(i,n) cin >> a[i];
-	int nxt = 0,count = 0;
-	while(true){
-		if(isOn[nxt]){
-			isOn[nxt] = false;
-			nxt = a[nxt] - 1;
-			count++;
-			//cout << nxt << " ";
-			if(nxt == 1) break;
-		}
-		else{
-			out("-1");
-			exit(0);
-		}
-		
-	}
-	out(count);
-}
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
- 
-int main() {
   int n;
   cin >> n;
-  vector<int> a(n);
-  for(int i = 0; i < n; i++){
-  	cin >> a.at(i);
-  }
-  int i = 0,count = 0;
-  while(true){
-  	i = a.at(i) - 1;
-    count++;
-    if(i == 1){
-      cout << count << endl;
-      exit(0);
+  vi a(n);
+  rep(i,n) cin >> a[i];
+  int cur = 0;
+  rep(i,101010){
+    if(a[cur] == 2){
+      out(i + 1);
+      return 0;
     }
-    if(count == n){
-      cout << "-1" << endl;
-      exit(0);
-    }
+    cur = a[cur] - 1;
   }
-  
-  return 0;
+  out("-1");
 }
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  for(int i = 0; i < n; i++){
-  	cin >> a.at(i);
-  }
-  int i = 0,count = 0;
-  while(true){
-  	i = a.at(i) - 1;
-    count++;
-    if(i == 1){
-      cout << count << endl;
-      exit(0);
-    }
-    if(count == n){
-      cout << "-1" << endl;
-      exit(0);
-    }
-  }
-  
-  return 0;
-}
-*/
