@@ -1,3 +1,59 @@
+// int main(){
+// 	int n, m;
+// 	cin >> n >> m;
+// 	vi minN(n,INF32);
+// 	int minNum;
+// 	vi a(n),b(n),c(m),d(m);
+// 	rep(i,n){
+// 		cin >> a[i] >> b[i];
+// 	}
+// 	rep(i,m){
+// 		cin >> c[i] >> d[i];
+// 	}
+// 	rep(i,n){
+// 		rep(j,m){
+// 			int tmp;
+// 			tmp = abs(a[i] - c[j]) + abs(b[i] - d[j]);
+// 			if(minN[i] > tmp){
+// 				minN[i] = tmp;
+// 				minNum = j + 1;
+// 			}
+// 		}
+// 		out(minNum);
+// 	}
+
+
+// }
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   int n,m;
+//   cin >> n >> m;
+//   int a[n],b[n],c[m],d[m];
+//   for(int i = 0; i < n; i++){
+//   	cin >> a[i] >> b[i];
+//   }
+//   for(int i = 0; i < m; i++){
+//   	cin >> c[i] >> d[i];
+//   }
+//   for(int i = 0; i < n; i++){
+//   	int number;
+//     int min_dis = 1e9;
+//     for(int j = 0; j < m; j++){
+//     	int dis = abs(a[i] - c[j]) + abs(b[i] - d[j]);
+//         if(dis < min_dis){
+//       	  min_dis = dis;
+//           number = j + 1;
+//       }
+//     }
+//     cout << number << endl;
+//   }
+//       return 0;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -33,57 +89,24 @@ using pii = pair<int, int>;
 
 
 int main(){
-	int n, m;
+	int n,m;
 	cin >> n >> m;
-	vi minN(n,INF32);
-	int minNum;
 	vi a(n),b(n),c(m),d(m);
+	rep(i,n) cin >> a[i] >> b[i];
+	rep(i,m) cin >> c[i] >> d[i];
+
+	int minnum;
 	rep(i,n){
-		cin >> a[i] >> b[i];
-	}
-	rep(i,m){
-		cin >> c[i] >> d[i];
-	}
-	rep(i,n){
+		int mindis = INF32;
 		rep(j,m){
-			int tmp;
-			tmp = abs(a[i] - c[j]) + abs(b[i] - d[j]);
-			if(minN[i] > tmp){
-				minN[i] = tmp;
-				minNum = j + 1;
+			int mhtn = abs(a[i] - c[j]) + abs(b[i] - d[j]);
+
+			if(mindis > mhtn){
+				mindis = mhtn;
+				minnum = j + 1;
 			}
+			// cout << "mhtn:" << mhtn << " " <<"mindis:" << mindis << " " << "minnum:" << minnum;
 		}
-		out(minNum);
+		out(minnum);
 	}
-
-
 }
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-  int n,m;
-  cin >> n >> m;
-  int a[n],b[n],c[m],d[m];
-  for(int i = 0; i < n; i++){
-  	cin >> a[i] >> b[i];
-  }
-  for(int i = 0; i < m; i++){
-  	cin >> c[i] >> d[i];
-  }
-  for(int i = 0; i < n; i++){
-  	int number;
-    int min_dis = 1e9;
-    for(int j = 0; j < m; j++){
-    	int dis = abs(a[i] - c[j]) + abs(b[i] - d[j]);
-        if(dis < min_dis){
-      	  min_dis = dis;
-          number = j + 1;
-      }
-    }
-    cout << number << endl;
-  }
-      return 0;
-}
-*/

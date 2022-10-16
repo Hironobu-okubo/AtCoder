@@ -1,3 +1,25 @@
+// int main(){
+// 	int w,a,b;
+// 	cin >> w >> a >> b;
+// 	if((a + w) < b ) out(b - a - w);
+// 	else if ((b + w) < a) out(a - b -w);
+// 	else out("0");
+
+// }
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   int w,a,b;
+//   cin >> w >> a >> b;
+//   int d = abs(a - b) - w;
+//   if(d > 0) cout << d << endl;
+//   else cout << '0' << endl;
+//   return 0;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,25 +53,11 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	int w,a,b;
-	cin >> w >> a >> b;
-	if((a + w) < b ) out(b - a - w);
-	else if ((b + w) < a) out(a - b -w);
-	else out("0");
-
-}
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
   int w,a,b;
   cin >> w >> a >> b;
-  int d = abs(a - b) - w;
-  if(d > 0) cout << d << endl;
-  else cout << '0' << endl;
-  return 0;
+
+  if(a + w < b) out(b - a - w);
+  else if((a + w >= b && a <= b) || (a < (b + w) && (b + w) < a + w)) out("0");
+  else out(a - b - w);
 }
-*/
