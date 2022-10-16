@@ -1,3 +1,47 @@
+// int main(){
+// 	int h, w;
+// 	cin >> h >> w;
+// 	rep(i,w + 2){
+// 		cout << '#';
+// 	}
+// 	out("");
+//   rep(i,h){
+//     string a;
+//     cout << '#';
+//     cin >> a;
+//     cout << a;
+//     cout << '#';
+//     out("");
+//   }
+//   rep(i,w + 2){
+// 		cout << '#';
+// 	}
+// }
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   int h,w;
+//   cin >> h >> w;
+//   vector<string> vec(h);
+//   for(int i = 0; i < w + 2; i++){
+//   	cout << '#';
+//   }
+//   cout << endl;
+  
+//   for(int i = 0; i < h; i++){
+//     cout << '#';
+//   	cin >> vec.at(i);
+//     cout << vec.at(i);
+//     cout << '#' << endl;
+//   }
+//   for(int i = 0; i < w + 2; i++){
+//   	cout << '#';
+//   }
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,47 +75,18 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	int h, w;
-	cin >> h >> w;
-	rep(i,w + 2){
-		cout << '#';
-	}
-	out("");
-  rep(i,h){
-    string a;
-    cout << '#';
-    cin >> a;
-    cout << a;
-    cout << '#';
-    out("");
-  }
-  rep(i,w + 2){
-		cout << '#';
-	}
-}
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
   int h,w;
   cin >> h >> w;
-  vector<string> vec(h);
-  for(int i = 0; i < w + 2; i++){
-  	cout << '#';
-  }
+  vs a(h);
+  rep(i,h){
+    cin >> a[i];
+  } 
+  rep(i,w + 2) cout << "#";
   cout << endl;
-  
-  for(int i = 0; i < h; i++){
-    cout << '#';
-  	cin >> vec.at(i);
-    cout << vec.at(i);
-    cout << '#' << endl;
+  rep(i,h){
+    cout << "#" << a[i] << "#" << endl;
   }
-  for(int i = 0; i < w + 2; i++){
-  	cout << '#';
-  }
+  rep(i,w + 2) cout << "#";
+  cout << endl;
 }
-*/

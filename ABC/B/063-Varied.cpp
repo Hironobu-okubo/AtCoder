@@ -1,3 +1,34 @@
+// int main(){
+// 	string s;
+// 	cin >> s;
+// 	bool isVary = true;
+// 	rep(i,s.size()){
+// 		rep(j,s.size()){
+// 			if(s[i] == s[j] && i != j) isVary = false;
+// 		}
+// 	}
+// 	yesno(isVary);
+// }
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   string s;
+//   cin >> s;
+//   int len = s.size();
+//   for(int i = 0; i < len; i++){
+//     for(int j = i + 1; j < len; j++){
+//       if(s.at(i) == s.at(j)){
+//        cout << "no" << endl;
+//       }
+//       return 0;
+//     }
+//   }
+//   cout << "yes" << endl;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -33,32 +64,13 @@ using pii = pair<int, int>;
 
 
 int main(){
-	string s;
-	cin >> s;
-	bool isVary = true;
-	rep(i,s.size()){
-		rep(j,s.size()){
-			if(s[i] == s[j] && i != j) isVary = false;
-		}
-	}
-	yesno(isVary);
-}
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
   string s;
   cin >> s;
-  int len = s.size();
-  for(int i = 0; i < len; i++){
-    for(int j = i + 1; j < len; j++){
-      if(s.at(i) == s.at(j)){
-       cout << "no" << endl;
-      }
-      return 0;
-    }
+  set<char> eq;
+  bool isVary = true;
+  rep(i,s.size()){
+    if(eq.count(s[i])) isVary = false;
+    eq.insert(s[i]);
   }
-  cout << "yes" << endl;
+  yesno(isVary);
 }
-*/
