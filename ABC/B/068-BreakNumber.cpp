@@ -1,3 +1,55 @@
+// int main(){
+// 	int n;
+// 	cin >> n;
+// 	int ans = 1;
+// 	int ansCount = 0;
+// 	rrep(i,n){
+// 		if(i % 2 == 0){
+// 			int tmp = i;
+// 			int count = 0;
+// 			while(true){
+// 				if(tmp % 2 == 0){
+// 					count++;
+// 					tmp /= 2;
+// 				}
+// 				else break;
+// 			}
+// 			if(ansCount < count){
+// 				ansCount = count;
+// 				ans = i;
+// 			}
+// 		}
+// 	}
+// 	out(ans);
+// }
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+ 
+// int main() {
+//   int n;  
+//   cin >> n;
+  
+//   int ans;
+//   int max;
+  
+//   for (int i = 1; i <= n; i++) {
+//     int count = 0;
+//     int x = i;
+//     while (x % 2 == 0 && x > 0) {
+//       count++;
+//       x = x / 2;
+//     }
+//     if (max <= count) {
+//       ans = i;
+//       max = count;
+//     }
+//   }
+//   cout << ans << endl;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -35,51 +87,22 @@ using pii = pair<int, int>;
 int main(){
 	int n;
 	cin >> n;
-	int ans = 1;
-	int ansCount = 0;
+	int maxNum = 1,maxCount = 0;
 	rrep(i,n){
-		if(i % 2 == 0){
-			int tmp = i;
-			int count = 0;
-			while(true){
-				if(tmp % 2 == 0){
-					count++;
-					tmp /= 2;
-				}
-				else break;
-			}
-			if(ansCount < count){
-				ansCount = count;
-				ans = i;
-			}
+		int count = 0;
+		int tmp = i,rem;
+		while(true){
+			rem = tmp % 2;
+			tmp /= 2;
+			if(rem != 0){
+				break;
+			} 
+			count++;
+		}
+		if(maxCount < count){
+			maxCount = count;
+			maxNum = i;
 		}
 	}
-	out(ans);
+	out(maxNum);
 }
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
- 
-int main() {
-  int n;  
-  cin >> n;
-  
-  int ans;
-  int max;
-  
-  for (int i = 1; i <= n; i++) {
-    int count = 0;
-    int x = i;
-    while (x % 2 == 0 && x > 0) {
-      count++;
-      x = x / 2;
-    }
-    if (max <= count) {
-      ans = i;
-      max = count;
-    }
-  }
-  cout << ans << endl;
-}
-*/

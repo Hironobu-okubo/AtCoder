@@ -1,3 +1,34 @@
+// int main(){
+// 	int n, k, sum = 0;
+// 	cin >> n >> k;
+// 	vi l(n);
+// 	rep(i,n) cin >> l[i];
+// 	sort(all(l),greater<int>{});
+// 	rep(i,k){
+// 		sum += l[i];
+// 	}
+// 	out(sum);
+// }
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+ 
+// int main() {
+//   int n,k,sum = 0;
+//   cin >> n >> k;
+//   vector<int> l(n);
+//   for(int i = 0; i < n; i++){
+//   	cin >> l.at(i);
+//   }
+//   sort(l.begin(),l.end());
+//   for(int i = 0; i < k; i++){
+//   	sum += l[n - 1 - i];
+//   }
+//   cout << sum << endl;
+//   return 0;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,34 +62,16 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	int n, k, sum = 0;
+	int n, k;
 	cin >> n >> k;
-	vi l(n);
-	rep(i,n) cin >> l[i];
-	sort(all(l),greater<int>{});
+	vi rod(n);
+	rep(i,n) cin >> rod[i];
+	sort(all(rod),greater<int>{});
+	int sum = 0;
 	rep(i,k){
-		sum += l[i];
+		sum += rod[i];
 	}
 	out(sum);
 }
-/*
-#include <bits/stdc++.h>
-using namespace std;
- 
-int main() {
-  int n,k,sum = 0;
-  cin >> n >> k;
-  vector<int> l(n);
-  for(int i = 0; i < n; i++){
-  	cin >> l.at(i);
-  }
-  sort(l.begin(),l.end());
-  for(int i = 0; i < k; i++){
-  	sum += l[n - 1 - i];
-  }
-  cout << sum << endl;
-  return 0;
-}
-*/
+
