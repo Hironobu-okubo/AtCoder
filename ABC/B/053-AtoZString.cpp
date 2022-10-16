@@ -1,3 +1,54 @@
+
+// int main(){
+// 	string s;
+// 	cin >> s;
+// 	int ini,end;
+// 	int idx = 0;
+// 	bool isA = true;
+// 	while(isA){
+// 		if(s[idx] == 'A'){
+// 			ini = idx;
+// 			isA = false;
+// 		}
+// 		idx++;
+// 	}
+// 	while(true){
+// 		if(idx == s.size()) break;
+// 		if(s[idx] == 'Z') end = idx;
+// 		idx++;
+		
+
+// 	}
+// 	out(end - ini + 1);
+// }
+
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   string s;
+//   cin >> s;
+//   int len = s.length();
+//   int start = 0,goal = 0,max = 0;
+//   for(int i = 0; i < len; i++){
+//     if(s[i] == 'A'){
+//       start = i;
+//       break;
+//     }
+//   }
+//   for(int i = 0; i < len; i++){
+//     if(s[i] == 'Z'){
+//       goal = i;
+//     }
+//   }
+//   cout << goal - start + 1 << endl;
+//   return 0;
+// }
+// */
+
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,52 +82,13 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
 	string s;
 	cin >> s;
-	int ini,end;
-	int idx = 0;
-	bool isA = true;
-	while(isA){
-		if(s[idx] == 'A'){
-			ini = idx;
-			isA = false;
-		}
-		idx++;
+	ll start = INF32, end = 0;
+	rep(i,s.size()){
+		if(s[i] == 'A') start = min(start,i);
+		if(s[i] == 'Z') end = max(end,i);
 	}
-	while(true){
-		if(idx == s.size()) break;
-		if(s[idx] == 'Z') end = idx;
-		idx++;
-		
-
-	}
-	out(end - ini + 1);
+	out(end - start + 1);
 }
-
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-  string s;
-  cin >> s;
-  int len = s.length();
-  int start = 0,goal = 0,max = 0;
-  for(int i = 0; i < len; i++){
-    if(s[i] == 'A'){
-      start = i;
-      break;
-    }
-  }
-  for(int i = 0; i < len; i++){
-    if(s[i] == 'Z'){
-      goal = i;
-    }
-  }
-  cout << goal - start + 1 << endl;
-  return 0;
-}
-*/

@@ -1,3 +1,31 @@
+
+// int main(){
+// 	int n;
+// 	cin >> n;
+// 	int sum = 1;
+// 	reps(i,1,n + 1){
+// 		sum = (sum * i) % MOD;
+// 	}
+// 	out(sum);
+// }
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   int n;
+//   cin >> n;
+//   long int sum = 1;
+//   int a = 1000000007;
+//   for(int i = 1; i <= n; i++){
+//     sum = sum * i % a;
+//   }
+//   cout << sum;
+//   return 0;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,30 +59,12 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	int n;
-	cin >> n;
-	int sum = 1;
-	reps(i,1,n + 1){
-		sum = (sum * i) % MOD;
-	}
-	out(sum);
-}
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
   int n;
   cin >> n;
-  long int sum = 1;
-  int a = 1000000007;
-  for(int i = 1; i <= n; i++){
-    sum = sum * i % a;
+  int sum;
+  rrep(i,n){
+    sum = sum * i % MOD;
   }
-  cout << sum;
-  return 0;
+  out(sum);
 }
-*/
