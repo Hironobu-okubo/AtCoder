@@ -1,3 +1,41 @@
+// int main(){
+// 	int n, m;
+// 	cin >> n >> m;
+// 	vi count(n);
+// 	rep(i,m){
+// 		int a, b, tmp;
+// 		cin >> a >> b;
+// 		tmp = count[a - 1];
+// 		tmp++;
+// 		count[a - 1] = tmp;
+// 		tmp = count[b - 1];
+// 		tmp++;
+// 		count[b - 1] = tmp;
+// 	}
+// 	rep(i,n){
+// 		out(count[i]);
+// 	}
+	
+// }
+// /*
+// using namespace std;
+
+// int main(){
+//   int n,m,x,y;
+//   cin >> n >> m;
+//   int a[n] = {0};
+//   for(int i = 0; i < m; i++){
+//   	cin >> x >> y;
+//     a[x - 1] += 1;
+//     a[y - 1] += 1;
+//   }
+//   for(int i = 0; i < n; i++){
+//   	cout << a[i] << endl;
+//   }
+// }
+// */
+
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,40 +69,17 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	int n, m;
+	int n,m;
 	cin >> n >> m;
-	vi count(n);
+	vi load(n);
 	rep(i,m){
-		int a, b, tmp;
+		int a,b;
 		cin >> a >> b;
-		tmp = count[a - 1];
-		tmp++;
-		count[a - 1] = tmp;
-		tmp = count[b - 1];
-		tmp++;
-		count[b - 1] = tmp;
+		load[a - 1] += 1;
+		load[b - 1] += 1;
 	}
 	rep(i,n){
-		out(count[i]);
+		out(load[i]);
 	}
-	
 }
-/*
-using namespace std;
-
-int main(){
-  int n,m,x,y;
-  cin >> n >> m;
-  int a[n] = {0};
-  for(int i = 0; i < m; i++){
-  	cin >> x >> y;
-    a[x - 1] += 1;
-    a[y - 1] += 1;
-  }
-  for(int i = 0; i < n; i++){
-  	cout << a[i] << endl;
-  }
-}
-*/
