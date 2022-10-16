@@ -1,3 +1,55 @@
+
+// int main(){
+// 	string a, b;
+// 	cin >> a >> b;
+// 	if(a.size() > b.size()) out("GREATER");
+// 	else if(a == b) out("EQUAL");
+// 	else if(a.size() < b.size()) out("LESS");
+// 	else{
+// 		rep(i,max(a.size(),b.size())){
+// 			if(a[i] > b[i]){
+// 				out("GREATER");
+// 				break;
+// 			} 
+// 			else if(a[i] < b[i]){
+// 				out("LESS");
+// 				break;
+// 			}
+// 		}
+// 	}
+
+
+// }
+
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+ 
+// int main(){
+//   string a,b;
+//   cin >> a >>b;
+  
+//   if(a.size() > b.size()) cout << "GREATER" << endl;
+//   else if(a.size() < b.size()) cout << "LESS" << endl;
+//   else{
+//     int len = a.length();
+//     for(int i = 0; i < len; i++){
+//       if(a[i] > b[i]){
+//         cout << "GREATER" << endl;
+//         exit(0);
+//       }
+//       else if(a[i] < b[i]){
+//         cout << "LESS" << endl;
+//         exit(0);
+//       }
+//     }
+//     cout << "EQUAL" << endl;
+//   }
+//   return 0;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -33,52 +85,24 @@ using pii = pair<int, int>;
 
 
 int main(){
-	string a, b;
-	cin >> a >> b;
-	if(a.size() > b.size()) out("GREATER");
-	else if(a == b) out("EQUAL");
-	else if(a.size() < b.size()) out("LESS");
-	else{
-		rep(i,max(a.size(),b.size())){
-			if(a[i] > b[i]){
-				out("GREATER");
-				break;
-			} 
-			else if(a[i] < b[i]){
-				out("LESS");
-				break;
-			}
-		}
-	}
-
-
-}
-
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
- 
-int main(){
-  string a,b;
-  cin >> a >>b;
-  
-  if(a.size() > b.size()) cout << "GREATER" << endl;
-  else if(a.size() < b.size()) cout << "LESS" << endl;
+  string a, b;
+  cin >> a >> b;
+  if(a.size() > b.size()) out("GREATER");
+  else if(a.size() < b.size()) out("LESS");
   else{
-    int len = a.length();
-    for(int i = 0; i < len; i++){
+    bool eq = true;
+    rep(i,a.size()){ 
       if(a[i] > b[i]){
-        cout << "GREATER" << endl;
-        exit(0);
+        out("GREATER");
+        eq = false;
+        break;
       }
       else if(a[i] < b[i]){
-        cout << "LESS" << endl;
-        exit(0);
+        out("LESS");
+        eq = false;
+        break;
       }
     }
-    cout << "EQUAL" << endl;
+    if(eq) out("EQUAL");
   }
-  return 0;
 }
-*/
