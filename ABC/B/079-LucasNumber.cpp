@@ -1,3 +1,33 @@
+
+// int main(){
+// 	int n;
+// 	cin >> n;
+// 	vll l(n + 1);
+// 	l[0] = 2;
+// 	l[1] = 1;
+// 	reps(i,2,n + 1){
+// 		l[i] = l[i - 2] + l[i - 1];
+// 	}
+// 	out(l[n]);
+// }
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+ 
+// int main() {
+//   int n,i;
+//   cin >> n;
+//   vector<long long> luka(n + 1);
+//   luka[0] = 2;
+//   luka[1] = 1;
+//   for(i = 2; i <= n; i++){
+//   	luka[i] = luka[i - 1] + luka[i - 2];
+//   }
+//   cout << luka[n] << endl;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,31 +62,15 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 
+
 int main(){
 	int n;
 	cin >> n;
-	vll l(n + 1);
+	vl l(n + 1);
 	l[0] = 2;
 	l[1] = 1;
 	reps(i,2,n + 1){
-		l[i] = l[i - 2] + l[i - 1];
+		l[i] = l[i - 1] + l[i - 2];
 	}
 	out(l[n]);
 }
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
- 
-int main() {
-  int n,i;
-  cin >> n;
-  vector<long long> luka(n + 1);
-  luka[0] = 2;
-  luka[1] = 1;
-  for(i = 2; i <= n; i++){
-  	luka[i] = luka[i - 1] + luka[i - 2];
-  }
-  cout << luka[n] << endl;
-}
-*/

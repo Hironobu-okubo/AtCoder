@@ -1,3 +1,30 @@
+
+// int main(){
+// 	int n;
+// 	cin >> n;
+// 	int ans = 0;
+// 	rep(i,n + 1){
+// 		if(i * i <= n) ans = i * i;
+// 	}
+// 	out(ans);
+// }
+
+// /*
+// #include<bits/stdc++.h>
+// using namespace std;
+ 
+// int main(){
+//   int n,x;
+//   cin >> n;
+//   for(int i = 1; i * i <= n; i++){
+//   	if(i * i <= n){
+//       x = i * i;
+//     }
+//   }
+//   cout << x << endl;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,29 +58,12 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
 	int n;
 	cin >> n;
-	int ans = 0;
-	rep(i,n + 1){
-		if(i * i <= n) ans = i * i;
+	int minsqrt;
+	rrep(i,n){
+		if(i * i <= n) minsqrt = i * i;
 	}
-	out(ans);
+	out(minsqrt);
 }
-
-/*
-#include<bits/stdc++.h>
-using namespace std;
- 
-int main(){
-  int n,x;
-  cin >> n;
-  for(int i = 1; i * i <= n; i++){
-  	if(i * i <= n){
-      x = i * i;
-    }
-  }
-  cout << x << endl;
-}
-*/

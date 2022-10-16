@@ -1,3 +1,35 @@
+
+// int main(){
+// 	int x, y, z;
+// 	cin >> x >> y >> z;
+// 	int ans = 0, total = 0;
+// 	while(true){
+// 		total += (y + z);
+// 		if(total + z <= x){
+// 			ans++;
+// 		}
+// 		else break;
+// 	}
+// 	out(ans);
+// }
+// /*
+// #include<bits/stdc++.h>
+// using namespace std;
+ 
+// int main(){
+//   int x,y,z,count = 0;
+//   cin >> x >> y >> z;
+//   int total = z;
+//   while(true){
+//     total += y;
+//     total += z;
+//     if(x < total) break;
+//     count++;
+//   }
+//   cout << count << endl;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,34 +63,15 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
 	int x, y, z;
 	cin >> x >> y >> z;
-	int ans = 0, total = 0;
+	int count = 0,sum = z;
 	while(true){
-		total += (y + z);
-		if(total + z <= x){
-			ans++;
-		}
-		else break;
+		sum += y;
+		sum += z;
+		if(sum > x) break;
+		count++;
 	}
-	out(ans);
+	out(count);
 }
-/*
-#include<bits/stdc++.h>
-using namespace std;
- 
-int main(){
-  int x,y,z,count = 0;
-  cin >> x >> y >> z;
-  int total = z;
-  while(true){
-    total += y;
-    total += z;
-    if(x < total) break;
-    count++;
-  }
-  cout << count << endl;
-}
-*/
