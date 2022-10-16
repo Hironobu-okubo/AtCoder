@@ -1,3 +1,41 @@
+// int main(){
+// 	string s;
+// 	cin >> s;
+// 	ll ans = 0;
+// 	reps(i,2,s.size()){
+// 		if(i % 2 == 0){
+// 			string a = s.substr(0,i / 2);
+// 			string b = s.substr(i / 2, i / 2);
+// 			if(a == b){
+// 				ans = max(ans,i);
+// 			}
+// 		}
+// 	}
+// 	out(ans);
+// }
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   int n;
+//   cin >> n;
+//   int x = -1,y = -1;
+//   int ans = 0;
+//   vector<int> a(n),b(n);
+//   for(int i = 0; i < n; i++){
+//   	cin >> a[i] >> b[i];
+//     if(x < a[i]){
+//       x = a[i];
+//       y = b[i];
+//       ans = x + y;
+//     }
+//   }
+//   cout << ans;
+//   return 0;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,41 +69,19 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	string s;
-	cin >> s;
-	ll ans = 0;
-	reps(i,2,s.size()){
-		if(i % 2 == 0){
-			string a = s.substr(0,i / 2);
-			string b = s.substr(i / 2, i / 2);
-			if(a == b){
-				ans = max(ans,i);
-			}
-		}
-	}
-	out(ans);
-}
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-  int n;
-  cin >> n;
-  int x = -1,y = -1;
-  int ans = 0;
-  vector<int> a(n),b(n);
-  for(int i = 0; i < n; i++){
-  	cin >> a[i] >> b[i];
-    if(x < a[i]){
-      x = a[i];
-      y = b[i];
-      ans = x + y;
+  string s;
+  cin >> s;
+  while(true){
+    s.pop_back();
+    if(s.size() % 2 == 0){
+      int mid = s.size() / 2 ;
+      string first = s.substr(0,mid);
+      string second = s.substr(mid,mid);
+      if(first == second){
+        out(s.size());
+        return 0;
+      }
     }
   }
-  cout << ans;
-  return 0;
 }
-*/
