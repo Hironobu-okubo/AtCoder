@@ -1,3 +1,24 @@
+// int main(){
+// 	string s;
+// 	cin >> s;
+// 	cout << s[0] << s.size() - 2 << s[s.size() - 1] << endl;
+// }
+
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+ 
+// int main(){
+//   string s;
+//   cin >> s;
+//   int len = s.length();
+//   char ini = s.at(0);
+//   char end = s.at(len - 1);
+//   cout << ini << len -2 << end << endl;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -33,22 +54,7 @@ using pii = pair<int, int>;
 
 
 int main(){
-	string s;
-	cin >> s;
-	cout << s[0] << s.size() - 2 << s[s.size() - 1] << endl;
-}
-
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
- 
-int main(){
   string s;
   cin >> s;
-  int len = s.length();
-  char ini = s.at(0);
-  char end = s.at(len - 1);
-  cout << ini << len -2 << end << endl;
+  cout << s[0] << s.size() - 2 << s.back() << endl;
 }
-*/

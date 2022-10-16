@@ -1,3 +1,22 @@
+// int main(){
+// 	int a, b, c, d;
+// 	cin >> a >> b >> c >> d;
+// 	int ans = max(0,min(b,d) - max(a,c));
+// 	out(ans);
+// }
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+ 
+// int main(){
+//   int a, b, c, d;
+//   cin >> a >> b >> c >> d;
+//   int sec = max(0,(min(b,d) - max(a,c)));
+//   cout << sec <<endl;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,22 +50,14 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	int a, b, c, d;
-	cin >> a >> b >> c >> d;
-	int ans = max(0,min(b,d) - max(a,c));
-	out(ans);
-}
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
- 
-int main(){
-  int a, b, c, d;
+  int a,b,c,d;
   cin >> a >> b >> c >> d;
-  int sec = max(0,(min(b,d) - max(a,c)));
-  cout << sec <<endl;
+  int x;
+  if(b <= c || d <= a) x = 0;
+  else if(a <= c && b <= d) x = b - c;
+  else if(c <= a && d <= b) x = d - a;
+  else if(a <= c && d <= b) x = d - c;
+  else if(c <= a && b <= d) x = b - a;
+  out(x);
 }
-*/
