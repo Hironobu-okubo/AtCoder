@@ -1,3 +1,30 @@
+// int main(){
+// 	int n, k;
+// 	cin >> n >> k;
+// 	int ans = 1;
+// 	rep(i,n){
+// 		ans = min(ans * 2,ans + k);
+// 	}
+// 	out(ans);
+// }
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+ 
+// int main() {
+//   int n,k;
+//   cin >> n >> k;
+//   int ans = 1;
+//   for(int i = 0; i < n; i++){
+//   	int x = ans * 2, y = ans + k;
+//     if(x >= y) ans = y;
+//     else ans = x;
+//   }
+//   cout << ans << endl;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,30 +58,13 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	int n, k;
-	cin >> n >> k;
-	int ans = 1;
-	rep(i,n){
-		ans = min(ans * 2,ans + k);
-	}
-	out(ans);
-}
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
- 
-int main() {
   int n,k;
   cin >> n >> k;
-  int ans = 1;
-  for(int i = 0; i < n; i++){
-  	int x = ans * 2, y = ans + k;
-    if(x >= y) ans = y;
-    else ans = x;
+  int sum = 1;
+  rep(i,n){
+    if(sum * 2 < sum + k) sum *= 2;
+    else sum += k;
   }
-  cout << ans << endl;
+  out(sum);
 }
-*/
