@@ -1,3 +1,58 @@
+
+// int main(){
+// 	int n;
+// 	cin >> n;
+// 	vi a(n);
+// 	rep(i,n) cin >> a[i];
+// 	int count = 0;
+// 	while(true){
+// 		rep(i,n){
+// 			if(a[i] % 2 != 0){
+// 				out(count);
+// 				exit(0);
+// 			}
+// 			else a[i] = a[i] / 2;
+// 		}
+// 		count++;
+// 	}
+// 	out(count);
+// }
+
+// /*
+
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   int n,count = 0,isloop = 1;
+//   cin >> n;
+//   vector<int> a(n);
+//   for(int i = 0; i < n; i++){
+//     cin >> a[i];
+//   }
+  
+//   while(true){
+//     for(int i = 0; i < n; i++){
+//       if(a[i] % 2 != 0 && count == 0){
+//         cout << "0" << endl;
+//         exit(0);
+//       }
+//   	  else if(a[i] % 2 != 0){
+//         isloop = 0;
+//         break;
+//       }
+//       else{
+//         a[i] = a[i] / 2;
+//       }
+//     }
+//     if(isloop == 0) break;
+//     count++;
+//   }
+//   cout << count << endl;
+//   return 0;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,57 +86,24 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	int n;
-	cin >> n;
-	vi a(n);
-	rep(i,n) cin >> a[i];
-	int count = 0;
-	while(true){
-		rep(i,n){
-			if(a[i] % 2 != 0){
-				out(count);
-				exit(0);
-			}
-			else a[i] = a[i] / 2;
-		}
-		count++;
-	}
-	out(count);
-}
-
-/*
-
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-  int n,count = 0,isloop = 1;
+  int n;
   cin >> n;
-  vector<int> a(n);
-  for(int i = 0; i < n; i++){
-    cin >> a[i];
-  }
-  
-  while(true){
-    for(int i = 0; i < n; i++){
-      if(a[i] % 2 != 0 && count == 0){
-        cout << "0" << endl;
-        exit(0);
+  vi a(n);
+  rep(i,n) cin >> a[i];
+  bool isEven = true;
+  int count = 0;
+  while(isEven){
+    rep(i,n){
+      if(a[i] % 2 != 0){
+        isEven = false;
+        out(count);
+        return 0;
       }
-  	  else if(a[i] % 2 != 0){
-        isloop = 0;
-        break;
-      }
-      else{
-        a[i] = a[i] / 2;
-      }
+      else a[i] /= 2;
     }
-    if(isloop == 0) break;
+    // cout << a[0] << " " << a[1] << " " << a[2] << endl;
     count++;
   }
-  cout << count << endl;
-  return 0;
+  out(count);
 }
-*/

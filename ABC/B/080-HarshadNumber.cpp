@@ -1,3 +1,32 @@
+
+// int main(){
+// 	string n;
+// 	cin >> n;
+// 	int ans = 0;
+// 	rep(i,n.size()){
+// 		ans += n[i] - '0';
+// 	}
+// 	if(stoi(n) % ans == 0) out("Yes");
+// 	else out("No");
+// }
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//   int n,ans = 0;
+//   cin >> n;
+//   int rem = n;
+//   for(int i = 0; i < 8; i++){
+//   	ans += rem % 10;
+//     rem = rem / 10;
+//   }
+//   if(n % ans == 0) cout << "Yes" << endl;
+//   else cout << "No" << endl;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,31 +60,13 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-	string n;
+	int n;
 	cin >> n;
-	int ans = 0;
-	rep(i,n.size()){
-		ans += n[i] - '0';
+	int cur = n,sum = 0;
+	reps(i,0,8){
+		sum += cur % 10;
+		cur = cur / 10;
 	}
-	if(stoi(n) % ans == 0) out("Yes");
-	else out("No");
+	YesNo(n % sum == 0);
 }
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-  int n,ans = 0;
-  cin >> n;
-  int rem = n;
-  for(int i = 0; i < 8; i++){
-  	ans += rem % 10;
-    rem = rem / 10;
-  }
-  if(n % ans == 0) cout << "Yes" << endl;
-  else cout << "No" << endl;
-}
-*/
