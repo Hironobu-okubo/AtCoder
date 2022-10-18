@@ -1,3 +1,27 @@
+
+// int main(){
+//     string a, b;
+//     cin >> a >> b;
+//     string ab = a + b;
+//     int ans = stoi(ab);
+//     int sqr = sqrt(ans);
+//     if(sqr * sqr == ans) out("Yes");
+//     else out("No"); 
+// }
+
+// /*
+// int main(){
+//     string a, b;
+//     cin >> a >> b;
+//     string strsum = a + b;
+//     int intsum = stoi(strsum);
+//     int sqr = sqrt(intsum);
+//     int num = sqr * sqr;
+//     if(num == intsum) out("Yes");
+//     else out("No");
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,24 +56,13 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    string a, b;
-    cin >> a >> b;
-    string ab = a + b;
-    int ans = stoi(ab);
-    int sqr = sqrt(ans);
-    if(sqr * sqr == ans) out("Yes");
-    else out("No"); 
+  string a,b;
+  cin >> a >> b;
+  string c = a + b;
+  bool isSquare = false;
+  reps(i,1,317){
+    int tmp = i;
+    if(tmp * tmp == stoi(c)) isSquare = true;
+  }
+  YesNo(isSquare);
 }
-
-/*
-int main(){
-    string a, b;
-    cin >> a >> b;
-    string strsum = a + b;
-    int intsum = stoi(strsum);
-    int sqr = sqrt(intsum);
-    int num = sqr * sqr;
-    if(num == intsum) out("Yes");
-    else out("No");
-}
-*/
