@@ -1,3 +1,53 @@
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     set<int> se;
+//     int a;
+//     rep(i,n){
+//         cin >> a;
+//         se.insert(a);
+//     }
+//     out(se.size());
+// }
+
+// // /*
+// // int main(){
+// //     int n;
+// //     cin >> n;
+// //     vi d(n);
+// //     rep(i,n){
+// //         cin >> d[i];
+// //     }
+// //     sort(all(d));
+// //     int count = 1;
+// //     rep(i,n - 1){
+// //         if(d[i] < d[i + 1]) count++;
+// //     }
+// //     out(count);
+// // }*/
+
+
+
+
+// // /*
+// // int main(){
+// //     int n,count = 0;
+// //     cin >> n;
+// //     vi a(n + 1);
+// //     rep(i,n){
+// //         cin >> a[i];
+// //     }
+// //     sort(all(a));
+// //     rep(i,n){
+// //         if(a[i] < a[i + 1]){
+// //             count++;
+// //         }
+// //     }
+// //     out(count);
+// // }
+// // */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,50 +82,19 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n;
-    cin >> n;
-    set<int> se;
-    int a;
-    rep(i,n){
-        cin >> a;
-        se.insert(a);
+  int n;
+  cin >> n;
+  vi d(n);
+  rep(i,n){
+    cin >> d[i];
+  }
+  sort(all(d),greater<int>());
+  int sum = 1, tmp = 0;
+  reps(i,1,n){
+    // cout << d[i] << " ";
+    if(d[i] < d[i - 1]){
+      sum++;
     }
-    out(se.size());
+  }
+  out(sum);
 }
-
-/*
-int main(){
-    int n;
-    cin >> n;
-    vi d(n);
-    rep(i,n){
-        cin >> d[i];
-    }
-    sort(all(d));
-    int count = 1;
-    rep(i,n - 1){
-        if(d[i] < d[i + 1]) count++;
-    }
-    out(count);
-}*/
-
-
-
-
-/*
-int main(){
-    int n,count = 0;
-    cin >> n;
-    vi a(n + 1);
-    rep(i,n){
-        cin >> a[i];
-    }
-    sort(all(a));
-    rep(i,n){
-        if(a[i] < a[i + 1]){
-            count++;
-        }
-    }
-    out(count);
-}
-*/
