@@ -1,3 +1,37 @@
+// int main(){
+//     string s, t;
+//     cin >> s >> t;
+//     bool isDic = false;
+//     sort(all(s));
+//     sort(all(t),greater<int>());
+//     if(s < t) isDic = true;
+//     YesNo(isDic);
+// }
+
+// /*
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// using VI = vector<int>;
+// typedef long long ll ;
+// #define all(a) (a).begin(),(a).end()
+// #define out(x) cout << x << endl
+// #define rep(i, n) for(int i = 0; i < (int)(n); i++)
+// #define pb push_back
+
+// int main(){
+//     string s,t;
+//     cin >> s >> t;
+//     sort(all(s));
+//     sort(all(t));
+//     reverse(all(t));
+//     if(s < t) out("Yes");
+//     else out("No");
+//     return 0;
+// }
+// */
+
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -33,34 +67,9 @@ using pii = pair<int, int>;
 
 
 int main(){
-    string s, t;
-    cin >> s >> t;
-    bool isDic = false;
-    sort(all(s));
-    sort(all(t),greater<int>());
-    if(s < t) isDic = true;
-    YesNo(isDic);
+  string s,t;
+  cin >> s >> t;
+  sort(all(s));
+  sort(all(t),greater<int>());
+  YesNo(s < t);
 }
-
-/*
-
-#include <bits/stdc++.h>
-using namespace std;
-using VI = vector<int>;
-typedef long long ll ;
-#define all(a) (a).begin(),(a).end()
-#define out(x) cout << x << endl
-#define rep(i, n) for(int i = 0; i < (int)(n); i++)
-#define pb push_back
-
-int main(){
-    string s,t;
-    cin >> s >> t;
-    sort(all(s));
-    sort(all(t));
-    reverse(all(t));
-    if(s < t) out("Yes");
-    else out("No");
-    return 0;
-}
-*/
