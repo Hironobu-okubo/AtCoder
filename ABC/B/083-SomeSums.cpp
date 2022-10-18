@@ -1,3 +1,51 @@
+
+// int main(){
+//     int n, a, b;
+//     cin >> n >> a >> b;
+//     int sum = 0;
+//     rep(i,n + 1){
+//         int tmp = 0, rem = i;
+//         while(rem != 0){
+//             tmp += rem % 10;
+//             rem = rem / 10;
+//         }
+//         if(tmp >= a && tmp <= b){
+//             sum += i;
+//         }
+//     }
+//     out(sum);
+// }
+
+// /*
+// #include <bits/stdc++.h>
+// using namespace std;
+// using VI = vector<int>;
+// typedef long long ll ;
+// #define all(a) (a).begin(),(a).end()
+// #define out(x) cout << x << endl
+// #define rep(i, n) for(int i = 0; i < (int)(n); i++)
+// #define repp(i, n) for(int i = 1; i <= (int)(n); i++)
+// #define pb push_back
+
+// int main(){
+//     int n,a,b,tmp = 0,rem = 0,sum = 0;
+//     cin >> n >> a >> b;
+//     repp(i,n){
+//         rem = i;
+//         while(rem != 0){
+//             tmp += rem % 10;
+//             rem =  rem / 10;
+            
+//         }
+//         if(tmp >= a && tmp <= b){
+//             sum += i;
+//         }
+//         tmp = 0;
+//     }
+//     out(sum);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,50 +79,20 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-    int n, a, b;
-    cin >> n >> a >> b;
-    int sum = 0;
-    rep(i,n + 1){
-        int tmp = 0, rem = i;
-        while(rem != 0){
-            tmp += rem % 10;
-            rem = rem / 10;
-        }
-        if(tmp >= a && tmp <= b){
-            sum += i;
-        }
+  int n, a, b;
+  cin >> n >> a >> b;
+  int sum = 0;
+  rep(i,n + 1){
+    int tmp = i, digitSum = 0;
+    while(tmp){
+      digitSum += tmp % 10;
+      tmp /= 10;
     }
-    out(sum);
-}
-
-/*
-#include <bits/stdc++.h>
-using namespace std;
-using VI = vector<int>;
-typedef long long ll ;
-#define all(a) (a).begin(),(a).end()
-#define out(x) cout << x << endl
-#define rep(i, n) for(int i = 0; i < (int)(n); i++)
-#define repp(i, n) for(int i = 1; i <= (int)(n); i++)
-#define pb push_back
-
-int main(){
-    int n,a,b,tmp = 0,rem = 0,sum = 0;
-    cin >> n >> a >> b;
-    repp(i,n){
-        rem = i;
-        while(rem != 0){
-            tmp += rem % 10;
-            rem =  rem / 10;
-            
-        }
-        if(tmp >= a && tmp <= b){
-            sum += i;
-        }
-        tmp = 0;
+    //cout << digitSum << " ";
+    if(digitSum >= a && digitSum <= b){
+      sum += i;
     }
-    out(sum);
+  }
+  out(sum);
 }
-*/
