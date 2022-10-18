@@ -1,3 +1,31 @@
+
+// int main(){
+//     int a, b;
+//     cin >> a >> b;
+//     string s;
+//     cin >> s;
+//     bool isPostel = true;
+//     rep(i,s.size()){
+//         if(i != a && s[i] == '-') isPostel = false;
+//         else if(i == a && s[i] != '-') isPostel = false;
+//     }
+//     YesNo(isPostel);
+// }
+
+// /*
+// int main(){
+//     int a,b;
+//     string s;
+//     cin >> a >> b >> s;
+//     bool isPos = true;
+//     rep(i,s.size()){
+//         if((i==a && s[i]!='-') || (i!=a && s[i]=='-')) isPos = false;
+//     }
+//     if(isPos) out("Yes");
+//     else out("No");
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,28 +60,13 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int a, b;
-    cin >> a >> b;
-    string s;
-    cin >> s;
-    bool isPostel = true;
-    rep(i,s.size()){
-        if(i != a && s[i] == '-') isPostel = false;
-        else if(i == a && s[i] != '-') isPostel = false;
-    }
-    YesNo(isPostel);
+  int a, b;
+  string s;
+  cin >> a >> b >> s;
+  bool isPostel = true;
+  rep(i,s.size()){
+    if(i != a && s[i] == '-') isPostel = false;
+    else if(i == a && s[i] != '-') isPostel = false;
+  }
+  YesNo(isPostel);
 }
-
-/*
-int main(){
-    int a,b;
-    string s;
-    cin >> a >> b >> s;
-    bool isPos = true;
-    rep(i,s.size()){
-        if((i==a && s[i]!='-') || (i!=a && s[i]=='-')) isPos = false;
-    }
-    if(isPos) out("Yes");
-    else out("No");
-}
-*/
