@@ -1,3 +1,37 @@
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     vi a(n);
+//     int alice = 0, bob = 0;
+//     rep(i,n){
+//         cin >> a[i];
+//     }
+//     sort(all(a),greater<int>());
+//     rep(i,n){
+//         if(i % 2 == 0) alice += a[i];
+//         else bob += a[i];
+//     }
+//     out(alice - bob);
+// }
+
+// /*
+// int main(){
+//     int n,alice = 0,Bob = 0;
+//     cin >> n;
+//     vi a(n);
+//     rep(i,n){
+//         cin >> a[i];
+//     }
+//     sort(all(a),greater<int>{});
+//     rep(i,n){
+//         if(i % 2 == 0) alice += a[i];
+//         else Bob += a[i];
+//     }
+//     out(alice - Bob);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,34 +66,17 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n;
-    cin >> n;
-    vi a(n);
-    int alice = 0, bob = 0;
-    rep(i,n){
-        cin >> a[i];
-    }
-    sort(all(a),greater<int>());
-    rep(i,n){
-        if(i % 2 == 0) alice += a[i];
-        else bob += a[i];
-    }
-    out(alice - bob);
+  int n;
+  cin >> n;
+  vi a(n);
+  rep(i,n){
+    cin >> a[i];
+  }
+  sort(all(a),greater<int>());
+  int sumA=0,sumB=0;
+  rep(i,n){
+    if(i % 2 == 0) sumA += a[i];
+    else sumB += a[i];
+  }
+  out(sumA - sumB);
 }
-
-/*
-int main(){
-    int n,alice = 0,Bob = 0;
-    cin >> n;
-    vi a(n);
-    rep(i,n){
-        cin >> a[i];
-    }
-    sort(all(a),greater<int>{});
-    rep(i,n){
-        if(i % 2 == 0) alice += a[i];
-        else Bob += a[i];
-    }
-    out(alice - Bob);
-}
-*/

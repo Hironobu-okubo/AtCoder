@@ -1,3 +1,35 @@
+
+// int main(){
+//     int a, b, c, x;
+//     cin >> a >> b >> c >> x;
+//     int count = 0;
+//     rep(i,a + 1){
+//         rep(j,b + 1){
+//             rep(k,c + 1){
+//                 int sum = 500 * i + 100 * j + 50 * k;
+//                 if(sum == x) count++;
+//             }
+//         }
+//     }   
+//     out(count);
+// }
+
+
+// /*
+// int main(){
+//     int a,b,c,x,count = 0;
+//     cin >> a >> b >> c >> x;
+//     reps(i,0,a + 1){
+//         reps(j,0,b + 1){
+//             reps(k,0,c + 1){
+//                 if(500 * i + 100 * j + 50 * k == x) count++; 
+//             }
+//         }
+//     }
+//     out(count);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,32 +64,17 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int a, b, c, x;
-    cin >> a >> b >> c >> x;
-    int count = 0;
-    rep(i,a + 1){
-        rep(j,b + 1){
-            rep(k,c + 1){
-                int sum = 500 * i + 100 * j + 50 * k;
-                if(sum == x) count++;
-            }
+  int a,b,c,x;
+  cin >> a >> b >> c >> x;
+  int sum = 0,num = 0;
+  repp(i,a){
+    repp(j,b){
+      repp(k,c){
+        if(sum = i * 500 + j * 100 + k * 50 == x){
+          num++;
         }
-    }   
-    out(count);
-}
-
-
-/*
-int main(){
-    int a,b,c,x,count = 0;
-    cin >> a >> b >> c >> x;
-    reps(i,0,a + 1){
-        reps(j,0,b + 1){
-            reps(k,0,c + 1){
-                if(500 * i + 100 * j + 50 * k == x) count++; 
-            }
-        }
+      }
     }
-    out(count);
+  }
+  out(num);
 }
-*/
