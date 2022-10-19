@@ -1,3 +1,27 @@
+
+// int main(){
+//     int a, b, k;
+//     cin >> a >> b  >> k;
+//     int count = 0;
+//     reps(i,a,b + 1){
+//         if(i < a + k || i > b - k) out(i);
+//     }
+// }
+
+
+
+
+
+// /*
+// int main(){
+//     int a, b, k,index = 0;
+//     cin >> a >> b >> k;
+//     for(int i = a; i <= b; i++){
+//         if(i < a + k || i > b - k) out(i);
+//     }
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,24 +56,9 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int a, b, k;
-    cin >> a >> b  >> k;
-    int count = 0;
-    reps(i,a,b + 1){
-        if(i < a + k || i > b - k) out(i);
-    }
+  int a,b,k;
+  cin >> a >> b >> k;
+  reps(i,a,b+1){
+    if(i < (a + k) || (b - k) < i) out(i);
+  }
 }
-
-
-
-
-
-/*
-int main(){
-    int a, b, k,index = 0;
-    cin >> a >> b >> k;
-    for(int i = a; i <= b; i++){
-        if(i < a + k || i > b - k) out(i);
-    }
-}
-*/
