@@ -1,3 +1,33 @@
+
+// int main(){
+//     int n, d, x;
+//     cin >> n >> d >> x;
+//     vi a(n);
+//     rep(i,n) cin >> a[i];
+//     int sum = 0;
+//     rep(i,n){
+//         for(int j = 1; j <= d; j += a[i]) sum++;
+//     }
+//     out(sum + x);
+// }
+// /*
+// int main(){
+//     int n,d,x,total = 0;
+//     cin >> n >> d >> x;
+//     vi a(n);
+//     rep(i,n){
+//         cin >> a[i];
+//     }
+//     total = x;
+//     rep(i,d){
+//         rep(j,n){
+//             if(i == 0 || i % a[j] == 0) total++;
+//         }
+//     }
+//     out(total);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,30 +62,19 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n, d, x;
-    cin >> n >> d >> x;
-    vi a(n);
-    rep(i,n) cin >> a[i];
-    int sum = 0;
-    rep(i,n){
-        for(int j = 1; j <= d; j += a[i]) sum++;
+  int n,d,x;
+  cin >> n >> d >> x;
+  int sum = x;
+  rep(i,n){
+    int a;
+    cin >> a;
+    int tmp = 1;
+    int count = 0;
+    while(tmp <= d){
+      tmp += a;
+      count++;
     }
-    out(sum + x);
+    sum += count;
+  }
+  out(sum);
 }
-/*
-int main(){
-    int n,d,x,total = 0;
-    cin >> n >> d >> x;
-    vi a(n);
-    rep(i,n){
-        cin >> a[i];
-    }
-    total = x;
-    rep(i,d){
-        rep(j,n){
-            if(i == 0 || i % a[j] == 0) total++;
-        }
-    }
-    out(total);
-}
-*/
