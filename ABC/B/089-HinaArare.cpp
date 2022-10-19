@@ -1,3 +1,32 @@
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     set<char> se;
+//     rep(i,n){
+//         char s;
+//         cin >> s;
+//         se.insert(s);
+//     }
+//     if(se.size() == 3) out("Three");
+//     else out("Four");
+// }
+// /*
+// int main(){
+//     int n;
+//     bool isFour = false;
+//     cin >> n;
+//     vs a(n);
+//     rep(i,n){
+//         cin >> a[i];
+//         if(a[i] == "Y") isFour = true;
+//     }
+//     if(isFour) out("Four");
+//     else out("Three"); 
+    
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,29 +61,17 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n;
-    cin >> n;
-    set<char> se;
-    rep(i,n){
-        char s;
-        cin >> s;
-        se.insert(s);
+  int n;
+  cin >> n;
+  bool isFour = false;
+  rep(i,n){
+    string s;
+    cin >> s;
+    if(s == "Y"){
+      isFour = true;
+      break;
     }
-    if(se.size() == 3) out("Three");
-    else out("Four");
+  }
+  if(isFour) out("Four");
+  else out("Three");
 }
-/*
-int main(){
-    int n;
-    bool isFour = false;
-    cin >> n;
-    vs a(n);
-    rep(i,n){
-        cin >> a[i];
-        if(a[i] == "Y") isFour = true;
-    }
-    if(isFour) out("Four");
-    else out("Three"); 
-    
-}
-*/
