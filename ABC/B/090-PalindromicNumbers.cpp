@@ -1,3 +1,34 @@
+
+// int main(){
+//     int a, b;
+//     cin >> a >> b;
+//     int count = 0;
+//     reps(i,a,b + 1){
+//         string tmp = to_string(i);
+//         if(tmp[0] == tmp[4]){
+//             if(tmp[1] == tmp[3]){
+//                 count++;
+//             }
+//         }
+//     }
+//     out(count);
+// }
+
+// /*
+// int main(){
+//     int a,b,count = 0;
+//     cin >> a >> b;
+//     for(int i = a; i <= b; i++){
+//         string sti = to_string(i);
+//         if(sti[0] == sti[4] && sti[1] == sti[3]){
+//             count++;
+//         }
+//     }
+//     out(count);
+
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,31 +63,15 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int a, b;
-    cin >> a >> b;
-    int count = 0;
-    reps(i,a,b + 1){
-        string tmp = to_string(i);
-        if(tmp[0] == tmp[4]){
-            if(tmp[1] == tmp[3]){
-                count++;
-            }
-        }
+  int a,b;
+  cin >> a >> b;
+  int ans = 0;
+  reps(i,a,b+1){
+    int num = i;
+    string s = to_string(i);
+    if(s[0] == s[4] && s[1] == s[3]){
+      ans++;
     }
-    out(count);
+  }
+  out(ans);
 }
-
-/*
-int main(){
-    int a,b,count = 0;
-    cin >> a >> b;
-    for(int i = a; i <= b; i++){
-        string sti = to_string(i);
-        if(sti[0] == sti[4] && sti[1] == sti[3]){
-            count++;
-        }
-    }
-    out(count);
-
-}
-*/
