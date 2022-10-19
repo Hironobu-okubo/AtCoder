@@ -1,3 +1,43 @@
+
+// int main(){
+//     int n,x;
+//     cin >> n >> x;
+//     vi a(n);
+//     int minDonuts = INF32,count = 0,total = x;
+//     rep(i,n){
+//         cin >> a[i];
+//         minDonuts = min(minDonuts,a[i]);
+//         total -= a[i];
+//         count++;
+//     }
+//     while(true){
+//         total -= minDonuts;
+//         if(total < 0) break;
+//         count++;
+//     }
+//     out(count);
+// }
+
+
+// /*
+// int main(){
+//     int n,x,count = 0,min = 1000;
+//     cin >> n >> x;
+//     vi m(n);
+//     rep(i,n){
+//         cin >> m[i];
+//         x -= m[i];
+//         count++;
+//         if(m[i] < min) min = m[i];
+//     }
+//     while(x >= min){
+//         x -= min;
+//         count++;
+//     }
+//     out(count);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,40 +72,23 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n,x;
-    cin >> n >> x;
-    vi a(n);
-    int minDonuts = INF32,count = 0,total = x;
-    rep(i,n){
-        cin >> a[i];
-        minDonuts = min(minDonuts,a[i]);
-        total -= a[i];
-        count++;
+  int n,x;
+  cin >> n >> x;
+  vi m(n);
+  int count = 0, minPrice = INF32,minNum = 0;
+  rep(i,n){
+    cin >> m[i];
+    x -= m[i];
+    count++;
+    if(minPrice > m[i]){
+      minPrice = m[i];
+      minNum = i;
     }
-    while(true){
-        total -= minDonuts;
-        if(total < 0) break;
-        count++;
-    }
-    out(count);
+  }
+  while(true){
+    x -= m[minNum];
+    if(x < 0) break;
+    count++;
+  }
+  out(count);
 }
-
-
-/*
-int main(){
-    int n,x,count = 0,min = 1000;
-    cin >> n >> x;
-    vi m(n);
-    rep(i,n){
-        cin >> m[i];
-        x -= m[i];
-        count++;
-        if(m[i] < min) min = m[i];
-    }
-    while(x >= min){
-        x -= min;
-        count++;
-    }
-    out(count);
-}
-*/
