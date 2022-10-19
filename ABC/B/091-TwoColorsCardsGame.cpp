@@ -1,3 +1,55 @@
+
+// int main(){
+//     int n, m;
+//     cin >> n;
+//     vs s(n),t(m);
+//     rep(i,n) cin >> s[i];
+//     cin >> m;
+//     rep(i,m) cin >> t[i];
+//     int ans = 0;
+//     rep(i,n){
+//         int count = 0;
+//         rep(j,n){
+//             if(s[i] == s[j]) count++;
+//         }
+//         rep(k,m){
+//             if(s[i] == t[k]) count--;
+//         }
+//         ans = max(ans,count);
+//     }
+//     out(ans);
+// }
+
+
+
+
+
+
+// /*
+// int main(){
+//     int n,m,ans = 0;
+//     vs s(101);
+//     vs t(101);
+//     cin >> n;
+//     rep(i,n) cin >> s[i];
+//     cin >> m;
+//     rep(i,m) cin >> t[i];
+
+//     rep(i,n){
+//         int point = 0;
+//         rep(j,n) {
+//             if(s[i] == s[j]) point++;
+//         }
+//         rep(j,m){
+//             if(s[i] == t[j]) point--;
+//         }
+//         ans = max(ans,point);
+        
+//     }
+//     out(ans);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,52 +84,24 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n, m;
-    cin >> n;
-    vs s(n),t(m);
-    rep(i,n) cin >> s[i];
-    cin >> m;
-    rep(i,m) cin >> t[i];
-    int ans = 0;
-    rep(i,n){
-        int count = 0;
-        rep(j,n){
-            if(s[i] == s[j]) count++;
-        }
-        rep(k,m){
-            if(s[i] == t[k]) count--;
-        }
-        ans = max(ans,count);
+  // map<string,int> card;
+  int n,m;
+  cin >> n;
+  vs s(n);
+  rep(i,n) cin >> s[i];
+  cin >> m;
+  vs t(m);
+  rep(i,m) cin >> t[i];
+  int ans = 0;
+  rep(i,n){
+    int count = 0;
+    rep(j,n){
+      if(s[i] == s[j]) count++;
     }
-    out(ans);
-}
-
-
-
-
-
-
-/*
-int main(){
-    int n,m,ans = 0;
-    vs s(101);
-    vs t(101);
-    cin >> n;
-    rep(i,n) cin >> s[i];
-    cin >> m;
-    rep(i,m) cin >> t[i];
-
-    rep(i,n){
-        int point = 0;
-        rep(j,n) {
-            if(s[i] == s[j]) point++;
-        }
-        rep(j,m){
-            if(s[i] == t[j]) point--;
-        }
-        ans = max(ans,point);
-        
+    rep(j,m){
+      if(s[i] == t[j]) count--;
     }
-    out(ans);
+    ans = max(ans,count);
+  }
+  out(ans);
 }
-*/
