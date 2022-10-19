@@ -1,3 +1,32 @@
+
+// int main(){
+//     int n, m, x;
+//     cin >> n >> m >> x;
+//     vi a(n);
+//     int costp = 0,costm = 0;
+//     rep(i,m){
+//         cin >> a[i];
+//         if(a[i] < x ) costm++;
+//         else costp++;
+//     }
+//     out(min(costp,costm));
+// }
+
+
+// /*
+// int main(){
+//     int n,m,x,plus = 0,minus = 0;
+//     cin >> n >> m >> x;
+//     vi a(m);
+//     rep(i,m) cin >> a[i];
+//     rep(i,m){
+//         if(a[i] < x) minus++;
+//         else plus++;
+//     }
+//     out(min(plus,minus));
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,29 +61,15 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n, m, x;
-    cin >> n >> m >> x;
-    vi a(n);
-    int costp = 0,costm = 0;
-    rep(i,m){
-        cin >> a[i];
-        if(a[i] < x ) costm++;
-        else costp++;
-    }
-    out(min(costp,costm));
+  int n,m,x;
+  cin >> n >> m >> x;
+  int left = 0, right = 0,ans;
+  rep(i,m){
+    int a;
+    cin >> a;
+    if(x > a) left++;
+    else right++;
+  }
+  ans = min(left,right);
+  out(ans);
 }
-
-
-/*
-int main(){
-    int n,m,x,plus = 0,minus = 0;
-    cin >> n >> m >> x;
-    vi a(m);
-    rep(i,m) cin >> a[i];
-    rep(i,m){
-        if(a[i] < x) minus++;
-        else plus++;
-    }
-    out(min(plus,minus));
-}
-*/
