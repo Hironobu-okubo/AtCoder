@@ -1,3 +1,58 @@
+
+// int main(){
+//     int n;
+//     string s;
+//     cin >> n >> s;
+//     int ans = 0;
+//     reps(i,1,n){
+//         int cnt = 0;
+//         for(char j = 'a'; j <= 'z'; j++){
+//             bool left = false, right = false;
+//             rep(k,i){
+//                 if(s[k] == j){
+//                     left = true;
+//                     break;
+//                 }
+//             }
+//             reps(k,i,n){
+//                 if(s[k] == j){
+//                     right = true;
+//                     break;
+//                 }
+//             }
+//             if(left && right) cnt++;
+//         }
+//         ans = max(ans,cnt);
+//     }
+//     out(ans);
+// }
+
+
+
+// /*
+// int main(){
+//     int n;
+//     string s;
+//     cin >> n >> s;
+//     int ans = 0;
+//     reps(i,1,n){
+//         int count = 0;
+//         for(char c = 'a'; c <= 'z'; c++){
+//             bool left = false, right = false;
+//             for(int j = 0;j < i;j++){
+//                 if(s[j] == c) left = true;
+//             }
+//             for(int j = i; j < n;j++){
+//                 if(s[j] == c) right = true;
+//             }
+//             if(left && right) count++;      
+//         }
+//         if(ans < count) ans = count;
+//     }
+//     out(ans);
+// }]
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,55 +87,30 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n;
-    string s;
-    cin >> n >> s;
-    int ans = 0;
-    reps(i,1,n){
-        int cnt = 0;
-        for(char j = 'a'; j <= 'z'; j++){
-            bool left = false, right = false;
-            rep(k,i){
-                if(s[k] == j){
-                    left = true;
-                    break;
-                }
-            }
-            reps(k,i,n){
-                if(s[k] == j){
-                    right = true;
-                    break;
-                }
-            }
-            if(left && right) cnt++;
+  int n;
+  string s;
+  cin >> n >> s;
+  int ans = 0;
+  reps(i,1,n){
+    int sum = 0;
+    for(char j = 'a'; j <= 'z'; j++){
+      int count = 0;
+      rep(k,i){
+        if(s[k] == j){
+          count++;
+          break;
         }
-        ans = max(ans,cnt);
+      }
+      reps(k,i,n){
+        if(s[k] == j){
+          count++;
+          break;
+        }
+      }
+      // cout << count << " " << j << endl;
+      if(count == 2)sum++;
     }
-    out(ans);
+    ans = max(ans,sum);
+  }
+  out(ans);
 }
-
-
-
-/*
-int main(){
-    int n;
-    string s;
-    cin >> n >> s;
-    int ans = 0;
-    reps(i,1,n){
-        int count = 0;
-        for(char c = 'a'; c <= 'z'; c++){
-            bool left = false, right = false;
-            for(int j = 0;j < i;j++){
-                if(s[j] == c) left = true;
-            }
-            for(int j = i; j < n;j++){
-                if(s[j] == c) right = true;
-            }
-            if(left && right) count++;      
-        }
-        if(ans < count) ans = count;
-    }
-    out(ans);
-}]
-*/
