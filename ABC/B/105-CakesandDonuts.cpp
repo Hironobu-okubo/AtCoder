@@ -1,3 +1,33 @@
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     bool isEleven = false;
+//     rep(i,n){
+//         rep(j,n){
+//             if(4 * i + 7 * j == n) isEleven = true;
+//         }
+//     }
+//     YesNo(isEleven);
+// }
+
+// /*
+// int main(){
+//     int n,sum = 0;
+//     cin >> n;
+//     string ans = "No";
+//     rep(i,100){
+//         rep(j,100){
+//             sum = 4 * i + 7 * j;
+//             if(sum == n){
+//                 ans = "Yes";
+//             }
+//         }
+//     }
+//     out(ans);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,30 +62,13 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n;
-    cin >> n;
-    bool isEleven = false;
-    rep(i,n){
-        rep(j,n){
-            if(4 * i + 7 * j == n) isEleven = true;
-        }
+  int n;
+  cin >> n;
+  bool isN = false; 
+  rep(i,100){
+    rep(j,100){
+      if(i * 4 + j * 7 == n) isN = true;
     }
-    YesNo(isEleven);
+  }
+  YesNo(isN);
 }
-
-/*
-int main(){
-    int n,sum = 0;
-    cin >> n;
-    string ans = "No";
-    rep(i,100){
-        rep(j,100){
-            sum = 4 * i + 7 * j;
-            if(sum == n){
-                ans = "Yes";
-            }
-        }
-    }
-    out(ans);
-}
-*/
