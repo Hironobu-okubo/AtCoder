@@ -1,3 +1,25 @@
+
+// int main(){
+//     int d,n;
+//     cin >> d >> n;
+//     int tmp;
+//     if(n == 100) tmp = pow(100,d) * 101;
+//     else tmp = pow(100,d) * n;
+//     out(tmp);
+// }
+
+
+
+// /*
+// int main(){
+//     ll d, n, num;
+//     cin >> d >> n;
+//     if(n == 100) num = pow(100,d) * 101;
+//     else num = pow(100,d) * n;
+//     out(num);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,22 +54,14 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int d,n;
-    cin >> d >> n;
-    int tmp;
-    if(n == 100) tmp = pow(100,d) * 101;
-    else tmp = pow(100,d) * n;
-    out(tmp);
+  int d,n;
+  cin >> d >> n;
+  int icr = pow(100,d), maxnum = n * icr;
+  for(int i = 0; i <= maxnum; i += icr){
+    if(icr == 1 && i == 100) i = 101;
+    if(icr == 100 && i == 10000) i = 10100;
+    if(icr == 10000 && i == 1000000) i = 1010000;
+    if(i < maxnum) continue;
+    out(i);
+  }
 }
-
-
-
-/*
-int main(){
-    ll d, n, num;
-    cin >> d >> n;
-    if(n == 100) num = pow(100,d) * 101;
-    else num = pow(100,d) * n;
-    out(num);
-}
-*/

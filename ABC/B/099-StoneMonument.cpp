@@ -1,3 +1,30 @@
+
+// int main(){
+//     int a, b;
+//     cin >> a >> b;
+//     int dif = b - a;
+//     int tmp = 0;
+//     rep(i,dif){
+//         tmp += i;
+//     }
+//     out(tmp - a);
+// }
+
+
+
+// /*
+// int main(){
+//     int a,b;
+//     cin >> a >> b;
+//     int diff = b - a;
+//     int len_a = 0;
+//     rep(i,diff){
+//         len_a += i;
+//     }
+//     out(len_a - a);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -28,27 +55,12 @@ using pii = pair<int, int>;
 #define out(x) cout << x << endl
 
 int main(){
-    int a, b;
-    cin >> a >> b;
-    int dif = b - a;
-    int tmp = 0;
-    rep(i,dif){
-        tmp += i;
-    }
-    out(tmp - a);
+  int a,b;
+  cin >> a >> b;
+  int c = b - a;
+  int lena = 0;
+  rep(i,c){
+    lena += i;
+  }
+  out(lena - a);
 }
-
-
-
-/*
-int main(){
-    int a,b;
-    cin >> a >> b;
-    int diff = b - a;
-    int len_a = 0;
-    rep(i,diff){
-        len_a += i;
-    }
-    out(len_a - a);
-}
-*/
