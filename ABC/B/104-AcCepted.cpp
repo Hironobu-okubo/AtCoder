@@ -1,3 +1,44 @@
+
+// int main(){
+//     string s;
+//     cin >> s;
+//     bool isAtCoder = true;
+//     if(s[0] != 'A') isAtCoder = false;
+//     int count = 0;
+//     reps(i,1,s.size()){
+//         if(isupper(s[i])){
+//             if(i == 1 || i == s.size() - 1 || s[i] != 'C'){
+//                 isAtCoder = false;
+//             }
+//             count++;
+//         }
+//     }
+//     if(count != 1) isAtCoder = false;
+//     if(isAtCoder) out("AC");
+//     else out("WA");
+// }
+
+
+// /*
+// int main(){
+//     string s;
+//     cin >> s;
+//     string ans = "AC";
+//     if(s[0] != 'A') ans = "WA";
+//     int count = 0;
+//     for(int i = 1; i < s.size(); i++){
+//         if(isupper(s[i])){
+//             if(i == 1 || i == s.size() - 1 || s[i] != 'C'){
+//                 ans = "WA"; 
+//             }
+//             count++;
+//         }
+//     }
+//     if(count != 1) ans = "WA";
+//     out(ans);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,42 +72,20 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-int main(){
-    string s;
-    cin >> s;
-    bool isAtCoder = true;
-    if(s[0] != 'A') isAtCoder = false;
-    int count = 0;
-    reps(i,1,s.size()){
-        if(isupper(s[i])){
-            if(i == 1 || i == s.size() - 1 || s[i] != 'C'){
-                isAtCoder = false;
-            }
-            count++;
-        }
-    }
-    if(count != 1) isAtCoder = false;
-    if(isAtCoder) out("AC");
-    else out("WA");
-}
 
-
-/*
 int main(){
-    string s;
-    cin >> s;
-    string ans = "AC";
-    if(s[0] != 'A') ans = "WA";
-    int count = 0;
-    for(int i = 1; i < s.size(); i++){
-        if(isupper(s[i])){
-            if(i == 1 || i == s.size() - 1 || s[i] != 'C'){
-                ans = "WA"; 
-            }
-            count++;
-        }
-    }
-    if(count != 1) ans = "WA";
-    out(ans);
+  string s;
+  cin >> s;
+  bool isAcp = true;
+  if(s[0] != 'A') isAcp = false;
+  if(isupper(s[1])) isAcp = false;
+  int cnt = 0;
+  reps(i,2,s.size() - 1){
+    if(s[i] == 'C') cnt++;
+    else if(isupper(s[i])) isAcp = false;
+  }
+  if(cnt != 1) isAcp = false;
+  if(isupper(s[s.size() - 1])) isAcp = false;
+  if(isAcp) out("AC");
+  else out("WA");
 }
-*/
