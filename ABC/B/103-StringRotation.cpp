@@ -1,3 +1,42 @@
+
+// int main(){
+//     string s, t;
+//     cin >> s >> t;
+//     bool isEqual = false;
+//     rep(i,s.size()){
+//         int nxt = s.size() - 1;
+//         char tmp = s[nxt];
+//         while(true){
+//             s[nxt] = s[nxt - 1];
+//             nxt--;
+//             if(nxt == 0) break;
+//         }
+//         s[0] = tmp;
+//         if(s == t) isEqual = true;
+//     }
+//     YesNo(isEqual);
+// }
+
+
+
+
+// /*
+// int main(){
+//     string s,t;
+//     cin >> s >> t;
+//     int len = s.size();
+//     rep(i,len){
+//         s = s[len - 1] + s.substr(0,len - 1);
+//         if(s == t){
+//             out("Yes");
+//             exit(0);
+//         }
+//     }
+//     out("No");
+    
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,39 +71,21 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    string s, t;
-    cin >> s >> t;
-    bool isEqual = false;
-    rep(i,s.size()){
-        int nxt = s.size() - 1;
-        char tmp = s[nxt];
-        while(true){
-            s[nxt] = s[nxt - 1];
-            nxt--;
-            if(nxt == 0) break;
-        }
-        s[0] = tmp;
-        if(s == t) isEqual = true;
+  string s,t;
+  cin >> s >> t;
+  bool isEqual = false;
+  rep(i,s.size()){
+    char tmp = s[s.size() - 1];
+    int nxt = 1;
+    while(nxt < s.size()){
+      s[s.size() - nxt] = s[s.size() - nxt - 1];
+      nxt++;
+      if(nxt == s.size()) s[s.size() - nxt] = tmp;
     }
-    YesNo(isEqual);
-}
-
-
-
-
-/*
-int main(){
-    string s,t;
-    cin >> s >> t;
-    int len = s.size();
-    rep(i,len){
-        s = s[len - 1] + s.substr(0,len - 1);
-        if(s == t){
-            out("Yes");
-            exit(0);
-        }
+    if(s == t){
+      isEqual = true;
+      break;
     }
-    out("No");
-    
+  }
+  YesNo(isEqual);
 }
-*/
