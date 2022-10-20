@@ -1,3 +1,43 @@
+
+
+
+// int main(){
+//     int x;
+//     cin >> x;
+//     int ans = 1;
+//     for(int i = 3; i <= x; i++){
+//         for(int j = 2; j <= i; j++){
+//             int tmp = 1;
+//             int count = 0;
+//             while(true){
+//                 tmp *= j;
+//                 if(tmp >= i) break;
+//                 count++;
+//             }
+//             if(tmp == i && count > 0){
+//                 ans = i;
+//                 break;
+//             }
+//         }
+//     }
+//     out(ans);
+// }
+
+
+
+// /*
+// int main(){
+//     int x,ans = 1;
+//     cin >> x;
+//     reps(i,2,x){
+//         int exp = i * i;
+//         while(exp <= x){
+//             ans = max(ans,exp);
+//             exp *= i;
+//         }
+//     }
+//     out(ans);
+// }
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,40 +72,15 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int x;
-    cin >> x;
-    int ans = 1;
-    for(int i = 3; i <= x; i++){
-        for(int j = 2; j <= i; j++){
-            int tmp = 1;
-            int count = 0;
-            while(true){
-                tmp *= j;
-                if(tmp >= i) break;
-                count++;
-            }
-            if(tmp == i && count > 0){
-                ans = i;
-                break;
-            }
-        }
+  int x;
+  cin >> x;
+  int maxNum = 1;
+  reps(i,2,x){
+    int y = i * i;
+    while(y <= x){
+      maxNum = max(maxNum,y);
+      y *= i;
     }
-    out(ans);
+  }
+  out(maxNum);
 }
-
-
-
-/*
-int main(){
-    int x,ans = 1;
-    cin >> x;
-    reps(i,2,x){
-        int exp = i * i;
-        while(exp <= x){
-            ans = max(ans,exp);
-            exp *= i;
-        }
-    }
-    out(ans);
-}
-*/

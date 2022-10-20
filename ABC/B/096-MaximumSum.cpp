@@ -1,3 +1,21 @@
+
+// int main(){
+//     int a,b,c,k;
+//     cin >> a >> b >> c >> k;
+//     out(a + b + c + max({a, b, c}) * (pow(2,k) - 1));
+// }
+
+
+
+
+// /*
+// int main(){
+//     int a,b,c,k;
+//     cin >> a >> b >> c >> k;
+//     out(a + b + c + max({a,b,c}) * (pow(2,k) - 1));
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,18 +50,8 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int a,b,c,k;
-    cin >> a >> b >> c >> k;
-    out(a + b + c + max({a, b, c}) * (pow(2,k) - 1));
+  int a,b,c,k;
+  cin >> a >> b >> c >> k;
+  int ans = (a + b + c + max({a,b,c}) * (pow(2,k) - 1));
+  out(ans);
 }
-
-
-
-
-/*
-int main(){
-    int a,b,c,k;
-    cin >> a >> b >> c >> k;
-    out(a + b + c + max({a,b,c}) * (pow(2,k) - 1));
-}
-*/
