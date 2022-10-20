@@ -1,3 +1,28 @@
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     vi a(n);
+//     rep(i,n) cin >> a[i];
+//     sort(all(a));
+//     out(abs(a[n - 1] - a[0]));
+// }
+
+// /*
+// int main(){
+//     int n,maxNum = 0,minNum = INF32;
+//     cin >> n;
+//     vi a(n);
+//     rep(i,n){
+//         cin >> a[i];
+//         maxNum = max(maxNum,a[i]);
+//         minNum = min(minNum,a[i]);
+//     }
+//     out(maxNum - minNum);
+
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,25 +57,10 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n;
-    cin >> n;
-    vi a(n);
-    rep(i,n) cin >> a[i];
-    sort(all(a));
-    out(abs(a[n - 1] - a[0]));
+  int n;
+  cin >> n;
+  vi a(n);
+  rep(i,n) cin >> a[i];
+  sort(all(a));
+  out(a[n - 1] - a[0]);
 }
-
-/*
-int main(){
-    int n,maxNum = 0,minNum = INF32;
-    cin >> n;
-    vi a(n);
-    rep(i,n){
-        cin >> a[i];
-        maxNum = max(maxNum,a[i]);
-        minNum = min(minNum,a[i]);
-    }
-    out(maxNum - minNum);
-
-}
-*/
