@@ -1,3 +1,33 @@
+
+// int main(){
+//     string n;
+//     cin >> n;
+//     int tmp = 0,sum = 0;
+//     rep(i,n.size()){
+//         tmp = int(n[i] - '0');
+//         sum += tmp;
+//     }
+//     if(stoi(n) % sum == 0) out("Yes");
+//     else out("No");
+// }
+
+
+
+
+// /*
+// int main(){
+//     string n,str;
+//     int sum = 0;
+//     cin >> n;
+//     rep(i,n.size()){
+//         sum += int(n[i] - '0');
+//     }
+//     int a = stoi(n);
+//     if(a % sum == 0) out("Yes");
+//     else out("No");
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,30 +62,12 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    string n;
-    cin >> n;
-    int tmp = 0,sum = 0;
-    rep(i,n.size()){
-        tmp = int(n[i] - '0');
-        sum += tmp;
-    }
-    if(stoi(n) % sum == 0) out("Yes");
-    else out("No");
+  string s;
+  cin >> s;
+  int sum = 0;
+  rep(i,s.size()){
+    sum += char(s[i] - '0');
+  }
+  if(stoi(s) % sum == 0)out("Yes");
+  else out("No");
 }
-
-
-
-
-/*
-int main(){
-    string n,str;
-    int sum = 0;
-    cin >> n;
-    rep(i,n.size()){
-        sum += int(n[i] - '0');
-    }
-    int a = stoi(n);
-    if(a % sum == 0) out("Yes");
-    else out("No");
-}
-*/
