@@ -1,3 +1,33 @@
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     reps(i,n,1000){
+//         string nn = to_string(i);
+//         if(nn[0] == nn[1] && nn[1] == nn[2]){
+//             out(i);
+//             return 0;
+//         }
+//     }
+// }
+
+
+// /*
+// int main(){
+//     int n;
+//     cin >> n;
+//     for(int i = n; i <= 999; i++){
+//         string stri = to_string(i);
+//         if(stri[0] == stri[1] && stri[1] == stri[2]){
+//             out(stri);
+//             exit(0);
+//         }
+//     }
+//     return 0;
+// }
+// */
+
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,29 +62,11 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n;
-    cin >> n;
-    reps(i,n,1000){
-        string nn = to_string(i);
-        if(nn[0] == nn[1] && nn[1] == nn[2]){
-            out(i);
-            return 0;
-        }
-    }
+  int n;
+  cin >> n;
+  reps(i,0,10){
+    int start = i * 100 + i * 10 + i;
+    int end = (i + 1) * 100 + (i + 1) * 10 + (i + 1);
+    if(start < n && n <= end) out(end);
+  }
 }
-
-
-/*
-int main(){
-    int n;
-    cin >> n;
-    for(int i = n; i <= 999; i++){
-        string stri = to_string(i);
-        if(stri[0] == stri[1] && stri[1] == stri[2]){
-            out(stri);
-            exit(0);
-        }
-    }
-    return 0;
-}
-*/

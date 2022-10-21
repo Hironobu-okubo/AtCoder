@@ -1,3 +1,44 @@
+
+// int main(){
+//     int n, T;
+//     cin >> n >> T;
+//     vi c(n),t(n);
+//     rep(i,n){
+//         cin >> c[i] >> t[i];
+//     }
+//     int minCost = INF32;
+//     bool isFind = false;
+//     rep(i,n){
+//         if(t[i] <= T){
+//             minCost = min(minCost,c[i]);
+//             isFind = true;
+//         }
+//     }
+//     if(isFind) out(minCost);
+//     else out("TLE");
+// }
+
+// /*
+// int main(){
+//     int N,T;
+//     cin >> N >> T;
+//     vi c(N);
+//     vi t(N);
+//     int minTime = INF32;
+//     rep(i,N){
+//         cin >> c[i] >> t[i];
+//     }
+//     rep(i,N){
+//         if(t[i] <= T){
+//             minTime = min(minTime,c[i]);
+//         }
+//     }
+//     if(minTime == INF32) out("TLE");
+//     else out(minTime);
+// }
+// */
+
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,40 +73,17 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n, T;
-    cin >> n >> T;
-    vi c(n),t(n);
-    rep(i,n){
-        cin >> c[i] >> t[i];
+  int n,t;
+  cin >> n >> t;
+  int minCost = 10000;
+  rep(i,n){
+    int c,tt;
+    cin >> c >> tt;
+    // cout << tt << " " << t << endl;
+    if(tt <= t){
+      minCost = min(minCost,c);
     }
-    int minCost = INF32;
-    bool isFind = false;
-    rep(i,n){
-        if(t[i] <= T){
-            minCost = min(minCost,c[i]);
-            isFind = true;
-        }
-    }
-    if(isFind) out(minCost);
-    else out("TLE");
+  }
+  if(minCost == 10000) out("TLE");
+  else out(minCost);
 }
-
-/*
-int main(){
-    int N,T;
-    cin >> N >> T;
-    vi c(N);
-    vi t(N);
-    int minTime = INF32;
-    rep(i,N){
-        cin >> c[i] >> t[i];
-    }
-    rep(i,N){
-        if(t[i] <= T){
-            minTime = min(minTime,c[i]);
-        }
-    }
-    if(minTime == INF32) out("TLE");
-    else out(minTime);
-}
-*/
