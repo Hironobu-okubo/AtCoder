@@ -1,3 +1,42 @@
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     vi p(n);
+//     rep(i,n){
+//         cin >> p[i];
+//     }
+//     sort(all(p));
+//     int sum = 0;
+//     rep(i,n){
+//         if(i == n - 1) sum += (p[i] / 2);
+//         else sum += p[i];
+//     }
+//     out(sum);
+// }
+
+
+
+// /*
+// int main(){
+//     int n;
+//     cin >> n;
+//     int maxNum = 0, sum = 0;
+//     vi p(n);
+//     rep(i,n){
+//         cin >> p[i];
+//         if(p[maxNum] < p[i]) maxNum = i;
+//     }
+//     rep(i,n){
+//         if(i == maxNum){
+//             sum += int(p[maxNum] / 2);
+//         }
+//         else sum += p[i];
+//     }
+//     out(sum);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,39 +71,21 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n;
-    cin >> n;
-    vi p(n);
-    rep(i,n){
-        cin >> p[i];
+  int n;
+  cin >> n;
+  vi p(n);
+  int maxPrice = 0,maxnum;
+  rep(i,n){
+    cin >> p[i];
+    if(maxPrice < p[i]){
+      maxPrice = p[i];
+      maxnum = i;
     }
-    sort(all(p));
-    int sum = 0;
-    rep(i,n){
-        if(i == n - 1) sum += (p[i] / 2);
-        else sum += p[i];
-    }
-    out(sum);
+  }
+  int sum = 0;
+  rep(i,n){
+    if(i == maxnum) sum += (p[i] / 2);
+    else sum += p[i];
+  }
+  out(sum);
 }
-
-
-
-/*
-int main(){
-    int n;
-    cin >> n;
-    int maxNum = 0, sum = 0;
-    vi p(n);
-    rep(i,n){
-        cin >> p[i];
-        if(p[maxNum] < p[i]) maxNum = i;
-    }
-    rep(i,n){
-        if(i == maxNum){
-            sum += int(p[maxNum] / 2);
-        }
-        else sum += p[i];
-    }
-    out(sum);
-}
-*/

@@ -1,3 +1,29 @@
+
+// int main(){
+//     string s;
+//     cin >> s;
+//     int minNum = INF32;
+//     rep(i,s.size() - 2){
+//         int tmp = int(s[i] - '0') * 100 + int(s[i + 1] - '0') * 10 + int(s[i + 2] - '0');
+//         minNum = min(minNum,abs(tmp - 753));
+//     }
+//     out(minNum);
+// }
+
+
+// /*
+// int main(){
+//     string s;
+//     cin >> s;
+//     int minNum = INF32;
+//     rep(i,s.size() - 2){
+//         int num = int(s[i] - '0') * 100 + int(s[i + 1] - '0') * 10 + int(s[i + 2] - '0');
+//         minNum = min(abs(num - 753),minNum);
+//     }
+//     out(minNum);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,28 +57,15 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-    string s;
-    cin >> s;
-    int minNum = INF32;
-    rep(i,s.size() - 2){
-        int tmp = int(s[i] - '0') * 100 + int(s[i + 1] - '0') * 10 + int(s[i + 2] - '0');
-        minNum = min(minNum,abs(tmp - 753));
-    }
-    out(minNum);
+  string s;
+  cin >> s;
+  int mindif = INF32;
+  rep(i,s.size() - 2){
+    string anss = s.substr(i,3);
+    int ansi = stoi(anss);
+    int dif = abs(ansi - 753);
+    mindif = min(mindif,dif);
+  }
+  out(mindif);
 }
-
-
-/*
-int main(){
-    string s;
-    cin >> s;
-    int minNum = INF32;
-    rep(i,s.size() - 2){
-        int num = int(s[i] - '0') * 100 + int(s[i + 1] - '0') * 10 + int(s[i + 2] - '0');
-        minNum = min(abs(num - 753),minNum);
-    }
-    out(minNum);
-}
-*/
