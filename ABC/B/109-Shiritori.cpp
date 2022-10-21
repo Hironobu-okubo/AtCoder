@@ -1,3 +1,58 @@
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     bool isShiri = true;
+//     vs s(n);
+//     set<string> se;
+//     rep(i,n){
+//         cin >> s[i];
+//     }
+//     se.insert(s[0]);
+//     reps(i,1,n){
+//         if(s[i - 1].back() != s[i][0]){
+//             isShiri = false;
+//             break;
+//         }
+//         if(se.count(s[i])){
+//             isShiri = false;
+//             break;
+//         }
+//         se.insert(s[i]);
+//     }
+//     YesNo(isShiri);
+
+// }
+
+// /*
+// int main(){
+//     int n;
+//     cin >> n;
+//     vs w(n);
+//     bool isShiritori = true;
+//     rep(i,n){
+//         cin >> w[i];
+//     }
+    
+//     for(int i = 1; i < n; i++){
+//         if(w[i - 1].at(w[i - 1].size()-1) != w[i].at(0)){
+//             out("No");
+//             exit(0);
+//         }
+//         rep(j,i){
+//             if(w[j] == w[i]){
+//                 isShiritori = false;
+//                 out("No");
+//                 exit(0);
+//             }
+//         }
+//     }
+    
+//     out("Yes");
+//     return 0;
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,55 +87,23 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n;
-    cin >> n;
-    bool isShiri = true;
-    vs s(n);
-    set<string> se;
-    rep(i,n){
-        cin >> s[i];
+  int n;
+  cin >> n;
+  vs w(n);
+  bool isShiri = true;
+  set<string> se;
+  string cur;
+  rep(i,n){
+    string s;
+    cin >> s;
+    if(i != 0){
+      // cout << cur[cur.size() - 1] << " " << s[0] << " ";
+      if(cur[cur.size() - 1] != s[0]) isShiri = false;
     }
-    se.insert(s[0]);
-    reps(i,1,n){
-        if(s[i - 1].back() != s[i][0]){
-            isShiri = false;
-            break;
-        }
-        if(se.count(s[i])){
-            isShiri = false;
-            break;
-        }
-        se.insert(s[i]);
-    }
-    YesNo(isShiri);
-
+    cur = s;
+    // out(se.count(s));
+    if(se.count(s)) isShiri = false;
+    se.insert(s);
+  }
+  YesNo(isShiri);
 }
-
-/*
-int main(){
-    int n;
-    cin >> n;
-    vs w(n);
-    bool isShiritori = true;
-    rep(i,n){
-        cin >> w[i];
-    }
-    
-    for(int i = 1; i < n; i++){
-        if(w[i - 1].at(w[i - 1].size()-1) != w[i].at(0)){
-            out("No");
-            exit(0);
-        }
-        rep(j,i){
-            if(w[j] == w[i]){
-                isShiritori = false;
-                out("No");
-                exit(0);
-            }
-        }
-    }
-    
-    out("Yes");
-    return 0;
-}
-*/

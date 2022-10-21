@@ -1,1 +1,1 @@
-cout << a[0] << " " << a[1] << " " << a[2] << endl;
+out(se.count(s));
