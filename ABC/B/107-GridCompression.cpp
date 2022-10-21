@@ -1,3 +1,65 @@
+
+// int main(){
+//     int h, w;
+//     cin >> h >> w;
+//     vs a(h);
+//     rep(i,h){
+//         cin >> a[i];
+//     }
+//     vector<bool> row(h,false);
+//     vector<bool> column(w,false);
+//     rep(i,h){
+//         rep(j,w){
+//             if(a[i][j] == '#'){
+//                 row[i] = true;
+//                 column[j] = true; 
+//             }
+//         }
+//     }
+//     rep(i,h){
+//         if(row[i]){
+//             rep(j,w){
+//                 if(column[j]) cout << a[i][j];
+//             }
+//             cout << endl;
+//         }
+//     }
+// }
+
+
+
+// /*
+// int main(){
+//     int h,w;
+//     cin >> h >> w;
+//     vector<string> ans(h);
+//     rep(i,h){
+//         cin >> ans[i];
+//     }
+//     vector<bool> row(h,false);
+//     vector<bool> col(w,false);
+//     rep(i,h){
+//         rep(j,w){
+//             if(ans[i][j] == '#'){
+//                 row[i] = true;
+//                 col[j] = true;
+//             }
+//         }
+//     }
+
+//     rep(i,h){
+//         if(row[i]){
+//             rep(j,w){
+//                 if(col[j]){
+//                     cout << ans[i][w];
+//                 }
+//             }
+//             cout << endl;
+//         }
+//     }
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,62 +94,44 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int h, w;
-    cin >> h >> w;
-    vs a(h);
-    rep(i,h){
-        cin >> a[i];
+  int h,w;
+  cin >> h >> w;
+  vector<vector<char>> a(h,vector<char>(w));
+  vector<vector<bool>> abool(h,vector<bool>(w));
+  vi col(h,0);
+  rep(i,h){
+    rep(j,w){
+      cin >> a[i][j];
+      abool[i][j] = true;
     }
-    vector<bool> row(h,false);
-    vector<bool> column(w,false);
-    rep(i,h){
-        rep(j,w){
-            if(a[i][j] == '#'){
-                row[i] = true;
-                column[j] = true; 
-            }
-        }
+  }
+  rep(i,h){
+    rep(j,w){
+      if(a[i][j] == '.') col[i] += 1;
     }
-    rep(i,h){
-        if(row[i]){
-            rep(j,w){
-                if(column[j]) cout << a[i][j];
-            }
-            cout << endl;
-        }
+    if(col[i] == w){
+      rep(j,w){
+        abool[i][j] = false;
+      }
     }
+  }
+  rep(j,w){
+    int row = 0;
+    rep(i,h){
+      if(a[i][j] == '.') row++;
+    }
+    if(row == h){
+      rep(i,h){
+        abool[i][j] = false;
+      }
+    }
+  }
+  rep(i,h){
+    rep(j,w){
+      if(abool[i][j] == true){
+        cout << a[i][j];
+      }
+    }
+    if(col[i] != w) cout << endl;
+  }
 }
-
-
-
-/*
-int main(){
-    int h,w;
-    cin >> h >> w;
-    vector<string> ans(h);
-    rep(i,h){
-        cin >> ans[i];
-    }
-    vector<bool> row(h,false);
-    vector<bool> col(w,false);
-    rep(i,h){
-        rep(j,w){
-            if(ans[i][j] == '#'){
-                row[i] = true;
-                col[j] = true;
-            }
-        }
-    }
-
-    rep(i,h){
-        if(row[i]){
-            rep(j,w){
-                if(col[j]){
-                    cout << ans[i][w];
-                }
-            }
-            cout << endl;
-        }
-    }
-}
-*/
