@@ -1,3 +1,42 @@
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     vi l(n);
+//     rep(i,n){
+//         cin >> l[i];
+//     }
+//     sort(all(l));
+//     int sum = 0,maxNum;
+//     rep(i,n){
+//         if(i == n - 1) maxNum = l[i];
+//         else sum += l[i]; 
+//     }
+//     if(maxNum < sum) out("Yes");
+//     else out("No");
+// }
+
+
+
+
+// /*
+// int main(){
+//     int n, id = 0,sum = 0,maxLen;
+//     cin >> n;
+//     vi l(n);
+//     rep(i,n){
+//         cin >> l[i];
+//         if(l[id] < l[i]) id = i;
+//     }
+//     rep(i,n){
+//         if(i == id) maxLen = l[id];
+//         else sum += l[i];
+//     }
+//     if(sum > maxLen) out("Yes");
+//     else out("No");
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,39 +71,19 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n;
-    cin >> n;
-    vi l(n);
-    rep(i,n){
-        cin >> l[i];
-    }
-    sort(all(l));
-    int sum = 0,maxNum;
-    rep(i,n){
-        if(i == n - 1) maxNum = l[i];
-        else sum += l[i]; 
-    }
-    if(maxNum < sum) out("Yes");
-    else out("No");
+  int n;
+  cin >> n;
+  vi l(n);
+  rep(i,n){
+    cin >> l[i];
+  }
+  sort(all(l));
+  int maxlen = l[l.size() - 1];
+  int sum = 0;
+  rep(i,n - 1){
+    sum += l[i];
+  }
+  // cout << sum << " " << maxlen << " ";
+  if(sum > maxlen) out("Yes");
+  else out("No");
 }
-
-
-
-
-/*
-int main(){
-    int n, id = 0,sum = 0,maxLen;
-    cin >> n;
-    vi l(n);
-    rep(i,n){
-        cin >> l[i];
-        if(l[id] < l[i]) id = i;
-    }
-    rep(i,n){
-        if(i == id) maxLen = l[id];
-        else sum += l[i];
-    }
-    if(sum > maxLen) out("Yes");
-    else out("No");
-}
-*/
