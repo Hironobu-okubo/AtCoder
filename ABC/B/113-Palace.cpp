@@ -1,3 +1,44 @@
+
+// int main(){
+//     int n,t,a;
+//     cin >> n >> t >> a;
+//     vi h(n);
+//     rep(i,n){
+//         cin >> h[i];
+//     }
+//     double minDif = INF32;
+//     int minNum;
+//     rep(i,n){
+//         double temp = t - h[i] * 0.006;
+//         double dif = abs(temp - a);
+//         if(minDif > dif){
+//             minDif = dif;
+//             minNum = i + 1;
+//         }
+//     }
+//     out(minNum);
+// }
+
+
+
+// /*
+// int main(){
+//     int n,t,a,minNum = 0;
+//     cin >> n >> t >> a;
+//     vi h(n);
+//     double ave = INF32;
+//     rep(i,n){
+//         cin >> h[i];
+//         double temp = t - h[i] * 0.006;
+//         if(abs(temp - a) < ave){
+//             ave = abs(temp - a);
+//             minNum = i + 1;
+//         }
+//     }
+//     out(minNum);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,41 +73,21 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n,t,a;
-    cin >> n >> t >> a;
-    vi h(n);
-    rep(i,n){
-        cin >> h[i];
+  int n,t,a;
+  cin >> n >> t >> a;
+  vi h(n);
+  rep(i,n){
+    cin >> h[i];
+  }
+  int minnum;
+  double minh = INF32;
+  rep(i,n){
+    double temp = t - h[i] * 0.006;
+    double h = abs(temp - a);
+    if(minh > h){
+      minh = h;
+      minnum = i;
     }
-    double minDif = INF32;
-    int minNum;
-    rep(i,n){
-        double temp = t - h[i] * 0.006;
-        double dif = abs(temp - a);
-        if(minDif > dif){
-            minDif = dif;
-            minNum = i + 1;
-        }
-    }
-    out(minNum);
+  }
+  out(minnum + 1);
 }
-
-
-
-/*
-int main(){
-    int n,t,a,minNum = 0;
-    cin >> n >> t >> a;
-    vi h(n);
-    double ave = INF32;
-    rep(i,n){
-        cin >> h[i];
-        double temp = t - h[i] * 0.006;
-        if(abs(temp - a) < ave){
-            ave = abs(temp - a);
-            minNum = i + 1;
-        }
-    }
-    out(minNum);
-}
-*/
