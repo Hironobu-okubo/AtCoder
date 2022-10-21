@@ -1,3 +1,58 @@
+
+// int main(){
+//     int n, m, X, Y;
+//     cin >> n >> m >> X >> Y;
+//     vi x(n);
+//     vi y(m);
+//     rep(i,n){
+//         cin >> x[i];
+//     }
+//     rep(i,m){
+//         cin >> y[i];
+//     }
+//     sort(all(x));
+//     sort(all(y));
+//     bool noWar = false;
+//     reps(i,X + 1,Y + 1){
+//        if(x[x.size() - 1] < i && i <= y[0]) noWar = true;
+//     }
+//     if(noWar) out("No War");
+//     else out("War");
+// }
+
+
+
+// /*
+// int main(){
+//     int n,m,X,Y;
+//     cin >> n >> m >> X >> Y;
+//     vi x(n);
+//     vi y(m);
+//     rep(i,n){
+//         cin >> x[i];
+//     }
+//     rep(i,m){
+//         cin >> y[i];
+//     }
+ 
+//     for(int i = X + 1; i < Y; i++){
+//         bool isNoWar = true;
+//         rep(j,n){
+//             if(x[j] >= i) isNoWar = false;
+//         }
+//         rep(j,m){
+//             if(y[j] < i) isNoWar = false;
+//         }
+//         if(isNoWar){
+//             out("No War");
+//             return 0;
+//         }
+//     }
+//     out("War");
+
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,55 +87,17 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n, m, X, Y;
-    cin >> n >> m >> X >> Y;
-    vi x(n);
-    vi y(m);
-    rep(i,n){
-        cin >> x[i];
-    }
-    rep(i,m){
-        cin >> y[i];
-    }
-    sort(all(x));
-    sort(all(y));
-    bool noWar = false;
-    reps(i,X + 1,Y + 1){
-       if(x[x.size() - 1] < i && i <= y[0]) noWar = true;
-    }
-    if(noWar) out("No War");
-    else out("War");
+  int n,m,x,y;
+  cin >> n >> m >> x >> y;
+  vi xx(n), yy(m);
+  rep(i,n) cin >> xx[i];
+  rep(i,m) cin >> yy[i];
+  sort(all(xx));
+  sort(all(yy));
+  bool isWar = false;
+  reps(i,x,y + 1){
+    if(xx.back() < i && yy[0] >= i)isWar = true;
+  }
+  if(isWar) out("No War");
+  else out("War"); 
 }
-
-
-
-/*
-int main(){
-    int n,m,X,Y;
-    cin >> n >> m >> X >> Y;
-    vi x(n);
-    vi y(m);
-    rep(i,n){
-        cin >> x[i];
-    }
-    rep(i,m){
-        cin >> y[i];
-    }
- 
-    for(int i = X + 1; i < Y; i++){
-        bool isNoWar = true;
-        rep(j,n){
-            if(x[j] >= i) isNoWar = false;
-        }
-        rep(j,m){
-            if(y[j] < i) isNoWar = false;
-        }
-        if(isNoWar){
-            out("No War");
-            return 0;
-        }
-    }
-    out("War");
-
-}
-*/
