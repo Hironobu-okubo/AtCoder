@@ -1,3 +1,57 @@
+
+// int main(){
+//     int n, m;
+//     cin >> n >> m;
+//     vi k(m);
+//     vvi a(m,vi(k));
+//     rep(i,n){
+//         cin >> k[i];
+//         rep(j,k[i]){
+//             cin >> a[i][j];
+//         }
+//     }
+//     int type = 0;
+//     rep(i,m){
+//         int exi = 0;
+//         rep(j,n){
+//             rep(l,k[j]){
+//                 if(a[j][l] == i + 1){
+//                     exi++;
+//                     break;
+//                 }
+//             }
+            
+//         }
+//         if(exi == n) type++;
+//     }
+//     out(type);
+// }
+
+
+// /*
+// int main(){
+//     int n,m;
+//     cin >> n >> m;
+//     vi cnt(m);
+//     rep(i,n){
+//         int k;
+//         cin >> k;
+//         rep(j,k){
+//             int a,num;
+//             cin >> a;
+//             a--;
+//             num = cnt[a] + 1;
+//             cnt[a] = num;
+//         }
+//     }
+//     int ans = 0;
+//     rep(i,m){
+//         if(cnt[i] == n) ans++;
+//     }
+//     out(ans);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,56 +85,32 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-
 int main(){
-    int n, m;
-    cin >> n >> m;
-    vi k(m);
-    vvi a(m,vi(k));
-    rep(i,n){
-        cin >> k[i];
-        rep(j,k[i]){
-            cin >> a[i][j];
-        }
+  int n,m;
+  cin >> n >> m;
+  vvi a(n,vi(31,0));
+  rep(i,n){
+    int k;
+    cin >> k;
+    rep(j,k){
+      int num;
+      cin >> num;
+      a[i][num - 1] = 1;
     }
-    int type = 0;
-    rep(i,m){
-        int exi = 0;
-        rep(j,n){
-            rep(l,k[j]){
-                if(a[j][l] == i + 1){
-                    exi++;
-                    break;
-                }
-            }
-            
-        }
-        if(exi == n) type++;
+  }
+  // rep(i,n){
+  //   rep(j,m){
+  //     cout << a[i][j] << " ";
+  //   }
+  //   cout << endl;
+  // }
+  int sum = 0;
+  rep(i,m){
+    int cnt = 0;
+    rep(j,n){
+      if(a[j][i] == 1) cnt++;
     }
-    out(type);
+    if(cnt == n)sum++;
+  }
+  out(sum);
 }
-
-
-/*
-int main(){
-    int n,m;
-    cin >> n >> m;
-    vi cnt(m);
-    rep(i,n){
-        int k;
-        cin >> k;
-        rep(j,k){
-            int a,num;
-            cin >> a;
-            a--;
-            num = cnt[a] + 1;
-            cnt[a] = num;
-        }
-    }
-    int ans = 0;
-    rep(i,m){
-        if(cnt[i] == n) ans++;
-    }
-    out(ans);
-}
-*/
