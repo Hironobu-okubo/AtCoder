@@ -1,3 +1,14 @@
+
+// int main(){
+//     int r,d,x;
+//     cin >> r >> d >> x;
+//     rep(i,10){
+//         int tmp = r * x - d;
+//         out(tmp);
+//         x = tmp;
+//     }
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,11 +43,12 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int r,d,x;
-    cin >> r >> d >> x;
-    rep(i,10){
-        int tmp = r * x - d;
-        out(tmp);
-        x = tmp;
-    }
+  int r,d,x2000;
+  cin >> r >> d >> x2000;
+  int nxt,cur = x2000;
+  rep(i,10){
+    nxt = r * cur - d;
+    out(nxt);
+    cur = nxt;
+  }
 }
