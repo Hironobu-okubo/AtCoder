@@ -1,3 +1,35 @@
+// int main(){
+//     int a,b,k;
+//     cin >> a >> b >> k;
+//     vi c;
+//     reps(i,1,101){
+//         if(a % i == 0 && b % i == 0){
+//             c.pb(i);
+//         }
+//     }
+//     out(c[c.size() - k]);
+// }
+
+
+
+// /*
+
+// int main(){
+//     int a,b,k;
+//     cin >> a >> b >> k;
+//     vi cnt;
+//     rrep(i,b){
+//         if(a % i == 0){
+//             if(b % i == 0){
+//                 cnt.push_back(i);
+//             }
+//         }
+//     }
+//     out(cnt[cnt.size() - k]);
+// }
+
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,34 +63,16 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-int main(){
-    int a,b,k;
-    cin >> a >> b >> k;
-    vi c;
-    reps(i,1,101){
-        if(a % i == 0 && b % i == 0){
-            c.pb(i);
-        }
-    }
-    out(c[c.size() - k]);
-}
-
-
-
-/*
 
 int main(){
-    int a,b,k;
-    cin >> a >> b >> k;
-    vi cnt;
-    rrep(i,b){
-        if(a % i == 0){
-            if(b % i == 0){
-                cnt.push_back(i);
-            }
-        }
+  int a,b,k;
+  cin >> a >> b >> k;
+  int sum = 0;
+  vi c;
+  reps(i,1,101){
+    if(a % i == 0 && b % i == 0){
+      c.pb(i);
     }
-    out(cnt[cnt.size() - k]);
+  }
+  out(c[c.size() - k]);
 }
-
-*/

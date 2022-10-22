@@ -1,3 +1,35 @@
+
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     double x;
+//     string u;
+//     double sum = 0;
+//     rep(i,n){
+//         cin >> x >> u;
+//         if(u == "JPY") sum += x;
+//         else sum+= 380000 * x;
+//     }
+//     out(sum);
+// }
+
+// /*
+// int main(){
+//     int n;
+//     double x;
+//     string u;
+//     double sum = 0;
+//     cin >> n;
+//     rep(i,n){
+//         cin >> x >> u;
+//         if(u == "BTC") sum += (x * 380000);
+//         else sum += x;
+//     }
+//     out(sum);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -31,32 +63,19 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
-int main(){
-    int n;
-    cin >> n;
-    double x;
-    string u;
-    double sum = 0;
-    rep(i,n){
-        cin >> x >> u;
-        if(u == "JPY") sum += x;
-        else sum+= 380000 * x;
-    }
-    out(sum);
-}
 
-/*
 int main(){
-    int n;
+  int n;
+  cin >> n;
+  // map<double,string> otsdm;
+  double sum = 0;
+  rep(i,n){
     double x;
     string u;
-    double sum = 0;
-    cin >> n;
-    rep(i,n){
-        cin >> x >> u;
-        if(u == "BTC") sum += (x * 380000);
-        else sum += x;
-    }
-    out(sum);
+    cin >> x >> u;
+    // otsdm[x] = u;
+    if(u == "JPY") sum += x;
+    else sum += x * 380000.0;
+  }
+  out(sum);
 }
-*/
