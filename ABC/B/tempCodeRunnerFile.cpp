@@ -1,1 +1,1 @@
-out(se.count(s));
+cout << h[i] << " " << h[j] << " ";

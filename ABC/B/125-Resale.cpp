@@ -1,3 +1,23 @@
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     vi v(n),c(n);
+//     int sum = 0;
+//     rep(i,n){
+//         cin >> v[i];
+//     }
+//     rep(i,n){
+//         cin >> c[i];
+//     }
+//     rep(i,n){
+//         if(v[i] > c[i]){
+//             sum += v[i] - c[i];
+//         }
+//     }
+//     out(sum);
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -26,26 +46,52 @@ using pii = pair<int, int>;
 #define repd(i,n) for(ll i=n-1;i>=0;i--)
 #define rrepd(i,n) for(ll i=n;i>=1;i--)
 #define out(x) cout << x << endl
+template<class T>bool chmax(T &a, const T &b) { if (a<b) { a = b; return 1; } return 0; }
+template<class T>bool chmin(T &a, const T &b) { if (b<a) { a = b; return 1; } return 0; }
 //定数
 #define INF32 2147483647 
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
+
+// int main() {
+//   int N;
+//   vi V(20), C(20);
+// 	cin >> N;
+// 	rep(i,N) cin >> V[i];
+// 	rep(i,N) cin >> C[i];
+ 
+// 	int ans = 0;
+// 	reps(msk, 0, 1 << N) {
+//     // cout << msk << " ";
+// 		int X = 0, Y = 0;
+// 		rep(i,N) if (msk & (1 << i)) {
+//       cout << i << " ";
+// 			X += V[i];
+// 			Y += C[i];
+// 		}
+// 		chmax(ans, X - Y);
+// 	}
+// 	cout << ans << endl;
+// }
+
 int main(){
-    int n;
-    cin >> n;
-    vi v(n),c(n);
-    int sum = 0;
-    rep(i,n){
-        cin >> v[i];
+  int n;
+  cin >> n;
+  vi v(n),c(n);
+  rep(i,n) cin >> v[i];
+  rep(i,n) cin >> c[i];
+
+  int ans = 0; 
+  reps(msk,0,1 << n){
+    int x = 0, y = 0;
+    rep(i,n) if (msk & (1 << i)){
+      // bitset<4> s(i);
+      // cout << i << " " << s << endl;
+      x += v[i];
+      y += c[i];
     }
-    rep(i,n){
-        cin >> c[i];
-    }
-    rep(i,n){
-        if(v[i] > c[i]){
-            sum += v[i] - c[i];
-        }
-    }
-    out(sum);
+    ans = max(ans,x - y);
+  }
+  out(ans);
 }

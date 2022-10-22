@@ -1,3 +1,20 @@
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     int maxHeight = 0;
+//     vi h(n);
+//     int cnt = 0;
+//     rep(i,n){
+//         cin >> h[i];
+//         if(maxHeight <= h[i]){
+//             cnt++;
+//         }
+//         maxHeight = max(maxHeight,h[i]);
+//     }
+//     out(cnt);
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,17 +49,25 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n;
-    cin >> n;
-    int maxHeight = 0;
-    vi h(n);
-    int cnt = 0;
-    rep(i,n){
-        cin >> h[i];
-        if(maxHeight <= h[i]){
-            cnt++;
-        }
-        maxHeight = max(maxHeight,h[i]);
+  int n;
+  cin >> n;
+  vi h(n);
+  rep(i,n){
+    cin >> h[i];
+  }
+  int ans = 0;
+  rep(i,n){
+    bool isSea = true;
+    if(i == 0) ans++;
+    else{
+      rep(j,i){
+        if(h[i] < h[j]) isSea = false;
+        // cout << h[i] << " " << h[j] << " ";
+      }
+      // cout << endl;
+      // if(isSea) out("true");
+      if(isSea) ans++;
     }
-    out(cnt);
+  }
+  out(ans);
 }
