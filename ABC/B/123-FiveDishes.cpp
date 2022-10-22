@@ -1,3 +1,33 @@
+
+// int main(){
+//     int n = 5;
+//     vs a(n);
+//     int minRem = INF32,minNum;
+//     int sum = 0;
+//     rep(i,n){
+//         cin >> a[i];
+//         char ctmp = a[i][a[i].size() - 1];
+//         int itmp = int(ctmp - '0');
+//         if(minRem > itmp && itmp != 0){
+//             minRem = itmp;
+//             minNum = i;
+//         }
+//     }
+//     rep(i,n){
+//         if(i == minNum || a[i][a[i].size() - 1] == '0'){
+//             sum += stoi(a[i]);
+//             //cout << a[i] << ' '; 
+//         }
+//         else{
+//             int tmp = stoi(a[i]) - int(a[i][a[i].size() - 1] - '0') + 10;
+//             sum += tmp;
+//             //cout << tmp << ' '; 
+//         }
+//     }
+//     out(sum);
+//     //out(minNum);
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,30 +62,20 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n = 5;
-    vs a(n);
-    int minRem = INF32,minNum;
-    int sum = 0;
-    rep(i,n){
-        cin >> a[i];
-        char ctmp = a[i][a[i].size() - 1];
-        int itmp = int(ctmp - '0');
-        if(minRem > itmp && itmp != 0){
-            minRem = itmp;
-            minNum = i;
-        }
+  int type = 5;
+  vi dish(type);
+  rep(i,type){
+    cin >> dish[i];
+  }
+  vi p = {0,1,2,3,4};
+  int final_answer = INF32;
+  do{
+    int ans = 0;
+    rep(i,type){
+      while(ans % 10 != 0) ans++;
+      ans += dish[p[i]];
     }
-    rep(i,n){
-        if(i == minNum || a[i][a[i].size() - 1] == '0'){
-            sum += stoi(a[i]);
-            //cout << a[i] << ' '; 
-        }
-        else{
-            int tmp = stoi(a[i]) - int(a[i][a[i].size() - 1] - '0') + 10;
-            sum += tmp;
-            //cout << tmp << ' '; 
-        }
-    }
-    out(sum);
-    //out(minNum);
+    final_answer = min(ans,final_answer);
+  } while(next_permutation(all(p)));
+  out(final_answer);
 }

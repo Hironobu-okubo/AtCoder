@@ -1,3 +1,20 @@
+
+// int main(){
+//     string s;
+//     cin >> s;
+//     vi a(s.size());
+//     int idx = 0;
+//     rep(i,s.size()){
+//         if(s[i] != 'A' && s[i] != 'T' && s[i] != 'C' && s[i] != 'G'){
+//             idx++;
+//             continue;
+//         }
+//         a[idx]++;
+//     }
+//     sort(all(a));
+//     out(a[a.size() - 1]);
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,17 +49,15 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    string s;
-    cin >> s;
-    vi a(s.size());
-    int idx = 0;
-    rep(i,s.size()){
-        if(s[i] != 'A' && s[i] != 'T' && s[i] != 'C' && s[i] != 'G'){
-            idx++;
-            continue;
-        }
-        a[idx]++;
-    }
-    sort(all(a));
-    out(a[a.size() - 1]);
+  string s;
+  cin >> s;
+  int sum = 0,ans = 0;
+  rep(i,s.size()){
+    if(s[i] == 'A' || s[i] == 'C' || s[i] == 'G' || s[i] == 'T'){
+      sum++;
+    } 
+    else sum = 0;
+    ans = max(ans,sum);
+  }
+  out(ans);
 }

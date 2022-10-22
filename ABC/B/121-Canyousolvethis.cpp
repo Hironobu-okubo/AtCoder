@@ -1,3 +1,27 @@
+
+// /*
+// int main(){
+//     int n,m,c;
+//     cin >> n >> m >> c;
+//     vi b(m);
+//     vvi a(n,vi(m));
+//     int count = 0;
+//     rep(i,m){
+//         cin >> b[i];
+//     }
+//     rep(i,n){
+//         int sum = 0;
+//         rep(j,m){
+//             cin >> a[i][j];
+//             sum += a[i][j] * b[j];
+//         }
+//         sum += c;
+//         if(sum > 0) count++;
+//     }
+//     out(count);
+// }
+// */
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,32 +56,22 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n, m, c;
-    cin >> n >> m >> c;
+  int n, m, c;
+  cin >> n >> m >> c;
+  vi b(m);
+  rep(i,m){
+    cin >> b[i];
+  }
+  int ans = 0;
+  rep(i,n){
+    int sum = 0;
+    rep(j,m){
+      int tmp;
+      cin >> tmp;
+      sum += b[j] * tmp;
+    }
+    if(sum + c > 0)ans++;
+  }
+  out(ans);
 }
 
-
-
-
-/*
-int main(){
-    int n,m,c;
-    cin >> n >> m >> c;
-    vi b(m);
-    vvi a(n,vi(m));
-    int count = 0;
-    rep(i,m){
-        cin >> b[i];
-    }
-    rep(i,n){
-        int sum = 0;
-        rep(j,m){
-            cin >> a[i][j];
-            sum += a[i][j] * b[j];
-        }
-        sum += c;
-        if(sum > 0) count++;
-    }
-    out(count);
-}
-*/
