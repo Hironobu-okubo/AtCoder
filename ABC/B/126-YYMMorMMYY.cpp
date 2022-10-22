@@ -1,3 +1,19 @@
+
+// int main(){
+//     string s;
+//     cin >> s;
+//     int a = (s[0] - '0') * 10 + (s[1] - '0');
+//     int b = (s[2] - '0') * 10 + (s[3] - '0');
+//     bool YYMM = false;
+//     bool MMYY = false;
+//     if(1 <= a && a <= 12) MMYY = true;
+//     if(1 <= b && b <= 12) YYMM = true;
+//     if(YYMM && MMYY) out("AMBIGUOUS");
+//     else if(YYMM) out("YYMM");
+//     else if(MMYY) out("MMYY");
+//     else out("NA");
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,16 +48,17 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    string s;
-    cin >> s;
-    int a = (s[0] - '0') * 10 + (s[1] - '0');
-    int b = (s[2] - '0') * 10 + (s[3] - '0');
-    bool YYMM = false;
-    bool MMYY = false;
-    if(1 <= a && a <= 12) MMYY = true;
-    if(1 <= b && b <= 12) YYMM = true;
-    if(YYMM && MMYY) out("AMBIGUOUS");
-    else if(YYMM) out("YYMM");
-    else if(MMYY) out("MMYY");
-    else out("NA");
+  string s;
+  cin >> s;
+  int first = int(s[0] - '0') * 10 + (s[1] - '0');
+  int second = int(s[2] - '0') * 10 + (s[3] - '0');
+  bool isFirst = false;
+  bool isSecond = false;
+  if(0 < first && first < 13) isFirst = true;
+  if(0 < second && second < 13) isSecond = true;
+  if(isFirst && isSecond) out("AMBIGUOUS");
+  else if(isFirst) out("MMYY");
+  else if(isSecond) out ("YYMM");
+  else out("NA");
+
 }
