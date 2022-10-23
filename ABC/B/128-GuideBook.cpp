@@ -1,3 +1,20 @@
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     map<string, int> sp;
+//     sp["ss"] = 1;
+//     /*
+//     rep(i,n){
+//        string a;
+//        int b;
+//        cin >> a >> b;
+//        sp[a] = b; 
+//     }
+//     */
+//     //out(sp.size());
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,17 +49,18 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 int main(){
-    int n;
-    cin >> n;
-    map<string, int> sp;
-    sp["ss"] = 1;
-    /*
-    rep(i,n){
-       string a;
-       int b;
-       cin >> a >> b;
-       sp[a] = b; 
-    }
-    */
-    //out(sp.size());
+  int n;
+  cin >> n;
+  vector<pair<pair<string,int>,int>> vec;
+  rep(i,n){
+    string s;
+    int p;
+    cin >> s >> p;
+    vec.pb({{s,-1 * p},i});
+  }
+  sort(all(vec));
+  rep(i,n){
+    // cout << vec[i].first.first << " " << vec[i].first.second * -1 << " " << vec[i].second << endl;
+    out(vec[i].second + 1);
+  }
 }

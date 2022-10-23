@@ -87,7 +87,8 @@ int main(){
     int x = 0, y = 0;
     rep(i,n) if (msk & (1 << i)){
       // bitset<4> s(i);
-      // cout << i << " " << s << endl;
+      // bitset<4> ss(msk);
+      // cout << s << " " << ss << " " << v[i] << endl;
       x += v[i];
       y += c[i];
     }
