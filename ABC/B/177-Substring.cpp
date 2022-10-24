@@ -39,7 +39,7 @@ int main(){
   rep(i,s.size() - t.size() + 1){
     int diff = 0;
     rep(j,t.size()){
-      if(t[i] !=  s[i + j]){
+      if(t[j] !=  s[i + j]){
         diff++;
       }
     }

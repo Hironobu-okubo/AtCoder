@@ -1,3 +1,27 @@
+
+// int main(){
+//     int x1,y1,x2,y2;
+//     cin >> x1 >> y1 >> x2 >> y2;
+//     int dx,dy,_dx,_dy;
+//     dx = x2 - x1;
+//     dy = y2 - y1;
+//     int x = x2, y = y2;
+
+    
+//     rep(i,2){
+//         _dx = -dy;
+//         _dy = dx;
+//         dx = _dx;
+//         dy = _dy;
+
+//         x += dx;
+//         y += dy;
+        
+//         cout << x << ' ' << y << ' ';
+//     }
+//     return 0;
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
 /* alias */
@@ -32,26 +56,7 @@ using pii = pair<int, int>;
 #define MOD 1000000007 
 
 
-
 int main(){
-    int x1,y1,x2,y2;
-    cin >> x1 >> y1 >> x2 >> y2;
-    int dx,dy,_dx,_dy;
-    dx = x2 - x1;
-    dy = y2 - y1;
-    int x = x2, y = y2;
-
-    
-    rep(i,2){
-        _dx = -dy;
-        _dy = dx;
-        dx = _dx;
-        dy = _dy;
-
-        x += dx;
-        y += dy;
-        
-        cout << x << ' ' << y << ' ';
-    }
-    return 0;
+  int x1,x2,y1,y2;
+  cin >> x1 >> x2 >> y1 >> y2;
 }
