@@ -10,6 +10,7 @@ using vvi = vector<vi>;
 using vvl = vector<vl>;
 using vvll = vector<vll>;
 using vs = vector<string>;
+using vc = vector<char>;
 using pii = pair<int, int>;
 /* define short */
 #define pb push_back
@@ -29,25 +30,22 @@ using pii = pair<int, int>;
 //定数
 #define INF32 2147483647 
 #define INF64 9223372036854775807 
-#define MOD 1000000007 
-//関数
-template <typename T> bool chmin(T& a, const T& b) { if (a<b) { a=b; return 1; } return 0; }
-template <typename T> bool chmax(T& a, const T& b) { if (b<a) { a=b; return 1; } return 0; }
-
-
+#define MOD 1000000007
 
 int main(){
-    int n;
-    cin >> n;
-    vi h(n);
-    rep(i,n) cin >> h[i];
-    vi dp(n,INF32);
+  int n,k;
+  cin >> n >> k;
+  vi a(n),b(n);
+  rep(i,n) cin >> a[i];
+  rep(i,n) cin >> b[i];
 
-    dp[0] = 0;
-    rrep(i,n){
-        if(i == 1) dp[i] = abs(h[i] - h[i - 1]);
-        else dp[i] = min(dp[i - 1] + abs(h[i] - h[i - 1]),
-        dp[i - 2] + abs(h[i] - h[i - 2]));
+  int min_value = INF32;
+  rep(i,n){
+    rep(j,n){
+      if(a[i] + b[j] < k) continue;
+
+      if(a[i] + b[j] < min_value) min_value = a[i] + b[j];
     }
-    out(dp[n - 1]);
+  }
+  out(min_value);
 }
