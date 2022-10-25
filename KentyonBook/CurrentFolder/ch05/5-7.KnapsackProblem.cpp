@@ -47,21 +47,16 @@ template<class T> void chmax(T& a,T b){
 int main(){
   int N, W;
   cin >> N >> W;
-  vi weight(N),value(N);
+  vi weight(N), value(N);
   rep(i,N) cin >> weight[i] >> value[i];
   vvi dp(N + 1,vi(W + 1,0));
-
   rep(i,N){
-    // cout << "i:" << i << endl;
-    rep(w, W + 1){
-      // cout << "w:" << w << "   ";
-      if(w - weight[i] >= 0){
+    rep(w,W + 1){
+      if(w - weight[i]){
         chmax(dp[i + 1][w], dp[i][w - weight[i]] + value[i]);
-        // cout << i << "番目選ぶ場合:" << dp[i + 1][w] << " ";
       }
 
-      chmax(dp[i + 1][w], dp[i][w]);
-      // cout << i << "番目選ばない場合:" << dp[i + 1][w] << endl;
+      chmax(dp[i + 1][w],dp[i][w]);
     }
   }
   out(dp[N][W]);
