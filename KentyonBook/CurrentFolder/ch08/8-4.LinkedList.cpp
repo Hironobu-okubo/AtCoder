@@ -43,23 +43,3 @@ template<class T> void chmax(T& a,T b){
     a = b;
   }
 }
-
-int N = 8;
-vi a = { 3,5,8,10,14,17,21,39};
-
-int binary_search(int key){
-  int left = 0, right = a.size() - 1;
-  while(left <= right){
-    int mid = (right + left) / 2;
-    if(a[mid] == key) return mid;
-    else if(a[mid] > key) right = mid - 1;
-    else if(a[mid] < key) left = mid + 1;
-  }
-  return -1;
-}
-
-int main(){
-  out(binary_search(10));
-  // binary_search(10);
-  out(binary_search(100));
-}
