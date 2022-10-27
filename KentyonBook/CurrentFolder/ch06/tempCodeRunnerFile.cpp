@@ -1,0 +1,1 @@
+for(auto i:b) cout << i << " ";
