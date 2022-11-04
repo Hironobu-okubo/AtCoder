@@ -32,30 +32,54 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007
 
-template<class T> void chmin(T& a,T b){
-  if(a > b){
-    a = b;
-  }
-}
 
-template<class T> void chmax(T& a,T b){
-  if(a < b){
-    a = b;
-  }
-}
+template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
+template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
+
+
+// template<class T> void chmin(T& a,T b){
+//   if(a > b){
+//     a = b;
+//   }
+// }
+
+// template<class T> void chmax(T& a,T b){
+//   if(a < b){
+//     a = b;
+//   }
+// }
+
+// int main(){
+//   int N, W;
+//   cin >> N >> W;
+//   vi weight(N), value(N);
+//   rep(i,N) cin >> weight[i] >> value[i];
+//   vvi dp(N + 1,vi(W + 1,0));
+//   rep(i,N){
+//     rep(w,W + 1){
+//       if(w - weight[i]){
+//         chmax(dp[i + 1][w], dp[i][w - weight[i]] + value[i]);
+//       }
+
+//       chmax(dp[i + 1][w],dp[i][w]);
+//     }
+//   }
+//   out(dp[N][W]);
+// }
 
 int main(){
-  int N, W;
-  cin >> N >> W;
-  vi weight(N), value(N);
-  rep(i,N) cin >> weight[i] >> value[i];
+  int N,W;
+  N = 6;
+  W = 9;
+  vi weight = {2,1,3,2,1,5};
+  vi value = {3,2,6,1,3,85};
   vvi dp(N + 1,vi(W + 1,0));
+
   rep(i,N){
     rep(w,W + 1){
-      if(w - weight[i]){
-        chmax(dp[i + 1][w], dp[i][w - weight[i]] + value[i]);
+      if( w - weight[i] >= 0){
+        chmax(dp[i + 1][w],dp[i][w - weight[i]] + value[i]);
       }
-
       chmax(dp[i + 1][w],dp[i][w]);
     }
   }
