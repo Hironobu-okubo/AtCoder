@@ -32,17 +32,34 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007
 
+// int main(){
+//   int N;
+//   cin >> N;
+//   vi a(N);
+//   rep(i,N) cin >> a[i];
+//   vi dp(N,INF32);
+
+//   dp[0] = 0;
+//   reps(i,1,N){
+//     if(i == 1) dp[i] = abs(a[i] - a[i - 1]);
+//     else dp[i] = min((dp[i - 1] + abs(a[i] - a[i - 1])),(dp[i - 2] + abs(a[i] - a[i - 2])));
+//   }
+//   out(dp[N - 1]);
+// }
+
 int main(){
   int N;
-  cin >> N;
-  vi a(N);
-  rep(i,N) cin >> a[i];
-  vi dp(N,INF32);
-
-  dp[0] = 0;
-  reps(i,1,N){
-    if(i == 1) dp[i] = abs(a[i] - a[i - 1]);
-    else dp[i] = min((dp[i - 1] + abs(a[i] - a[i - 1])),(dp[i - 2] + abs(a[i] - a[i - 2])));
+  N = 7;
+  vi h = {2,9,4,5,1,6,10};
+  vi ans(N);
+  rep(i,N){
+    if(i == 0) ans[i] = 0;
+    else if(i == 1) ans[i] = abs(h[i] - h[i - 1]);
+    else{
+      int minh = min(abs(h[i] - h[i - 1]) + ans[i - 1],abs(h[i] - h[i - 2]) + ans[i - 2]);
+      ans[i] = minh;
+    }
+    out(ans[i]);
   }
-  out(dp[N - 1]);
+
 }

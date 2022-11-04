@@ -32,27 +32,48 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007
 
-template<class T> void chmin(T& a,T b){
-  if(a > b){
-    a = b;
-  }
-}
+
+template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
+template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
+
+
+// template<class T> void chmin(T& a,T b){
+//   if(a > b){
+//     a = b;
+//   }
+// }
+
+// int main(){
+//   int N;
+//   cin >> N;
+//   vi h(N);
+//   rep(i,N) cin >> h[i];
+//   vi dp(N,INF32);
+  
+//   dp[0] = 0;
+//   rep(i,N){
+//     if(i + 1 < N){
+//       chmin(dp[i + 1],dp[i] + abs(h[i] - h[i + 1]));
+//     }
+//     if(i + 2 < N){
+//       chmin(dp[i + 2],dp[i] + abs(h[i] - h[i + 2]));
+//     }
+//   }
+//   out(dp[N - 1]);
+// }
 
 int main(){
   int N;
-  cin >> N;
-  vi h(N);
-  rep(i,N) cin >> h[i];
-  vi dp(N,INF32);
-  
-  dp[0] = 0;
-  rep(i,N){
-    if(i + 1 < N){
-      chmin(dp[i + 1],dp[i] + abs(h[i] - h[i + 1]));
-    }
-    if(i + 2 < N){
-      chmin(dp[i + 2],dp[i] + abs(h[i] - h[i + 2]));
-    }
+  N = 7;
+  vi h = {2,9,4,5,1,6,10};
+  vi ans(N,INF32);
+  ans[0] = 0;
+
+  rep(i,N - 1){
+    if(i < (N - 1)) chmin(ans[i + 1], abs(h[i + 1] - h[i]) + ans[i]);
+    if(i < (N - 2)) chmin(ans[i + 2], abs(h[i + 2] - h[i]) + ans[i]);  
+    // cout << ans[i] << " " << ans[i + 1];
+    // cout << endl;
   }
-  out(dp[N - 1]);
+  out(ans[N - 1]);
 }
