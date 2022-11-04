@@ -32,33 +32,60 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007
 
-template<class T> void chmin(T& a,T b){
-  if(a > b){
-    a = b;
-  }
-}
+template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
+template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
-int N;
-vi h,dp;
+// template<class T> void chmin(T& a,T b){
+//   if(a > b){
+//     a = b;
+//   }
+// }
+
+// int N;
+// vi h,dp;
+
+// int rec(int i){
+//   if(dp[i] < INF32) return dp[i];
+
+//   if(i == 0) return 0;
+
+//   int res = INF32;
+
+//   chmin(res,rec(i - 1) + abs(h[i] - h[i - 1]));
+  
+//   return dp[i] = res;
+// }
+
+// int main(){
+//   cin >> N;
+//   h.resize(N);
+//   rep(i,N) cin >> h[i];
+
+//   dp.assign(N,INF32);
+
+//   out(rec(N - 1));
+// }
+
+vi ans;
+vi h = {2,9,4,5,1,6,10};
 
 int rec(int i){
-  if(dp[i] < INF32) return dp[i];
+    if(ans[i] < INF32) return ans[i];
 
-  if(i == 0) return 0;
+    if(i == 0) return 0;
 
-  int res = INF32;
+    int res = INF32;
 
-  chmin(res,rec(i - 1) + abs(h[i] - h[i - 1]));
-  
-  return dp[i] = res;
-}
+    chmin(res,rec(i - 1) + abs(h[i] - h[i - 1]));
+
+    if(i > 1) chmin(res,rec(i - 2) + abs(h[i] - h[i - 2]));
+
+    return ans[i] = res;
+  }
 
 int main(){
-  cin >> N;
-  h.resize(N);
-  rep(i,N) cin >> h[i];
-
-  dp.assign(N,INF32);
-
+  int N;
+  N = 7;
+  ans.assign(N,INF32);
   out(rec(N - 1));
 }
