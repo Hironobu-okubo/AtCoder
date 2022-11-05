@@ -32,18 +32,25 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007
 
+template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
+template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
+
 int main(){
-  string s,t;
-  cin >> s >> t;
-  int ans = t.size();
-  rep(i,s.size() - t.size() + 1){
-    int diff = 0;
-    rep(j,t.size()){
-      if(t[i] !=  s[i + j]){
-        diff++;
-      }
-    }
-    ans = min(ans,diff);
+  int N, M;
+  cin >> N >> M;
+  vvi city(N + 1);
+  rep(i,M){
+    int a,b;
+    cin >> a >> b;
+    city[a - 1].pb(b);
+    city[b - 1].pb(a);
   }
-  out(ans);
+  rep(i,N){
+    sort(all(city[i]));
+    cout << city[i].size();
+    for(auto a : city[i]){
+      cout << " " << a;
+    }
+    cout << endl;
+  }
 }
