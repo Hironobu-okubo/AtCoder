@@ -38,15 +38,12 @@ template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, tr
 int main(){
   int n;
   cin >> n;
-  int maxNum = 0;
-  map<string, int> cnt;
-  rep(i,n){
-    string s;
-    cin >> s;
-    cnt[s]++;
+  int nxt;
+  string ans = "";
+  while(n >= 1){
+    n /= 2;
+    if(n % 2 == 0) ans += "0";
+    if(n % 2 == 1) ans += "1";
   }
-  for(auto a : cnt) chmax(maxNum,a.second);
-  for(auto a : cnt){
-    if(a.second == maxNum) out(a.first);
-  }
+  out(ans);
 }
