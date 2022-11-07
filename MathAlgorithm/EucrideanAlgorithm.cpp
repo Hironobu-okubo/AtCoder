@@ -35,20 +35,24 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
+// ll gcd(ll a, ll b){
+//   if(b == 0) return a;
+
+//   gcd(b, a % b);
+
+//   return 0;
+// }
+
 int main(){
-  ll n;
+  int n;
   cin >> n;
-  vll a;
-  ll div = n;
-  reps(i,2,sqrt(n) + 1){
-    while(div % i == 0){
-      div /= i;
-      a.pb(i);
-    }
+  vll A(n);
+  rep(i,n) cin >> A[i];
+  ll a = A[0],b;
+  reps(i,1,n){
+    b = A[i];
+    ll tmp = gcd(b,a);
+    a = tmp;
   }
-  rep(i,a.size()){
-    cout << a[i] << " ";
-  }
-  if(div != 1) out(div);
-  else cout << endl;
+  out(a);
 }
