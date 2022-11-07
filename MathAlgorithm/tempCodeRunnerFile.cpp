@@ -1,0 +1,1 @@
+if(i == a.size() - 1) cout << a[i];
