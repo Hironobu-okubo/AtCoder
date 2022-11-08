@@ -1,9 +1,8 @@
-rep(i,n){
-  //   rep(j,w + 1){
-  //     if(w - weight[j] < 0)  dp[i][j] = dp[i - 1][j] ;
-  //     else{
-  //       dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);
-  //     }
-  //   }
-  //   out(dp[n][w]);
-  // }
+if(i == 0){
+      dp1[i] = a[i];
+      dp2[i] = 0;
+    }
+    else{
+      dp1[i] = dp2[i - 1] + a[i];
+      dp2[i] = max(dp2[i - 1], dp1[i - 1]);
+    } 
