@@ -36,16 +36,15 @@ template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, tr
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
 int main(){
-  double a = 2;
-  double initA = 2;
+  int x1,y1,r1,x2,y2,r2;
+  cin >> x1 >> y1 >> r1 >> x2 >> y2 >> r2;
+  int pattern;
+  int centerdis = sqrt(pow((x1 - x2),2) + pow((y1 - y2),2));
 
-  reps(i,1,5){
-    double x = initA;
-    double y = x * x;
-    double dif = 2 * x;
-    double itrcpt = y - dif * x;
-    double nextA = ( a - itrcpt ) / dif; 
-    printf("Step #%d: a = %.12lf -> %.12lf\n",i,initA,nextA);
-    initA = nextA; 
-  }
+  if(centerdis < abs(r1 - r2)) pattern = 1;
+  else if(centerdis == abs(r1 - r2)) pattern = 2;
+  else if(centerdis > abs(r1 - r2) && centerdis < r1 + r2) pattern = 3;
+  else if(centerdis == r1 + r2) pattern = 4;
+  else if(centerdis > ( r1 + r2 )) pattern = 5;
+  out(pattern);
 }

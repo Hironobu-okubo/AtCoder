@@ -36,16 +36,17 @@ template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, tr
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
 int main(){
-  double a = 2;
-  double initA = 2;
+    double initA = 2;
+    double fx = 0;
 
-  reps(i,1,5){
+  reps(i,1,6){
     double x = initA;
     double y = x * x;
-    double dif = 2 * x;
-    double itrcpt = y - dif * x;
-    double nextA = ( a - itrcpt ) / dif; 
+    double grad = 2 * x;
+    double nextA = fx / grad + x - y / grad;
+
     printf("Step #%d: a = %.12lf -> %.12lf\n",i,initA,nextA);
     initA = nextA; 
   }
+  
 }
