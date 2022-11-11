@@ -36,12 +36,20 @@ template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, tr
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
 int main(){
-  ll n;
-  cin >> n;
-  bool isFirst = true;
-  rep(i,61){
-    if((pow(2LL,i) - 1LL) == n) isFirst = false;
+  ll n,k;
+  cin >> n >> k;
+  vll a(n + 1),first(n + 1, -1),second(n + 1,-1);
+  reps(i,1,n + 1) cin >> a[i];
+
+  ll cnt = 0,cur = 1;
+  while(true){
+    if(first[cur] == -1) first[cur] = cnt;
+    else if(second[cur] == -1) second[cur] = cnt;
+
+    if(cnt == k) { out(cur); return 0; }
+    else if(second[cur] != -1 && (k - first[cur]) % (second[cur] - first[cur]) == 0) { out(cur); return 0; } 
+
+    cnt++;
+    cur = a[cur];
   }
-  if(isFirst) out("First");
-  else out("Second");
 }
