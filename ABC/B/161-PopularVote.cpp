@@ -35,44 +35,19 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
-// int main(){
-//   int n;
-//   cin >> n;
-//   vs s(n);
-//   bool flag = true;
-//   rep(i,n) {
-//     cin >> s[i];
-//     if((s[i][0] != 'H' && s[i][0] != 'D' && s[i][0] != 'C' && s[i][0] != 'S') || (s[i][1] != 'A' && s[i][1] != 'T' && s[i][1] != 'J' && s[i][1] != 'Q' && s[i][1] != 'K' &&  s[i][1] != '2'&& s[i][1] != '3' && s[i][1] != '4'&& s[i][1] != '5' && s[i][1] != '6' && s[i][1] != '7'&& s[i][1] != '8'&& s[i][1] != '9'))  flag = false;
-//   }
-//   rep(i,n){
-//     rep(j,n){
-//       if(i != j){
-//         if(s[i] == s[j]) flag =false;
-//       }
-//     }
-//   }
-//   YesNo(flag);
-// }
-
 int main(){
-  int n;
-  cin >> n;
-  vs s(n);
-  rep(i,n) cin >> s[i];
-  bool flag = true;
+  int n,m;
+  cin >> n >> m;
+  vi a(n);
+  int sum = 0;
+  rep(i,n) { cin >> a[i]; sum += a[i];}
+  bool isCanSelect = false;
 
-  string s1 = "HDCS";
-  string s2 = "A23456789TJQK";
+  int ans = 0;
   rep(i,n){
-    if(!count(all(s1),s[i][0]) || !count(all(s2),s[i][1])) flag = false;
+    if(sum <= a[i] * 4 * m) ans++;
   }
-  YesNo(flag);
-
-  rep(i,n){
-    rep(j,n){
-      if(i != j){
-        if(s[i] == s[j]) flag = true;
-      }
-    }
-  }
+  if(ans >= m) isCanSelect = true;
+  // cout << "ans: " << ans << " " << "sum: " << sum << " ";
+  YesNo(isCanSelect);
 }
