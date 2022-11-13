@@ -36,21 +36,15 @@ template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, tr
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
 int main(){
-  int n,k;
-  cin >> n >> k;
-  vi a(n);
-  rep(i,k){
-    int d;
-    cin >> d;
-    rep(j,d){
-      int num;
-      cin >> num;
-      a[num - 1]++;
+  ll x;
+  cin >> x;
+  ll ans = 100,cnt = 0; 
+  while(true){
+    ans += ans / 100;
+    cnt++;
+    if(x <= ans){
+      out(cnt);
+      return 0;
     }
   }
-  int ans = 0;
-  rep(i,n){
-    if(a[i] == 0) ans++;
-  }
-  out(ans);
 }
