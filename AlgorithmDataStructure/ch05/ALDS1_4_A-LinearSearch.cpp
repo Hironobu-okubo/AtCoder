@@ -35,59 +35,20 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
-const int MAX = 10000; 
-int qu[MAX];
-int tail = 0, head = 0;
-
-void init(){
-  head = 0;
-  tail = 0;
-}
-
-bool isEmpty(){
-  return tail == head;
-}
-
-bool isFull(){
-  return (head == ((tail + 1)) % MAX);
-}
-
-void enqueue(int v){
-  if(isFull()){
-    out("error: queue is full.");
-    return;
-  }
-  qu[tail++] = v;
-  if(tail == (MAX)) tail = 0;
-}
-
-int dequeue(){
-  if(isEmpty()){
-    out("error: queue is empty.");
-    return -1;
-  }
-  int res = qu[head];
-  head++;
-  if(head == MAX) head = 0;
-  return res;
-}
-
 int main(){
-  init();
-  enqueue(3); // キューに 3 を積む {} -> {3}
-  enqueue(5); // キューに 5 を積む {3} -> {3, 5}
-  enqueue(7); // キューに 7 を積む {3, 5} -> {3, 5, 7}
-
-  cout << dequeue() << endl; // {3, 5, 7} -> {5, 7} で 3 を出力
-  cout << dequeue() << endl; // {5, 7} -> {7} で 5 を出力
-
-  enqueue(9); // 新たに 9 を積む {7} -> {7, 9}
-  enqueue(11); // {7, 9} -> {7, 9, 11}
-
-  dequeue(); // {7, 9, 11} -> {9, 11}
-  dequeue(); // {9, 11} -> {11}
-  dequeue(); // {11} -> {}
-
-  // 空かどうかを check: empty の方を出力
-  cout << (isEmpty() ? "empty" : "not empty") << endl;
+  int n;
+  cin >> n;
+  vi a(n);
+  rep(i,n) cin >> a[i];
+  int q;
+  cin >> q;
+  vi b(q);
+  rep(i,q) cin >> b[i];
+  int ans = 0;
+  rep(i,q){
+    rep(j,n){
+      if(b[i] == a[j]) {ans++; break;}
+    }
+  }
+  out(ans);
 }
