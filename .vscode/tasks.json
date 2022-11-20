@@ -1,0 +1,21 @@
+{
+  // tasks.json 形式の詳細についての資料は、
+  // https://go.microsoft.com/fwlink/?LinkId=733558 をご覧ください
+  "version": "2.0.0",
+  "tasks": [
+      {
+          "type": "shell",
+          "label": "c_build",
+          "command": "g++",
+          "args": [
+            "-std=c++17",
+            "-g",
+            // "-O0",
+            "-o",
+            "'${workspaceFolder}/problem.out'",
+            "'${file}'",
+          ],
+          "group": "build"
+      }
+  ]
+}

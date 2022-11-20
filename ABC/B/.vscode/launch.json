@@ -2,14 +2,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "C/C++ Runner: Debug Session",
+      "name": "(lldb) Launch",
       "type": "lldb",
       "request": "launch",
       "args": [],
       "stopAtEntry": true,
       "externalConsole": false,
-      "cwd": "/Users/okubo/AtCoder/ABC/B",
-      "program": "/Users/okubo/AtCoder/ABC/B/build/Debug/outDebug",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/a.out",
       "MIMode": "lldb"
     }
   ]
