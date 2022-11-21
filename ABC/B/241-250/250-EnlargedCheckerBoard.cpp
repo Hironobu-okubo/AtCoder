@@ -22,7 +22,7 @@ using pii = pair<int, int>;
 /* REP macro */
 #define reps(i, a, n) for (ll i = (a); i < (ll)(n); ++i)
 #define rep(i, n) reps(i, 0, n)
-#define repp(i,n) reps(i, 0, n + 1)
+#define repp(i,n) reps(i, 0, n + 1)1
 #define rrep(i, n) reps(i, 1, n + 1)
 #define repd(i,n) for(ll i=n-1;i>=0;i--)
 #define rrepd(i,n) for(ll i=n;i>=1;i--)
@@ -36,9 +36,30 @@ template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, tr
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
 int main(){
-  int a = 12, b = 39, m = 7;
-  int s1,s2,s3,s4;
-  s1 = (a * b) % m;
-
-  out(s1);
+  int n,a,b;
+  cin >> n >> a >> b;
+  int tgl = 0;
+  rep(i,a * n){
+    
+    int A = tgl / a; 
+    int tgl2 = 0;
+    if(A % 2 == 1){
+      rep(j,b * n){
+        int B = tgl2 / b;
+        if(B % 2 == 1) cout << '.';
+        else cout << '#';
+        tgl2++;
+      }
+    }
+    else{
+      rep(j,b * n){
+        int B = tgl2 / b;
+        if(B % 2 == 1) cout << '#';
+        else cout << '.';
+        tgl2++;
+      }
+    }
+    tgl++;
+    out("");
+  }
 }
