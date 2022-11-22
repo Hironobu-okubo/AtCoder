@@ -38,10 +38,10 @@ template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, tr
 int main(){
   ll n;
   cin >> n;
-  bool isFirst = true;
-  rep(i,61){
-    if((pow(2LL,i) - 1LL) == n) isFirst = false;
+  bool isSecond = false;
+  reps(i,1,60){
+    if( ((1LL << i) - 1LL) == n)  isSecond = true;
   }
-  if(isFirst) out("First");
-  else out("Second");
+  if(isSecond) out("Second");
+  else out("First");
 }
