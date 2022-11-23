@@ -36,15 +36,14 @@ template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, tr
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
 int main(){
-  int x1,y1,r1,x2,y2,r2;
+  double x1,y1,r1,x2,y2,r2;
   cin >> x1 >> y1 >> r1 >> x2 >> y2 >> r2;
-  int pattern;
-  int centerdis = sqrt(pow((x1 - x2),2) + pow((y1 - y2),2));
-
-  if(centerdis < abs(r1 - r2)) pattern = 1;
-  else if(centerdis == abs(r1 - r2)) pattern = 2;
-  else if(centerdis > abs(r1 - r2) && centerdis < r1 + r2) pattern = 3;
-  else if(centerdis == r1 + r2) pattern = 4;
-  else if(centerdis > ( r1 + r2 )) pattern = 5;
-  out(pattern);
+  double d = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+  int pat;
+  if(abs(r1 - r2) > d) pat = 1;
+  else if(abs(r1 - r2) == d) pat = 2;
+  else if(d < r1 + r2) pat = 3;
+  else if(r1 + r2 == d) pat = 4;
+  else pat = 5;
+  out(pat);
 }
