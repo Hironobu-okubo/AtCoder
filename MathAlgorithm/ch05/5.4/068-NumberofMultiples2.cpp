@@ -36,29 +36,9 @@ template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, tr
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
 int main(){
-  ll ax,ay,bx,by,cx,cy;
-  cin >> ax >> ay >> bx >> by >> cx >> cy;
-
-  ll bax = ax - bx;
-  ll bay = ay - by;
-  ll bcx = cx - bx;
-  ll bcy = cy - by;
-  ll cax = ax - cx;
-  ll cay = ay - cy;
-  ll cbx = bx - cx;
-  ll cby = by - cy;
-
-  int pattern = 2;
-  if(bax * bcx + bay * bcy < 0LL) pattern = 1;
-  if(cax * cbx + cay * cby < 0LL) pattern = 3;
-
-  double ans = 0.0;
-  if (pattern == 1) ans = sqrt(bax * bax + bay * bay);
-  if (pattern == 3) ans = sqrt(cax * cax + cay * cay);
-  if (pattern == 2){
-    double s = abs(bax * cay - bay * cax);
-    double bclength = sqrt(bcx * bcx + bcy * bcy);
-    ans = s / bclength;
-  }
-  printf("%.12lf\n",ans);
+  ll n,k;
+  cin >> n >> k;
+  vi a(k);
+  rep(i,n) cin >> a[i];
+  
 }

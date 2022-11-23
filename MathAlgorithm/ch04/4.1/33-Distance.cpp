@@ -36,9 +36,27 @@ template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, tr
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
 int main(){
-  ll n;
-  cin >> n;
-  bool isOneStroke = false;
-  if(n % 2 == 0)isOneStroke = true;
-  YesNo(isOneStroke);
+  ll ax,ay,bx,by,cx,cy;
+  cin >> ax >> ay >> bx >> by >> cx >> cy;
+
+  ll bax = ax - bx, bay = ay - by;
+  ll bcx = cx - bx, bcy = cy - by;
+  ll cax = ax - cx, cay = ay - cy;
+  ll cbx = bx - cx, cby = by - cy;
+
+  int pat = 2;
+  if(bax * bcx + bay * bcy < 0LL) pat = 1;
+  if(cax * cbx + cay * cby < 0LL) pat = 3;
+
+  double ans = 0.0;
+  if(pat == 1) ans = sqrt(bax * bax + bay * bay);
+  if(pat == 3) ans = sqrt(cax * cax + cay * cay);
+  if(pat == 2){
+    double s = abs(bax * cay - bay * cax);
+    double len = sqrt(bcx * bcx + bcy * bcy);
+    ans = s / len;
+  }
+
+  cout << fixed << setprecision(12) << ans << endl;
+
 }
