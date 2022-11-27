@@ -36,14 +36,29 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
-int main(){
-  string s;
-  cin >> s;
-  int ans = 0;
-  rep(i,s.size()){
-    if(s[i] == 'v') ans++;
-    else ans += 2;
+int n,k;
+vi a;
+
+bool check(int mid){
+  ll sum = 0;
+  rep(i,n){
+    sum += mid / a[i];
   }
-  
-  out(ans);
+  if(sum < k) return false;
+  return true;
+}
+
+int main(){
+  cin >> n >> k;
+  a.resize(n);
+  rep(i,n) cin >> a[i];
+
+  int left = 0, right = 1000000000;
+  while(right - left > 0){
+    int mid = (left + right) / 2;
+    bool ans = check(mid);
+    if(ans == false) left = mid + 1;
+    if(ans == true) right = mid;
+  }
+  out(left);
 }
