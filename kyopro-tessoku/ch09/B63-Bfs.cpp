@@ -37,34 +37,33 @@ template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, tr
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
 int main(){
-  int h,w,sy,sx,gy,gx;
-  cin >> h >> w >> sy >> sx >> gy >> gx;
-  sy--; sx--; gy--; gx--;
-
-  vs s(h);
-  rep(i,h) cin >> s[i];
-  vvi dist(h,vi(w,-1));
-  vi dx = {1,0,-1,0};
-  vi dy = {0,1,0,-1};
-
-  dist[sy][sx] = 0;
-  deque<pii> q;
-  q.pb(mp(sy,sx));
-
-  while(!q.empty()){
-    pii pos = q.front();
-    int y = pos.first;
-    int x = pos.second;
-    q.pop_front();
-
-    rep(i,4){
-      int yy = y + dy[i];
-      int xx = x + dx[i];
-      if(dist[yy][xx] == -1 && s[yy][xx] == '.'){
-        q.pb(mp(yy,xx));
-        dist[yy][xx] = dist[y][x] + 1;
+  int r,c;
+  cin >> r >> c;
+  int sy,sx;
+  cin >> sy >> sx;
+  int gy,gx;
+  cin >> gy >> gx;
+  vs grh(r + 1);
+  rrep(i,r) cin >> grh[i];
+  vi dist;
+  int start = sx * c + sy;
+  int goal = gy * c + gx;
+  
+  vvi g;
+  rrep(i,r){
+    rrep(j, c - 1){
+      int idx1 = i * c + j;
+      int idx2 = i * c + j + 1;
+      if(grh[i][j] == '.' && grh[i][j + 1] == '.'){
+        g[idx1].pb(idx2);
+        g[idx2].pb(idx1);
       }
     }
   }
-  out(dist[gy][gx]);
+  // rrep(i,r){
+  //   rrep(j,g.size()){
+  //     cout << g[i][j] << " ";
+  //   }
+  //   out("");
+  // }
 }
