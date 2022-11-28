@@ -36,17 +36,28 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
+ll dis(ll x1,ll y1, ll x, ll y){
+  ll ans = (x1 - x) * (x1 - x) + (y1 - y) * (y1 - y);
+  return ans;
+}
+
 int main(){
-  ll a,b;
-  cin >> a >> b;
-  double ans,minAns,cur = a;
-  rep(i,a){
-    ans = b * i + a / sqrt(i + 1);
-    if(ans > cur){
-      ans = cur;
-      break;
+  ll x1,x2,y1,y2;
+  cin >> x1 >> y1 >> x2 >> y2;
+
+  vi dx = { -2,-1,1,2 };
+  vi dy = { -2,-1,1,2 };
+
+  bool isFive = false;
+
+  for(auto x : dx){
+    for(auto y : dy){
+      ll ans = dis(x1,y1,x1 + x,y1 + y);
+      if(ans == 5){
+        ll ans1 = dis(x1 + x,y1 + y,x2,y2);
+        if(ans1 == 5) isFive = true;
+      }
     }
-    cur = ans;
   }
-  cout << fixed << setprecision(10) << ans << endl;
+  YesNo(isFive);
 }
