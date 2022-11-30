@@ -35,15 +35,32 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
+// int main(){
+//   ll a,b,c,d,e,f;
+//   cin >> a >> b >> c >> d >> e >> f;
+//   ll fir,sec;
+//   ll MOD = 998244353;
+
+//   fir = ((a % MOD) * (b % MOD)) % MOD;
+//   fir = (fir * (c % MOD)) % MOD;
+//   sec = ((d % MOD) * (e % MOD)) % MOD;
+//   sec = (sec * (f % MOD)) % MOD;
+//   out((fir + MOD - sec) % MOD);
+// }
+
+
 int main(){
   ll a,b,c,d,e,f;
   cin >> a >> b >> c >> d >> e >> f;
-  ll fir,sec;
-  ll MOD = 998244353;
-
-  fir = ((a % MOD) * (b % MOD)) % MOD;
-  fir = (fir * (c % MOD)) % MOD;
-  sec = ((d % MOD) * (e % MOD)) % MOD;
-  sec = (sec * (f % MOD)) % MOD;
-  out((fir + MOD - sec) % MOD);
+  ll CONST = 998244353;;
+  ll ans1 = 1,ans2 = 1;
+  ans1 = ans1 * (a % CONST);
+  ans1 = (ans1 * (b % CONST)) % CONST;
+  ans1 = (ans1 * (c % CONST)) % CONST;
+  ans2 = ans2 * (d % CONST);
+  ans2 = (ans2 * (e % CONST)) % CONST;
+  ans2 = (ans2 * (f % CONST)) % CONST;
+  ll ans = ans1 - ans2;
+  if(ans < 0) ans += CONST;
+  out(ans);
 }
