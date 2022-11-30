@@ -31,14 +31,37 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007 
 
+ll dis(ll x1, ll y1, ll x2, ll y2){
+  ll dis1 =  (x1 - x2) * (x1 - x2); 
+  ll dis2 = (y1 - y2) * (y1 - y2);
+  ll ans = dis1 + dis2;
+  return ans;
+}
+
 int main(){
-    int n,k;
-    vi a(k);
-    vvi y(2,vi(n));
-    rep(i,k){
-        cin >> a[i];
+  int n,k;
+  cin >> n >> k;
+  vi a(k);
+  rep(i,k){
+    int aa;
+    cin >> aa;
+    a[i] = aa - 1;
+  }
+  vector<ll> x(n),y(n);
+  rep(i,n){
+    ll xx,yy;
+    cin >> xx >> yy;
+    x[i] = xx;
+    y[i] = yy;
+  }
+  vector<ll> minDis(n,INF64);
+  for(auto i : a){
+    rep(j,n){
+      ll distance = dis(x[i],y[i],x[j],y[j]);
+      if(minDis[j] > distance) minDis[j] = distance;
     }
-    rep(i,n){
-        cin >> y[i][0] >> y[i][1];
-    }
+  }
+  sort(all(minDis));
+  double ans = minDis[minDis.size() - 1];
+  cout << fixed << setprecision(12) << sqrt((double)ans) << endl;
 }
