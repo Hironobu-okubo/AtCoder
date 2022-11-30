@@ -35,22 +35,35 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
+// int main(){
+//   ll x,k;
+//   cin >> x >> k;
+//   ll powNum = 1;
+//   rep(i,k){
+//     x /= powNum;
+//     ll m = x % 10;
+//     if(m <= 4){
+//       x -= m;
+//     }
+//     else{
+//       x += (10 - m);
+//     }
+//     x *= powNum;
+//     powNum *= 10;
+    
+//   }
+//   out(x);
+// }
+
 int main(){
   ll x,k;
   cin >> x >> k;
-  ll powNum = 1;
-  rep(i,k){
-    x /= powNum;
-    ll m = x % 10;
-    if(m <= 4){
-      x -= m;
-    }
-    else{
-      x += (10 - m);
-    }
-    x *= powNum;
-    powNum *= 10;
-    
+  rrep(i,k){
+    ll mod = pow(10,i);
+    ll ans = x % mod;
+    if(ans >= (5 * pow(10, i - 1))) x += (mod - ans);
+    else x -= ans;
   }
   out(x);
 }
+
