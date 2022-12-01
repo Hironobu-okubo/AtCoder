@@ -35,23 +35,50 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
+// int main(){
+//   int n, m;
+//   cin >> n >> m;
+//   set<pii> p;
+//   rep(i,m){
+//     int kn;
+//     cin >> kn;
+//     vi x(kn);
+//     rep(j,kn){
+//       cin >> x[j];
+//     }
+//     rep(j,kn){
+//       reps(k,j + 1,kn){
+//         p.insert(mp(x[j],x[k]));
+//       }
+//     }
+//   }
+//   if(p.size() == n * (n - 1) / 2) out("Yes");
+//   else out("No");
+// }
+
+
 int main(){
-  int n, m;
+  int n,m;
   cin >> n >> m;
-  set<pii> p;
+  set<pii> se;
+  bool flag = true;
   rep(i,m){
-    int kn;
-    cin >> kn;
-    vi x(kn);
-    rep(j,kn){
+    int k;
+    cin >> k;
+    vi x(k);
+    rep(j,k){
       cin >> x[j];
     }
-    rep(j,kn){
-      reps(k,j + 1,kn){
-        p.insert(mp(x[j],x[k]));
+    rep(j,k - 1){
+      reps(l,j + 1,k){
+        se.emplace(x[j],x[l]);
       }
     }
   }
-  if(p.size() == n * (n - 1) / 2) out("Yes");
-  else out("No");
+  rrep(i,n - 1){
+    reps(j,i + 1,n + 1){
+      if(se.count({i,j}) == 0) flag = false;
+    }
+  }
+  YesNo(flag);
 }
