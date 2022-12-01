@@ -35,27 +35,50 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
-int main(){
-  int n,m;
-  ll t;
-  cin >> n >> m >> t;
-  vll a(n,0);
-  reps(i,1,n) cin >> a[i];
-  map<ll,ll> xy;
-  rep(i,m){
-    ll x,y;
-    cin >> x >> y;
-    xy.insert(mp(x,y));
-  }
+// int main(){
+//   int n,m;
+//   ll t;
+//   cin >> n >> m >> t;
+//   vll a(n,0);
+//   reps(i,1,n) cin >> a[i];
+//   map<ll,ll> xy;
+//   rep(i,m){
+//     ll x,y;
+//     cin >> x >> y;
+//     xy.insert(mp(x,y));
+//   }
 
-  reps(i,1,n){
-    // cout << "i:" << i << " t:" << t << " ";
-    if(t <= a[i]){out("No"); return 0;}
+//   reps(i,1,n){
+//     // cout << "i:" << i << " t:" << t << " ";
+//     if(t <= a[i]){out("No"); return 0;}
+//     t -= a[i];
+//     // out(xy[i + 2]);
+//     t += xy[i + 1];
+//     // out("");
+//   }
+//   out("Yes");
+
+// }
+
+int main(){
+  ll n,m,t;
+  cin >> n >> m >> t;
+  vi a(n - 1);
+  rep(i,n-1) cin >> a[i];
+  map<int,int> ma;
+  rep(i,m){
+    int x,y;
+    cin >> x >> y;
+    x--;
+    ma[x] = y;
+  }
+  rep(i,n-1){
+    t += ma[i];
     t -= a[i];
-    // out(xy[i + 2]);
-    t += xy[i + 1];
-    // out("");
+    if(t <= 0){
+      out("No");
+      return 0;
+    }
   }
   out("Yes");
-
 }
