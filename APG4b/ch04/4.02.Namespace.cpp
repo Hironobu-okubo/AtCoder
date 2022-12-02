@@ -35,27 +35,6 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
-// struct A {
-//   int data;
-//   void print(){
-//     out(data);
-//   }
-// };
-
-// int main(){
-//   A a = A {1};
-
-//   A *p;
-//   p = &a;
-//   p->print();
-//   p->data = 2;
-//   p->print();
-// }
-
 int main(){
-  uint8_t x = 1;
-
-  uint8_t *p;
-  p = &x;
-  out(p);
+  
 }
