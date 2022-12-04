@@ -39,13 +39,5 @@ int main(){
   string n,nn;
   cin >> n;
   int end = n.size();
-  nn = n;
-  rep(i,end){
-    reverse(all(nn));
-    if(n == nn) { out("Yes"); return 0; }
-    nn += '0';
-    reverse(all(nn));
-    n = nn;
-  }
-  out("No");
+  
 }
