@@ -10,7 +10,9 @@ using vvi = vector<vi>;
 using vvl = vector<vl>;
 using vvll = vector<vll>;
 using vs = vector<string>;
+using vvs = vector<vs>;
 using vc = vector<char>;
+using vvc = vector<vc>;
 using pii = pair<int, int>;
 /* define short */
 #define pb push_back
@@ -36,22 +38,17 @@ template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, tr
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
 int main(){
-  ll n;
-  cin >> n;
-  vi a;
-  rep(i,60){
-    if(n & (1ll << i)) a.pb(i);
-  }
-  vll res;
-  int k = a.size();
-  rep(i,(1ll << k)){
-    ll cur = 0;
-    rep(j,k){
-      if(i & (1ll << j)) cur = cur | (1ll << a[j]);
+  ll k;
+  cin >> k;
+  ll sum = 1,cnt = 1;
+  ll num = 0;
+  while(true){
+    sum *= cnt;
+    if(sum / k > 0 && sum % k == 0){
+      num = cnt;
+      break;
     }
-    res.pb(cur);
+    cnt++;
   }
-  for(auto i : res){
-    out(i);
-  }
+  out(num);
 }
