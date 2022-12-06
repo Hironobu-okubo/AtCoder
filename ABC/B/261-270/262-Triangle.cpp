@@ -35,15 +35,30 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
+vvi triangle;
+map<int,vi> ma;
+set<set<int>> se;
+
+
 int main(){
   int n,m;
   cin >> n >> m;
-  vector<set<int>> vi(n + 1);
-  rrep(i,m){
+  vvi a(n,vi(n,0));
+  rep(i,m){
     int u,v;
     cin >> u >> v;
-    vi[u].insert(v);
-    vi[v].insert(u);
+    u--;v--;
+    a[u][v] = 1;
+    a[v][u] = 1;
   }
+  int ans = 0;
+  rep(i,n - 2){
+    reps(j,i + 1,n - 1){
+      reps(k,j + 1,n){
+        if(a[i][j] && a[j][k] && a[k][i]) ans++;
+      }
+    }
+  }
+  out(ans);
 
 }
