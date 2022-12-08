@@ -67,19 +67,15 @@ int main(){
   int n;
   cin >> n;
   vs s(n),t(n);
-  map<string,int> ma;
+  map<string,int> sec,fir;
   bool isNick = true;
   rep(i,n) {
     cin >> s[i] >> t[i];
-    if(s[i] != t[i]){
-      ma[s[i]]++;
-      ma[t[i]]++;
-    }
-    else ma[s[i]]++;
-    
+    sec[s[i]]++;
+    fir[t[i]]++;
   }
   rep(i,n){
-    if(ma[s[i]] != 1 && ma[t[i]] != 1) isNick = false;
+    if(sec[s[i]] != 1 && fir[t[i]] != 1) isNick = false;
   }
   YesNo(isNick);
 }
