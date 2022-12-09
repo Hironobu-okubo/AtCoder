@@ -36,40 +36,24 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
-// int main(){
-//   int n,q;
-//   cin >> n >> q;
-//   vi sum(n);
-//   rep(i,n){
-//     int a;
-//     cin >> a;
-//     if(i == 0) sum[i] = a;
-//     else sum[i] = sum[i - 1] + a;
-//   }
-  
-//   rep(i,q){
-//     int ans = 0;
-//     int l,r;
-//     cin >> l >> r;
-//     if(l == 1) ans = sum[r - 1];
-//     else ans = sum[r - 1] - sum[l - 2];
-//     out(ans);
-//   }
-// }
-  
-
 int main(){
   int n,q;
-  cin >> n >> q;
+  cin >> n;
   vi a(n);
   rep(i,n) cin >> a[i];
   vi sum(n + 1,0);
-  rep(i,n){
+  rep(i,n) {
     sum[i + 1] = sum[i] + a[i];
   }
+
+  cin >> q;
   rep(i,q){
-    int l,r;
+    double l,r;
     cin >> l >> r;
-    out(sum[r] - sum[l - 1]);
+    l--;
+    double ave = (r - l) / 2;
+    if(ave < (sum[r] - sum[l])) out("win");
+    else if(ave == (sum[r] - sum[l])) out("draw");
+    else if(ave > (sum[r] - sum[l])) out("lose");
   }
 }
