@@ -36,41 +36,20 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
-// int main(){
-//   int d,n;
-//   cin >> d >> n;
-//   vi l(n),r(n);
-//   rep(i,n) cin >> l[i] >> r[i];
-//   vi sum(d,0);
-//   rep(i,n){
-//     sum[l[i] - 1]++;
-//     if(r[i] != d) sum[r[i]]--;
-//   }
-//   int ans = 0;
-//   rep(i,d){
-//     ans += sum[i];
-//     out(ans);
-//   }
-// }
-
 int main(){
-  int d,n;
-  cin >> d >> n;
-  vi dif(d + 1,0);
-  vi sum(d + 1,0);
+  int t,n;
+  cin >> t >> n;
+  vi dif(t + 1,0);
+  vi sum(t + 1,0);
   rep(i,n){
     int l,r;
     cin >> l >> r;
-    l--;r--;
     dif[l]++;
-    dif[r + 1]--;
+    dif[r]--;
   }
   sum[0] = dif[0];
-  reps(i,1,d){
+  reps(i,1,t){
     sum[i] = sum[i - 1] + dif[i];
   }
-  rep(i,d){
-    out(sum[i]);
-  }
-
+  rep(i,t) out(sum[i]);
 }
