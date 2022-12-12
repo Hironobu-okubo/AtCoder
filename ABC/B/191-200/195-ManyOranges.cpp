@@ -11,6 +11,7 @@ using vvl = vector<vl>;
 using vvll = vector<vll>;
 using vs = vector<string>;
 using vc = vector<char>;
+using vvc = vector<vc>;
 using pii = pair<int, int>;
 /* define short */
 #define pb push_back
@@ -22,7 +23,7 @@ using pii = pair<int, int>;
 /* REP macro */
 #define reps(i, a, n) for (ll i = (a); i < (ll)(n); ++i)
 #define rep(i, n) reps(i, 0, n)
-#define repp(i,n) reps(i, 0, n + 1)
+#define repp(i,n) reps(i, 0, n + 1)1
 #define rrep(i, n) reps(i, 1, n + 1)
 #define repd(i,n) for(ll i=n-1;i>=0;i--)
 #define rrepd(i,n) for(ll i=n;i>=1;i--)
@@ -32,8 +33,22 @@ using pii = pair<int, int>;
 #define INF64 9223372036854775807 
 #define MOD 1000000007
 
+template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
+template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
+
 int main(){
   int a,b,w;
   cin >> a >> b >> w;
-  
+  w *= 1000;
+  ll minNum = INF32,maxNum = -1;
+  rrep(i,w){
+    int left = a * i;
+    int right = b * i;
+    if(left <= w && w <= right){
+      chmin(minNum,i);
+      chmax(maxNum,i);
+    }
+  }
+  if(maxNum == -1) out("UNSATISFIABLE");
+  else cout << minNum << " " << maxNum << endl;
 }

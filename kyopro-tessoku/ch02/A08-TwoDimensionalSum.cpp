@@ -114,7 +114,7 @@ int main(){
     int ans = sum[c][d];
     if(a != 0) ans -= sum[a - 1][d];
     if(b != 0) ans -= sum[c][b - 1];
-    if(a != 0 && b != 0) ans += sum[c - 1][d - 1];
+    if(a != 0 && b != 0) ans += sum[a - 1][b - 1];
     out(ans);
   }
 
