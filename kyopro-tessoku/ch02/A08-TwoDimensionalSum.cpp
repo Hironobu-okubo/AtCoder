@@ -36,46 +36,86 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
+// int main(){
+//   int h,w;
+//   cin >> h >> w;
+//   vvi x(h,vi(w));
+//   rep(i,h)rep(j,w) cin >> x[i][j];
+
+//   int q;
+//   cin >> q;
+//   vi a(q),b(q),c(q),d(q);
+//   rep(i,q){
+//     int aa,bb,cc,dd;
+//     cin >> aa >> bb >> cc >> dd;
+//     a[i] = aa - 1;
+//     b[i] = bb - 1;
+//     c[i] = cc - 1;
+//     d[i] = dd - 1;
+//   }
+
+//   vvi sum(h,vi(w));
+//   rep(i,h){
+//     rep(j,w){
+//       if(i == 0 && j ==0) sum[i][j] = x[i][j];
+//       else{
+//         sum[i][j]  = sum[i][j - 1] + x[i][j];
+//       }
+//     }
+//   }
+
+//   rep(j,w){
+//     reps(i,1,h){
+//       sum[i][j] = sum[i - 1][j] + sum[i][j];
+//     }
+//   }
+
+//   rep(i,q){
+//     int ans = 0;
+//     ans += sum[c[i]][d[i]];
+//     if(a[i] != 0 && b[i] != 0) ans += sum[a[i] - 1][b[i] - 1];
+//     if(a[i] != 0) ans -= sum[a[i] - 1][d[i]];
+//     if(b[i] != 0) ans -= sum[c[i]][b[i] - 1];
+//     out(ans);
+//   }
+// }
+
 int main(){
   int h,w;
   cin >> h >> w;
   vvi x(h,vi(w));
-  rep(i,h)rep(j,w) cin >> x[i][j];
-
-  int q;
-  cin >> q;
-  vi a(q),b(q),c(q),d(q);
-  rep(i,q){
-    int aa,bb,cc,dd;
-    cin >> aa >> bb >> cc >> dd;
-    a[i] = aa - 1;
-    b[i] = bb - 1;
-    c[i] = cc - 1;
-    d[i] = dd - 1;
+  rep(i,h){
+    rep(j,w){
+      cin >> x[i][j];
+    }
   }
-
   vvi sum(h,vi(w));
   rep(i,h){
     rep(j,w){
-      if(i == 0 && j ==0) sum[i][j] = x[i][j];
+      if(j == 0) sum[i][j] = x[i][j];
+      else sum[i][j] = sum[i][j - 1] + x[i][j];
+    }
+  }
+  rep(j,w){
+    rep(i,h){
+      if(i == 0) continue;
       else{
-        sum[i][j]  = sum[i][j - 1] + x[i][j];
+        sum[i][j] = sum[i - 1][j] + sum[i][j];
       }
     }
   }
-
-  rep(j,w){
-    reps(i,1,h){
-      sum[i][j] = sum[i - 1][j] + sum[i][j];
-    }
-  }
-
+  
+  int q;
+  cin >> q;
   rep(i,q){
-    int ans = 0;
-    ans += sum[c[i]][d[i]];
-    if(a[i] != 0 && b[i] != 0) ans += sum[a[i] - 1][b[i] - 1];
-    if(a[i] != 0) ans -= sum[a[i] - 1][d[i]];
-    if(b[i] != 0) ans -= sum[c[i]][b[i] - 1];
+    int a,b,c,d;
+    cin >> a >> b >> c >> d;
+    a--;b--;c--;d--;
+    int ans = sum[c][d];
+    if(a != 0) ans -= sum[a - 1][d];
+    if(b != 0) ans -= sum[c][b - 1];
+    if(a != 0 && b != 0) ans += sum[c - 1][d - 1];
     out(ans);
   }
+
 }
