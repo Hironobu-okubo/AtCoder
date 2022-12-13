@@ -36,29 +36,56 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
-int n,k;
-vi a;
+// int n,k;
+// vi a;
 
-bool check(int mid){
+// bool check(int mid){
+//   ll sum = 0;
+//   rep(i,n){
+//     sum += mid / a[i];
+//   }
+//   if(sum < k) return false;
+//   return true;
+// }
+
+// int main(){
+//   cin >> n >> k;
+//   a.resize(n);
+//   rep(i,n) cin >> a[i];
+
+//   int left = 0, right = 1000000000;
+//   while(right - left > 0){
+//     int mid = (left + right) / 2;
+//     bool ans = check(mid);
+//     if(ans == false) left = mid + 1;
+//     if(ans == true) right = mid;
+//   }
+//   out(left);
+// }
+
+ll n;
+vll a(n);
+
+ll check(ll num){
   ll sum = 0;
   rep(i,n){
-    sum += mid / a[i];
+    sum += num / a[i];
   }
-  if(sum < k) return false;
-  return true;
+  return sum;
 }
 
 int main(){
+  ll k;
   cin >> n >> k;
   a.resize(n);
   rep(i,n) cin >> a[i];
-
-  int left = 0, right = 1000000000;
+  ll left = 1, right = 1000000000,mid;
   while(right - left > 0){
-    int mid = (left + right) / 2;
-    bool ans = check(mid);
-    if(ans == false) left = mid + 1;
-    if(ans == true) right = mid;
+    mid = (left + right) / 2;
+    ll num = check(mid);
+    if(num < k) left = mid + 1;
+    else right = mid;
   }
   out(left);
 }
+  
