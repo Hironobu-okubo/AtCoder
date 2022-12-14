@@ -12,6 +12,7 @@ using vvll = vector<vll>;
 using vs = vector<string>;
 using vc = vector<char>;
 using vvc = vector<vc>;
+using vb = vector<bool>;
 using pii = pair<int, int>;
 /* define short */
 #define pb push_back
@@ -36,35 +37,70 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
-vvi g;
-vi visited;
+// vvi g;
+// vi visited;
 
-void dfs(int pos);
+// void dfs(int pos);
+
+// int main(){
+//   int n,m;
+//   cin >> n >> m;
+//   vi a(m + 1), b(m + 1);
+//   g.resize(n + 1);
+//   visited.resize(n + 1,0);
+//   rrep(i,m){
+//     cin >> a[i] >> b[i];
+//     g[a[i]].pb(b[i]);
+//     g[b[i]].pb(a[i]);
+//   }
+//   dfs(1);
+//   string ans = "The graph is connected.";
+//   rrep(i,n){
+//     if(visited[i] == 0) ans = "The graph is not connected.";
+//   }
+//   out(ans);
+// }
+
+// void dfs(int pos){
+//   visited[pos] = 1;
+//   rep(i,g[pos].size()){
+//     int nxt = g[pos][i];
+//     if(visited[nxt] == 0) dfs(nxt);
+//   }
+//   return;
+// }
+vvi s;
+vb visited;
+
+void dfs(int num, vvi &s){
+  visited[num] = true;
+  rep(i,s[num].size()){
+    int nxt = s[num][i];
+    if(visited[nxt] == false){
+      dfs(nxt,s);
+    }
+  }
+  return;
+}
 
 int main(){
   int n,m;
   cin >> n >> m;
-  vi a(m + 1), b(m + 1);
-  g.resize(n + 1);
-  visited.resize(n + 1,0);
-  rrep(i,m){
-    cin >> a[i] >> b[i];
-    g[a[i]].pb(b[i]);
-    g[b[i]].pb(a[i]);
+  s.resize(n);
+  rep(i,m) {
+    int a,b;
+    cin >> a >> b;
+    a--;b--;
+    s[a].pb(b);
+    s[b].pb(a);
   }
-  dfs(1);
-  string ans = "The graph is connected.";
-  rrep(i,n){
-    if(visited[i] == 0) ans = "The graph is not connected.";
+  visited.resize(n,false);
+  dfs(0,s);
+  rep(i,n){
+    if(visited[i] == false){
+      out("The graph is not connected.");
+      return 0;
+    }
   }
-  out(ans);
-}
-
-void dfs(int pos){
-  visited[pos] = 1;
-  rep(i,g[pos].size()){
-    int nxt = g[pos][i];
-    if(visited[nxt] == 0) dfs(nxt);
-  }
-  return;
+  out("The graph is connected.");
 }

@@ -36,21 +36,42 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
+// int main(){
+//   int n,m;
+//   cin >> n >> m;
+//   vvi g(n + 1);
+//   rrep(i,m){
+//     int aa,bb;
+//     cin >> aa >> bb;
+//     g[aa].pb(bb);
+//     g[bb].pb(aa);
+//   }
+//   rrep(i,n){
+//     cout << i << ": {" ;
+//     rep(j,g[i].size()){
+//       if(j >= 1) cout << ", ";
+//       cout << g[i][j] ;
+//     }
+//     cout << "}" << endl;
+//   }
+// }
+
 int main(){
   int n,m;
   cin >> n >> m;
-  vvi g(n + 1);
-  rrep(i,m){
-    int aa,bb;
-    cin >> aa >> bb;
-    g[aa].pb(bb);
-    g[bb].pb(aa);
+  vvi s(n);
+  rep(i,m) {
+    int a,b;
+    cin >> a >> b;
+    a--;b--;
+    s[a].pb(b);
+    s[b].pb(a);
   }
-  rrep(i,n){
-    cout << i << ": {" ;
-    rep(j,g[i].size()){
-      if(j >= 1) cout << ", ";
-      cout << g[i][j] ;
+  rep(i,n){
+    cout << i + 1 << ": {";
+    rep(j,s[i].size()){
+      cout << s[i][j] + 1;
+      if(j != s[i].size() - 1) cout << ", ";
     }
     cout << "}" << endl;
   }
