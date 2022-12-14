@@ -36,34 +36,71 @@ using pii = pair<int, int>;
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
+// int main(){
+//   int r,c;
+//   cin >> r >> c;
+//   int sy,sx;
+//   cin >> sy >> sx;
+//   int gy,gx;
+//   cin >> gy >> gx;
+//   vs grh(r + 1);
+//   rrep(i,r) cin >> grh[i];
+//   vi dist;
+//   int start = sx * c + sy;
+//   int goal = gy * c + gx;
+  
+//   vvi g;
+//   rrep(i,r){
+//     rrep(j, c - 1){
+//       int idx1 = i * c + j;
+//       int idx2 = i * c + j + 1;
+//       if(grh[i][j] == '.' && grh[i][j + 1] == '.'){
+//         g[idx1].pb(idx2);
+//         g[idx2].pb(idx1);
+//       }
+//     }
+//   }
+//   // rrep(i,r){
+//   //   rrep(j,g.size()){
+//   //     cout << g[i][j] << " ";
+//   //   }
+//   //   out("");
+//   // }
+// }
+
+
 int main(){
   int r,c;
   cin >> r >> c;
-  int sy,sx;
-  cin >> sy >> sx;
-  int gy,gx;
-  cin >> gy >> gx;
-  vs grh(r + 1);
-  rrep(i,r) cin >> grh[i];
-  vi dist;
-  int start = sx * c + sy;
-  int goal = gy * c + gx;
-  
-  vvi g;
-  rrep(i,r){
-    rrep(j, c - 1){
-      int idx1 = i * c + j;
-      int idx2 = i * c + j + 1;
-      if(grh[i][j] == '.' && grh[i][j + 1] == '.'){
-        g[idx1].pb(idx2);
-        g[idx2].pb(idx1);
+  int sy,sx,gy,gx;
+  cin >> sy >> sx >> gy >> gx;
+  sy--;sx--;gy--;gx--;
+  vs maze(r);
+  rep(i,r){
+    cin >> maze[i];
+  }
+  vector<pii> dirc = {{1,0},{-1,0},{0,1},{0,-1}};
+  queue<pii> q;
+  q.push({sx,sy});
+  vvi dist(r,vi(c,-1));
+  dist[sx][sy] = 0;
+  while(!q.empty()){
+    pii pos = q.front();
+    q.pop();
+    rep(i,4){
+      pii to = {pos.first + dirc[i].first,pos.second + dirc[i].second};
+      if(maze[to.first][to.second] != '#' && dist[to.first][to.second] == -1){
+        q.push({to.first,to.second});
+        dist[to.first][to.second] = dist[pos.first][pos.second] + 1;
       }
     }
   }
-  // rrep(i,r){
-  //   rrep(j,g.size()){
-  //     cout << g[i][j] << " ";
+  // rep(i,r){
+  //   rep(j,c){
+  //     printf("%2d",dist[i][j]);
+  //     cout << " ";
   //   }
   //   out("");
   // }
+  out(dist[gy][gx]);
 }
