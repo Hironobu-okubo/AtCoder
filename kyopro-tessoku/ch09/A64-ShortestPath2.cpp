@@ -48,31 +48,28 @@ int main(){
     adj[a].pb({b,c});
     adj[b].pb({a,c});
   }
+  priority_queue<pii,vector<pii>,greater<pii>> q;
   vb confirm(n,false);
   vi dist(n,INF32);
   dist[0] = 0;
-  while(true){
-    int pos = -1;
-    int minDis = INF32;
-    rep(i,n){
-      if(confirm[i] == true || minDis <= dist[i]) continue;
-      pos = i;
-      minDis = dist[pos];
-    }
-    if(pos == -1) break;
+  q.push({dist[0],0});
+  while(!q.empty()){
+    int pos = q.top().second;q.pop();
+
+    if(confirm[pos] == true) continue;
+
     confirm[pos] = true;
     rep(i,adj[pos].size()){
       int to = adj[pos][i].first;
-      chmin(dist[to],adj[pos][i].second + dist[pos]);
+      int cost = adj[pos][i].second;
+      if(dist[to] > cost + dist[pos]){
+        dist[to] = cost + dist[pos];
+        q.push({dist[to],to});
+      }
     }
   }
-  rep(i,n) out(dist[i]);
-  // rep(i,n){
-  //   cout << i << ": ";
-  //   rep(j,adj[i].size()){
-  //     cout << "(" << adj[i][j].first << "," << adj[i][j].second << ")";
-  //     if(j != adj[i].size() - 1) cout << ", ";
-  //   }
-  //   out("");
-  // }
+  rep(i,n) {
+    if(dist[i] == INF32) out("-1");
+    else out(dist[i]);
+  }
 }
