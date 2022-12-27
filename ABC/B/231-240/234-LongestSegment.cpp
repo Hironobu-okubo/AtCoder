@@ -41,13 +41,13 @@ template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, tr
 int main(){
   int n;
   cin >> n;
-  vi h(n);
-  rep(i,n) cin >> h[i];
-  h.pb(-1);
+  vi x(n),y(n);
+  rep(i,n) cin >> x[i] >> y[i];
+  double ans = -1;
   rep(i,n){
-    if(h[i] >= h[i + 1]){
-      out(h[i]);
-      return 0;
+    reps(j,i + 1,n){
+      chmax(ans,sqrt((x[i] - x[j]) * (x[i] - x[j]) + (y[i] - y[j]) * (y[i] - y[j])));
     }
   }
+  cout << fixed << setprecision(12) << ans << endl;
 }
