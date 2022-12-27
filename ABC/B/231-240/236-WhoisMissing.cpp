@@ -37,3 +37,17 @@ using pii = pair<int, int>;
 
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
+
+int main(){
+  int n;
+  cin >> n;
+  map<int,int> ma;
+  rep(i,4 * n - 1){
+    int a;
+    cin >> a;
+    ma[a]++;
+  }
+  rrep(i,n){
+    if(ma[i] != 4) out(i);
+  }
+}
