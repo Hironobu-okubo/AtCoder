@@ -41,11 +41,13 @@ template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, tr
 int main(){
   string s,t;
   cin >> s >> t;
-  rep(i,s.size() - 1){
+  rep(i,s.size()){
     string ss = s;
-    char tmp = s[i];
-    ss[i] = ss[i + 1];
-    ss[i + 1] = tmp;
+    if(i != s.size() - 1){
+      char tmp = s[i];
+      ss[i] = ss[i + 1];
+      ss[i + 1] = tmp;
+    }   
     if(ss == t){out("Yes"); return 0;}
   }
   out("No");
