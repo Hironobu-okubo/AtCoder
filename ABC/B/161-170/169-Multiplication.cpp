@@ -39,16 +39,33 @@ template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, tr
 ll infl = 1LL << 60;
 ll mul(ll a, ll b) { if (a == 0) return 0; if (infl / a < b) return infl; return min(infl, a * b); }
 
+// int main(){
+//   ll n;
+//   cin >> n;
+//   ll ans = 1;
+//   ll flag = pow(10,18);
+//   rep(i,n){
+//     ll a;
+//     cin >> a;
+//     ans = mul(ans,a);
+//   }
+//   if(ans > flag) out("-1");
+//   else out(ans);
+// }
+
 int main(){
   ll n;
   cin >> n;
   ll ans = 1;
-  ll flag = pow(10,18);
+  ll mx = 1e18;
+  vll a(n);
   rep(i,n){
-    ll a;
-    cin >> a;
-    ans = mul(ans,a);
+    cin >> a[i];
+    if(a[i] == 0) { out(0); return 0; }
   }
-  if(ans > flag) out("-1");
-  else out(ans);
+  rep(i,n){
+    if((mx + 1) / ans < a[i] || mx < ans * a[i]){ out(-1); return 0; }
+    ans *= a[i];
+  }
+  out(ans);
 }
