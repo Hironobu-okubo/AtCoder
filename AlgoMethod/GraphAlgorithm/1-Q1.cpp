@@ -34,20 +34,15 @@ using pii = pair<int, int>;
 #define INF32 2147483647 
 #define INF64 9223372036854775807 
 #define MOD 1000000007
- 
+
 template<typename T> inline bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
 template<typename T> inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
 int main(){
-  ll n;
-  cin >> n;
-  ll cnt = 0,ans;
-  rrep(i,100000){
-    cnt += i;
-    if(cnt >= n){
-      ans = i;
-      break;
-    }
-  }
-  out(ans);
+  int n,a,b;
+  cin >> n >> a >> b;
+  vs s(n);
+  rep(i,n) cin >> s[i];
+  if(s[a][b] == 'o' && s[b][a] == 'o') out("Yes");
+  else out("No");
 }
